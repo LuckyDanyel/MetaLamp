@@ -1,6 +1,4 @@
-include blocks/form-elements/text/__user/text__user.pug
-include blocks/form-elements/text/__date/text__date.pug
-include blocks/form-elements/text/__subscribe-email/text__subscribe__email.pug
+
 doctype html
 html(lang="ru")
       head
@@ -9,11 +7,24 @@ html(lang="ru")
             meta(name="viewport", content="width=device-width, initial-scale=1.0")
             title Document
       body
-            
+            //- ----------- litle blocks ---------------
+            //- ----------- text-blocks ----------------
+            include blocks/form-elements/text/__subscribe-email/text__subscribe__email.pug
             +TextSubscribe()
+            include blocks/form-elements/text/__date/text__date.pug
             +TextDate()
+            include blocks/form-elements/text/__user/text__user.pug
             +TextUser("Email", "Пароль", "pay-user")
-            
+            //- ----------- text-blocks ----------------
+
+            //- ----------- drop-downs-blocks ----------
+            include blocks/form-elements/drop-downs/__date/drop-downs__date.pug
+
+            include blocks/form-elements/drop-downs/__filter-date/drop-downs__filter-date.pug
+
+            include blocks/form-elements/drop-downs/__general/drop-downs__general.pug
+             //- ----------- drop-downs-blocks ----------
+     
             
 
             
