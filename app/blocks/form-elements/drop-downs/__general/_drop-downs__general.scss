@@ -7,8 +7,10 @@
 
     padding-left: 0.6em;
     padding-right: 0.4em;
+    padding-bottom: 0.6em;
 
     border: 1px solid $DarkShade-25;
+
 
 }
 
@@ -50,4 +52,26 @@
     max-width: 100px;
     width: 100%;
     
+}
+.drop-downs__buttons-guest {
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+
+    margin-top: 0.6em;
+
+        
+        
+}
+.drop-downs__buttons-item {
+    color: $Purple;
+}
+.drop-downs__buttons-item_hover {
+
+        &:hover {
+            opacity: 0.5;
+            cursor: pointer;
+        }
+
 }
