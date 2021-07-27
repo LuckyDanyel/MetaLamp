@@ -7,26 +7,39 @@
     
 }
 
-@mixin arrowRight($colorOne, $top) {
+@mixin arrowRight($colorOne, $top, $direction) {
 
       height: 20px;
     width: 40px;
     position: absolute;
     right: 10px;
+    @if($direction == left){
+            left: 10px;
+      }
+       @else {
+            
+            right: 10px;
+      }
     top: $top;
         &::after {
             content: " ";
             position: absolute;
             top: 3px;
-            right: 10px;
+            
             
             border: solid $colorOne;
             border-width: 0 3px 3px 0;
         
             display: inline-block;
             padding: 4px;
-        
+        @if($direction == left){
+            transform: rotate(135deg);
+            right: 18px;
+        }
+        @else {
             transform: rotate(-45deg);
+            right: 10px;
+        }
         }
         &::before {
             content: " ";

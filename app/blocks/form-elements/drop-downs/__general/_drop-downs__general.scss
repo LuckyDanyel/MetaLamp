@@ -70,20 +70,3 @@
         
         
 }
-.drop-downs__buttons-item {
-    color: $Purple;
-}
-.drop-downs__buttons-item {
-
-        &:first-child {
-            display: none;
-        }
-}
-.drop-downs__buttons-item_hover {
-
-        &:hover {
-            opacity: 0.5;
-            cursor: pointer;
-        }
-
-}
