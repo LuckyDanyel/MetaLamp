@@ -5,12 +5,14 @@ var scoreMinusBedrooms = document.querySelector('#drop-downs__score-minus-Bedroo
 var ValueBedrooms = document.querySelector('#drop-downs__score-value-Bedrooms');
 var scorePlusBedrooms = document.querySelector('#drop-downs__score-plus-Bedrooms');
 var headingBedrooms = document.querySelector('.drop-downs__h3-Bedrooms').innerHTML;
+var activeBedrooms = document.querySelector('.drop-downs__score-minus_active-Bedrooms');
 var countBedrooms = 0;
 
 var scoreMinusBeds = document.querySelector('#drop-downs__score-minus-Beds');
 var ValueBeds = document.querySelector('#drop-downs__score-value-Beds');
 var scorePlusBeds = document.querySelector('#drop-downs__score-plus-Beds');
 var headingBeds = document.querySelector('.drop-downs__h3-Beds').innerHTML;
+var activeBeds = document.querySelector('.drop-downs__score-minus_active-Beds');
 var countBeds = 0;
 
 
@@ -18,6 +20,7 @@ var scoreMinusBathrooms = document.querySelector('#drop-downs__score-minus-Bathr
 var ValueBathrooms = document.querySelector('#drop-downs__score-value-Bathrooms');
 var scorePlusBathrooms = document.querySelector('#drop-downs__score-plus-Bathrooms');
 var headingBathrooms = document.querySelector('.drop-downs__h3-Bathrooms').innerHTML;
+var activeBathrooms = document.querySelector('.drop-downs__score-minus_active-Bathrooms');
 var countBathrooms = 0;
 
 var sliceHeadingBathrooms = headingBathrooms.substring(0, headingBathrooms.indexOf(' '));
@@ -64,6 +67,9 @@ let getDropBlockGuest = document.querySelector('.drop-downs__block-guest');
 let getDropTextGuest = document.querySelector('.drop-downs__guest-text');
 let getDropDeleteGuest = document.querySelector('#drop-downs__buttons-item_delete');
 let getDropSendGuest = document.querySelector('#drop-downs__buttons-item_send');
+let getDropButtonsGuest = document.querySelector('.drop-downs__buttons-guest');
+
+
 
 // -------------------- Guests ------------------ //
 
@@ -92,9 +98,10 @@ function clickDropDown(getInput, getBlock) {
 
 // -------------------- Rooms Function ------------------- //
 
-function countDropBox(scorePlus, scoreMinus, massive, heading , count , value) { // [0 Спальни, 0 Кровати, 0 Ванные]
+function countDropBox(scorePlus, scoreMinus, massive, heading , count , value, active) { // [0 Спальни, 0 Кровати, 0 Ванные]
         
         scorePlus.addEventListener('click', function(){
+            active.style.opacity = "1";
             
            if(count < 9 ) {
                 for(i = 1; i < massive.length; i += 2){
@@ -142,6 +149,9 @@ function countDropBox(scorePlus, scoreMinus, massive, heading , count , value) {
             }
         });
         scoreMinus.addEventListener('click', function(){
+            if(count == 1) {
+                active.style.opacity = "0.5";
+            }
             if(count > 0) {
                 for(i = 1; i < massive.length; i += 2){
                     if(massive[i] == heading){
@@ -151,11 +161,13 @@ function countDropBox(scorePlus, scoreMinus, massive, heading , count , value) {
 
                             for(j = 1; j < massive.length; j += 2) {
 
-                                if(massive[j - 1] == 1 && massive[j] == "Спальни"){
-                                    massive[j] = "Спальня";  
+                                if(massive[j - 1] == 1 && massive[j] == "Спальни" ){
+                                    massive[j] = "Спальня";
+                                    
                                 }
                                 if(massive[j + 1] == 1 && massive[j + 2] == "Кровати") {
                                     massive[j + 2] = "Кровать";
+                                    
                                 }
 
                                 if(massive[j - 1] >= 2 && massive[j - 1] < 5  && massive[j] == "Спальни") {
@@ -202,7 +214,10 @@ function countDropBox(scorePlus, scoreMinus, massive, heading , count , value) {
 function countGuest(Object) {
     
     Object.scorePlus.addEventListener('click', function(){
+
         
+        getDropDeleteGuest.style.display = "flex";
+        getDropButtonsGuest.style.justifyContent = "space-between";
         
     if(countAllGuest < 100){
         Object.count++;
@@ -221,8 +236,13 @@ function countGuest(Object) {
     }
      });
      Object.scoreMinus.addEventListener('click', function(){
+
         if(countAllGuest == 1 && Object.count == 1){
             getDropTextGuest.innerHTML = "Сколько гостей";
+            getDropDeleteGuest.style.display = "none";
+            getDropButtonsGuest.style.justifyContent = "flex-end";
+            
+
         }
 
         if(Object.count > 0) {
@@ -251,7 +271,7 @@ function countGuest(Object) {
 
 
 
-function DeleteOrSend(ObjectOne, ObjectSecond, ObjectThird) {
+function DeleteOrSend(ObjectOne, ObjectSecond, ObjectThird, getBlock) {
     getDropDeleteGuest.addEventListener('click', function () {
         countAllGuest = 0;
         
@@ -265,21 +285,37 @@ function DeleteOrSend(ObjectOne, ObjectSecond, ObjectThird) {
         ObjectSecond.count = 0;
         ObjectThird.count = 0;
 
+        getDropDeleteGuest.style.display = "none";
+        getDropButtonsGuest.style.justifyContent = "flex-end";
+
+        
+
     });
     getDropSendGuest.addEventListener('click', function () {
-        console.log("Количество гостей - ", countAllGuest, " Взрослые - ", ObjectOne.count , " Дети - ", ObjectSecond.count, " Младенцы - ", ObjectThird.count)
 
-        countAllGuest = 0;
+
+        if(  ObjectOne.count == 0 && ObjectSecond.count == 0 && ObjectThird.count == 0){
+            console.log('Введите количетсво гостей!');
+        }
+        else {
+                 
+
+             ObjectOne.count = 0;
+            ObjectSecond.count = 0;
+            ObjectThird.count = 0;
+
+            getDropTextGuest.innerHTML = countAllGuest + " Гостей";
+            getDropDeleteGuest.style.display = "none";
+            getBlock.style.display = 'none';
+            getDropButtonsGuest.style.justifyContent = "flex-end";
+
+            ObjectOne.value.innerHTML = 0;
+            ObjectSecond.value.innerHTML = 0;
+            ObjectThird.value.innerHTML = 0;
+
+            
+        }
         
-        ObjectOne.count = 0;
-        ObjectSecond.count = 0;
-        ObjectThird.count = 0;
-
-        getDropTextGuest.innerHTML = countAllGuest + " Гостей";
-
-        ObjectOne.value.innerHTML = 0;
-        ObjectSecond.value.innerHTML = 0;
-        ObjectThird.value.innerHTML = 0;
     }); 
     
 }
@@ -292,11 +328,11 @@ function DeleteOrSend(ObjectOne, ObjectSecond, ObjectThird) {
 
 clickDropDown(getDropInputRooms, getDropBlockRooms);
 
-countDropBox( scorePlusBedrooms, scoreMinusBedrooms, RoomsMassive, headingBedrooms, countBedrooms, ValueBedrooms);
+countDropBox( scorePlusBedrooms, scoreMinusBedrooms, RoomsMassive, headingBedrooms, countBedrooms, ValueBedrooms, activeBedrooms);
 
-countDropBox(scorePlusBeds, scoreMinusBeds, RoomsMassive, headingBeds, countBeds, ValueBeds);
+countDropBox(scorePlusBeds, scoreMinusBeds, RoomsMassive, headingBeds, countBeds, ValueBeds, activeBeds);
 
-countDropBox(scorePlusBathrooms, scoreMinusBathrooms, RoomsMassive, sliceHeadingBathrooms, countBathrooms, ValueBathrooms);
+countDropBox(scorePlusBathrooms, scoreMinusBathrooms, RoomsMassive, sliceHeadingBathrooms, countBathrooms, ValueBathrooms, activeBathrooms);
 
 // -------------------- Rooms ------------------- //
 
@@ -311,6 +347,6 @@ countGuest(Baby);
 
 clickDropDown(getDropInputGuest, getDropBlockGuest);
 
-DeleteOrSend(Adult, Child, Baby);
+DeleteOrSend(Adult, Child, Baby, getDropBlockGuest);
 
 // -------------------- Guests ------------------ //

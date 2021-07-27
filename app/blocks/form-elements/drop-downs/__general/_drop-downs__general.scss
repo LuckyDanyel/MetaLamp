@@ -42,7 +42,13 @@
                     color: $DarkShade-75;
                     border-color: $DarkShade-75;
                 }
+               
         }
+}
+.drop-downs__score-minus_no-active {
+
+        opacity: 0.5;
+
 }
 .drop-downs__score {
     display: flex;
@@ -57,7 +63,7 @@
     width: 100%;
 
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
 
     margin-top: 0.6em;
 
@@ -66,6 +72,12 @@
 }
 .drop-downs__buttons-item {
     color: $Purple;
+}
+.drop-downs__buttons-item {
+
+        &:first-child {
+            display: none;
+        }
 }
 .drop-downs__buttons-item_hover {
 
