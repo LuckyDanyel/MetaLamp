@@ -39,6 +39,7 @@ var Adult = {
     value: document.querySelector('#drop-downs__score-value-Adults'),
     scorePlus: document.querySelector('#drop-downs__score-plus-Adults'),
     heading: document.querySelector('.drop-downs__h3-Adults').innerHTML,
+    active: document.querySelector('.drop-downs__score-minus_active-Adults'),
     count: 0,
 }
 
@@ -47,6 +48,7 @@ var Child = {
     value: document.querySelector('#drop-downs__score-value-Child'),
     scorePlus: document.querySelector('#drop-downs__score-plus-Child'),
     heading: document.querySelector('.drop-downs__h3-Child').innerHTML,
+    active: document.querySelector('.drop-downs__score-minus_active-Child'),
     count: 0,
 }
 
@@ -56,6 +58,7 @@ var Baby = {
     value: document.querySelector('#drop-downs__score-value-Baby'),
     scorePlus: document.querySelector('#drop-downs__score-plus-Baby'),
     heading: document.querySelector('.drop-downs__h3-Baby').innerHTML,
+    active: document.querySelector('.drop-downs__score-minus_active-Baby'),
     count: 0,
 }
 
@@ -86,10 +89,12 @@ function clickDropDown(getInput, getBlock) {
     
         e.stopImmediatePropagation();
         this.removeEventListener("click", first);
+        console.log(second);
         getInput.onclick = second;
         getBlock.style.display = 'flex';
     }
     function second() {
+        console.log(first);
         getBlock.style.display = 'none';
         getInput.onclick = first;
     
@@ -215,7 +220,7 @@ function countGuest(Object) {
     
     Object.scorePlus.addEventListener('click', function(){
 
-        
+        Object.active.style.opacity = "1"
         getDropDeleteGuest.style.display = "flex";
         getDropButtonsGuest.style.justifyContent = "space-between";
         
@@ -237,14 +242,16 @@ function countGuest(Object) {
      });
      Object.scoreMinus.addEventListener('click', function(){
 
-        if(countAllGuest == 1 && Object.count == 1){
+        if(Object.count == 1) {
+            Object.active.style.opacity = "0.5";
+        }
+
+        if(countAllGuest == 1 && Object.count == 1) {
             getDropTextGuest.innerHTML = "Сколько гостей";
             getDropDeleteGuest.style.display = "none";
             getDropButtonsGuest.style.justifyContent = "flex-end";
-            
-
         }
-
+        
         if(Object.count > 0) {
             
             countAllGuest--;
@@ -287,6 +294,11 @@ function DeleteOrSend(ObjectOne, ObjectSecond, ObjectThird, getBlock) {
 
         getDropDeleteGuest.style.display = "none";
         getDropButtonsGuest.style.justifyContent = "flex-end";
+        ObjectOne.active.style.opacity = "0.5";
+        ObjectSecond.active.style.opacity = "0.5";
+        ObjectThird.active.style.opacity = "0.5";
+
+        
 
         
 
@@ -305,13 +317,26 @@ function DeleteOrSend(ObjectOne, ObjectSecond, ObjectThird, getBlock) {
             ObjectThird.count = 0;
 
             getDropTextGuest.innerHTML = countAllGuest + " Гостей";
-            getDropDeleteGuest.style.display = "none";
+           
             getBlock.style.display = 'none';
-            getDropButtonsGuest.style.justifyContent = "flex-end";
+            if(countAllGuest > 0){
+                getDropDeleteGuest.style.display = "inline-block";
+                getDropButtonsGuest.style.justifyContent = "space-between";
+            }
+            else {
+                getDropDeleteGuest.style.display = "none";
+                getDropButtonsGuest.style.justifyContent = "flex-end";
+            }
+
+            ObjectOne.active.style.opacity = "0.5";
+            ObjectSecond.active.style.opacity = "0.5";
+            ObjectThird.active.style.opacity = "0.5";
 
             ObjectOne.value.innerHTML = 0;
             ObjectSecond.value.innerHTML = 0;
             ObjectThird.value.innerHTML = 0;
+
+            clickDropDown(getDropInputGuest, getDropBlockGuest);
 
             
         }
