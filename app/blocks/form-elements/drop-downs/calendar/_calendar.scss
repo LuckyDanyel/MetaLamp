@@ -1,10 +1,12 @@
 .calendar {
       
-      height: 369px;
+      height: 375px;
       padding-bottom: 15px;
 
       border: 1px solid $DarkShade-25;
+      display: none;
 }
+
 
 .calendar__up {
       position: relative;
@@ -30,7 +32,7 @@
       justify-content: space-between;
       max-width: 255px;
       margin: 0 auto;
-      margin-top: 50px;
+      margin-top: 40px;
 }
 .calendar__week-item {
       color: $Purple;
@@ -39,13 +41,14 @@
 }
 .calednar__days {
       margin: 0 auto;
-      padding-top: 30px;
+      padding-top: 25px;
       max-width: 270px;
       display: grid;
       grid-template-columns: repeat(7, 35px);
       grid-template-rows: repeat(5, 35px);
       justify-content: space-between;
 }
+
 .calednar__days-item {
       display: flex;
       justify-content: center;
@@ -65,20 +68,27 @@
             &:hover {
                   
                   cursor: pointer;
-                  background: linear-gradient($Green, $Blue);
+                  background: linear-gradient($Purple, $Blue);
                   color: $DarkShade-5;
             }
+            &:focus{
+                  background: linear-gradient($Purple, $Blue);
+                  color: $DarkShade-5;
+            }
+           
             
       
 }
 .calendar__footer {
-      max-width: 250px;
+      max-width: 255px;
       
       margin: 0 auto;
-      margin-top: 20px;
+      margin-top: 25px;
       
       display: flex;
       justify-content: space-between;
+
+      
 }
 .calendar__buttons-item {
       color: $Purple;
@@ -97,4 +107,10 @@
 .calendar__prev-item {
       opacity: 0.5;
 
+}
+.calendar__days-today {
+      background: linear-gradient($Green, $Blue);
+      color: $DarkShade-5;
+
+           
 }
