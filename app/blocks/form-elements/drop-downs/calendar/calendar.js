@@ -12,6 +12,18 @@ let getCalendarInput = document.querySelector('#calendar__drop-downs');
 let getCalendarButtonSend = document.querySelector('.calendar__buttons-item-send');
 
 
+let isTwoNumberFind = false;
+
+let dateNumberFirst = {
+    value: 0,
+    index : 0
+}
+let dateNumberSecond = {
+    value: 0,
+    index : 0
+}
+
+
 const date = new Date();
 
 const renderCalendar = ()=>{
@@ -26,7 +38,6 @@ const lastDay = new Date(date.getFullYear(), date.getMonth() + 1,0).getDate(); /
 
 const firstDayIndex = date.getDay();
 
-console.log(firstDayIndex);
 
 const prevLastDay = new Date(date.getFullYear(), date.getMonth() ,0).getDate(); // Возрвашает последнее число предыдущего месяца
 
@@ -99,12 +110,76 @@ const massiveDays = [
     }
 
 }
+function deleteNumberDays(){
+    const getDeleteBtn = document.querySelector('#calendar-delete');
 
-function GetDate(){
+    getDeleteBtn.addEventListener('click', function(){
+        renderCalendar();
+        dateNumberFirst.value = 0;
+        dateNumberFirst.index = 0;
+        dateNumberSecond.value = 0;
+        dateNumberSecond.index = 0;
+        renderNumberDays();
+    })
+}
+function renderNumberDays(){ // Функция для поиска двух чисел, которые не повторяются. 
+    console.log(dateNumberSecond, dateNumberFirst);
+    let getItem = document.querySelectorAll('.calednar__days-item');
+    let result;
+    for(i = 0; i < getItem.length; i++){
+        result = getItem[i];
+       
+        result.addEventListener('click', function(e){
+            if(isTwoNumberFind == false) {
+                dateNumberFirst.value = e.composedPath().values().next().value.innerHTML;
+                isTwoNumberFind = true;
+                
+                
+            }
+            else if(isTwoNumberFind == true) {
+
+                dateNumberSecond.value = e.composedPath().values().next().value.innerHTML;
+                
+
+                    for(i = 0; i < getItem.length; i++){
+                        if(dateNumberFirst.value == getItem[i].innerHTML){
+                            
+                            dateNumberFirst.index = i;
+                            for(j = i; j < getItem.length; j++){
+                                if(dateNumberSecond.value == getItem[j].innerHTML ) {
+                                    
+                                    dateNumberSecond.index = j;
+                                    j = getItem.length;
+                                    i = j;
+                            }
+
+                        }
+                    }
+                }
+
+                isTwoNumberFind = false;
+                
+            }
+            
+            setClassFocus(dateNumberFirst.index, dateNumberSecond.index, getItem);
+            
+        })
+        
+    }
+}
+function setClassFocus(firstIndex, secondIndex, getItem){
     
-
+    
+    if(firstIndex > 0) {
+        getItem[firstIndex].setAttribute("class", "calednar__days-item calednar__days-item_focus-left");
+        getItem[secondIndex].setAttribute("class", "calednar__days-item calednar__days-item_focus-right");
+        for(i = firstIndex + 1; i < secondIndex; i++){
+            getItem[i].setAttribute("class", "calednar__days-item calednar__days-item_light");
+        }
+    }
     
 }
+
 
 function clickDropDown(getInput, getBlock) {
 
@@ -131,15 +206,20 @@ function clickDropDown(getInput, getBlock) {
     getRightArrow.addEventListener('click', function(){
         date.setMonth(date.getMonth() + 1)
         renderCalendar();
+        renderNumberDays();
     })
     getLeftArrow.addEventListener('click', function(){
         date.setMonth(date.getMonth() - 1)
         renderCalendar();
+        renderNumberDays();
     })
 
     renderCalendar();
 
-
-
-
     clickDropDown(getCalendarInput, getCalendarBlock);
+
+    renderNumberDays();
+
+    deleteNumberDays();
+
+    

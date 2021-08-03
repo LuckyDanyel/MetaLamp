@@ -79,6 +79,48 @@
             
       
 }
+.calednar__days-item_light {
+      background: linear-gradient( #E3E8FE, #EEE6FF);
+      color: $DarkShade-50;
+      border-radius: 0;
+            
+      
+}
+.calednar__days-item_focus-left {
+      background: linear-gradient($Purple, $Blue);
+      color: $DarkShade-5;
+      position: relative;
+                  &::after{
+                        content: " ";
+                        display: inline-block;
+                        background: linear-gradient( #E3E8FE, #EEE6FF);
+                        color: $DarkShade-50;
+                        width: 20px;
+                        height: 40px;
+                        position: absolute;
+                        right: 0;
+                        z-index: -1;
+                  }
+           
+}
+.calednar__days-item_focus-right {
+      background: linear-gradient($Purple, $Blue);
+      color: $DarkShade-5;
+      position: relative;
+
+      &::after{
+            content: " ";
+            display: inline-block;
+            background: linear-gradient( #E3E8FE, #EEE6FF);
+            color: $DarkShade-50;
+            width: 20px;
+            height: 40px;
+            position: absolute;
+            left: 0;
+            z-index: -1;
+      }
+}
+
 .calendar__footer {
       max-width: 255px;
       
