@@ -30,6 +30,9 @@ let firstDayIndex;
 
 const date = new Date();
 
+let numberMonth = date.getMonth();
+console.log(numberMonth);
+
 const massiveDays = [
     "Январь",
     "Ферваль",
@@ -112,18 +115,11 @@ let banAdding = 0;
             }
            
     }
+    dateNumberSecond.value = 0;
+    dateNumberSecond.index = 0;
+    dateNumberFirst.value = 0;
+    dateNumberFirst.index = 0;
 
-}
-function deleteNumberDays(){
-
-    getCalendarFilterDelete.addEventListener('click', function(){
-        renderCalendar();
-        dateNumberFirst.value = 0;
-        dateNumberFirst.index = 0;
-        dateNumberSecond.value = 0;
-        dateNumberSecond.index = 0;
-        renderNumberDays(typeCalendar);
-    })
 }
 function renderNumberDays(type){ // Функция для поиска двух чисел, которые не повторяются. 
     
@@ -134,7 +130,7 @@ function renderNumberDays(type){ // Функция для поиска двух 
             result = getItem[i];
         
             result.addEventListener('click', function(e){
-                let count;
+                let count = 0;
             
                 if(isTwoNumberFind == false) {
                     
@@ -144,43 +140,48 @@ function renderNumberDays(type){ // Функция для поиска двух 
                 else if(isTwoNumberFind == true) {
                     
                     dateNumberSecond.value = e.composedPath().values().next().value.innerHTML;
-                    console.log(firstDayIndex);
+                   
                     if(firstDayIndex == 0){
-                        console.log("==0")
-                        count = 5;
+                        count = 6;
                     }
                     if(firstDayIndex == 1){
-                       console.log("==1")
                         count = firstDayIndex - 1;
-                        console.log(count);
+                        
                     }
                     if(firstDayIndex > 1) {
-                        console.log(">1")
-                        
-                        count = firstDayIndex - 2;
+                        count = firstDayIndex - 1;
                     }
-                    
-                        for(count < getItem.length - nextDays - firstDayIndex; count++;){
-                            console.log("dsada");
+                    if(dateNumberSecond.value - dateNumberFirst.value < 0) {
+                        let result;
+                        result = dateNumberFirst.value;
+                        dateNumberFirst.value = dateNumberSecond.value;
+                        dateNumberSecond.value = result;
+                    }
+                        while (count < getItem.length - nextDays){
+                            
                            if(dateNumberFirst.value == getItem[count].innerHTML){
+                                
                                dateNumberFirst.index = count;
+                            }
+                            else if(dateNumberSecond.value == getItem[count].innerHTML){
                                
-                               for(j = count; j < getItem.length - nextDays; j++){
-                                   
-                                    if(dateNumberSecond.value == getItem[j].innerHTML){
-                                        dateNumberSecond.index = j;
-                                        j = getItem.length;
-                                        count = j;
-
-                                }
-                           }
-                           isTwoNumberFind = false;
-                           count = 0;       
+                                dateNumberSecond.index = count;
+                                count =  getItem.length - nextDays;
+                            }
+                            
+                            count++; 
+                        
+                    }
+                    isTwoNumberFind = false;
                 }
-            }
-        }
-            
-        setClassFocus(dateNumberFirst.index, dateNumberSecond.index, getItem);
+                if(dateNumberFirst.index >= 0 && dateNumberSecond.index > 0) {
+                    getItem[dateNumberFirst.index].setAttribute("class", "calednar__days-item calednar__days-item_focus-left");
+                    getItem[dateNumberSecond.index].setAttribute("class", "calednar__days-item calednar__days-item_focus-right");
+                    for(i = dateNumberFirst.index + 1; i < dateNumberSecond.index; i++){
+                        getItem[i].setAttribute("class", "calednar__days-item calednar__days-item_light");
+                    }
+                }
+        
             })
 
         }
@@ -191,92 +192,61 @@ function renderNumberDays(type){ // Функция для поиска двух 
 }
 
 
-function setClassFocus(firstIndex, secondIndex, getItem){
-    
-    if(firstIndex > 0) {
-        getItem[firstIndex].setAttribute("class", "calednar__days-item calednar__days-item_focus-left");
-        getItem[secondIndex].setAttribute("class", "calednar__days-item calednar__days-item_focus-right");
-        for(i = firstIndex + 1; i < secondIndex; i++){
-            getItem[i].setAttribute("class", "calednar__days-item calednar__days-item_light");
-        }
-    }
-    
-    
-}
-function sendDate(type, getBlock) {
-    let result;
-    getCalendarButtonSend.addEventListener('click', function(){
-        if(type == typeCalendar) {
-            result = massiveDays[date.getMonth()];
-            getCalendarFilterText.innerHTML = dateNumberFirst.value + " " + result.substring(0, 3) + " - " + dateNumberSecond.value + " " + result.substring(0, 3);
-            getBlock.style.display = 'none';
-
-            renderCalendar();
-            dateNumberFirst.value = 0;
-            dateNumberFirst.index = 0;
-            dateNumberSecond.value = 0;
-            dateNumberSecond.index = 0;
-            renderNumberDays(typeCalendar);
-            
-            
-            
-        }else {
-    
-        }
-    })
-    
-}
-
-function getArrow() {
     getRightArrow.addEventListener('click', function(){
+        numberMonth++;
         date.setMonth(date.getMonth() + 1)
+        if(numberMonth == 12){
+            numberMonth = 0;
+        }
+        
         renderCalendar();
-        dateNumberFirst.value = 0;
-        dateNumberFirst.index = 0;
-        dateNumberSecond.value = 0;
-        dateNumberSecond.index = 0;
         renderNumberDays(typeCalendar);
-        sendDate(typeCalendar, getCalendarBlock);
+        
     })
     getLeftArrow.addEventListener('click', function(){
+        numberMonth--;
         date.setMonth(date.getMonth() - 1)
+        if(numberMonth == -1){
+            numberMonth = 11;
+        }
         renderCalendar();
-        dateNumberFirst.value = 0;
-        dateNumberFirst.index = 0;
-        dateNumberSecond.value = 0;
-        dateNumberSecond.index = 0;
         renderNumberDays(typeCalendar);
-        sendDate(typeCalendar, getCalendarBlock);
+        
     })
-}
 
+    getCalendarButtonSend.addEventListener('click', function() {
+        let result = massiveDays[numberMonth];
+        getCalendarFilterText.innerHTML = dateNumberFirst.value + " " + result.substring(0, 3) + " - " + dateNumberSecond.value + " " + result.substring(0, 3);
+        getCalendarBlock.style.display = 'none';
+        getCalendarFilterDate.addEventListener('click', first);
+    })
+    getCalendarFilterDelete.addEventListener('click', function(){
+        renderCalendar();
+        renderNumberDays(typeCalendar);
+    })
 
-function clickDropDown(getInput, getBlock) {
     
-    getInput.addEventListener('click', first);
-    typeCalendar = "FilterCalendar";
-    renderCalendar();
-    renderNumberDays(typeCalendar);
-    deleteNumberDays();
-    getArrow();
-    sendDate(typeCalendar, getCalendarBlock);
+    getCalendarFilterDate.addEventListener('click', first);
 
     function first(e) {
-    
+        typeCalendar = "FilterCalendar";
+        renderCalendar();
+        renderNumberDays(typeCalendar);
+
         e.stopImmediatePropagation();
         this.removeEventListener("click", first);
-        getInput.onclick = second;
-        getBlock.style.display = 'block';
+        getCalendarFilterDate.onclick = second;
+        getCalendarBlock.style.display = 'block';
     }
     function second() {
-        getBlock.style.display = 'none';
-        getInput.onclick = first;
+        getCalendarBlock.style.display = 'none';
+        getCalendarFilterDate.onclick = first;
     
     }   
-}
 
 
-    clickDropDown(getCalendarFilterDate, getCalendarBlock);
+
+    
 
 
 

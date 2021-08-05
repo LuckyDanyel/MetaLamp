@@ -3,3 +3,5 @@ div(class = "drop-downs")
         div(class = "drop-downs__global drop-downs__date drop-downs__date_width" id = "calendar-date-one")
                 p(class = "drop-downs__global-text") ДД.ММ.ГГ
                 span(class = "drop-downs__global-arrow" id = " ")
+        include ../calendar/calendar.pug
+        +calendar("Filter")
