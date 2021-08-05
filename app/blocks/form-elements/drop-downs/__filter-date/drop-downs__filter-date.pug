@@ -2,6 +2,6 @@ div(class = "drop-downs drop-downs-filter")
     h3(class = "drop-downs__global-heading") Филтрация даты
     div(class = "drop-downs__global" id = "calendar-filter-date" )
         p(class = "drop-downs__global-text" id = "calendar-filter-text") 19 авг - 23 авг
-        span(class = "drop-downs__global-arrow" id = " ")
+        span(class = "drop-downs__global-arrow" )
     include ../calendar/calendar.pug
-    +calendar("one")
+    +calendar("filter")

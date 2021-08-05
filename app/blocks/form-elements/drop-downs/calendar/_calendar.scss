@@ -1,7 +1,8 @@
 .calendar {
       
-      height: 375px;
+      height: 400px;
       padding-bottom: 15px;
+      margin-top: 5px;
 
       border: 1px solid $DarkShade-25;
       display: none;
@@ -45,7 +46,7 @@
       max-width: 270px;
       display: grid;
       grid-template-columns: repeat(7, 35px);
-      grid-template-rows: repeat(5, 35px);
+      grid-template-rows: repeat(5, 40px);
       justify-content: space-between;
 }
 
