@@ -1,0 +1,54 @@
+.check-box__item {
+
+    margin-bottom: 7px;
+
+        p {
+            margin-bottom: 5px;
+            margin-top: 5px;
+        }
+}
+.check-box__label {
+    position: relative;
+    font-family: 'MontserratRegular';
+    font-size: $fn-xs;
+    color: $DarkShade-50;
+
+    display: inline-flex;
+    align-items: center;
+    
+
+        p {
+            display: block;
+            max-width: 200px;
+            margin-left: 40px;
+        }
+        
+}
+.check-box__input {
+    display: none;
+
+        &:checked + .check-box__fake {
+            background-image: url('./Vector.svg');
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+        &:hover + .check-box__fake {
+            cursor: pointer;
+
+            border-color: $Purple;
+        }
+}
+.check-box__fake {
+    display: inline-block;
+    position: absolute;
+    
+    width: 20px;
+    height: 20px;
+    border: 1px solid $DarkShade-25;
+    border-radius: 5px;
+
+    transition: 0.1s;
+}
+.check-box__heading {
+    margin-bottom: 22px;
+}
