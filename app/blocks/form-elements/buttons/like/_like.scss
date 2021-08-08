@@ -1,0 +1,46 @@
+.like {
+ display: inline-block;
+}
+.like__item {
+
+}
+.like__label {
+
+}
+.like__input {
+
+    display: none;
+    position: relative;
+       
+}
+.like__fake {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 20px;
+    border-radius: 11px;
+
+    border: 1px solid $DarkShade-25;
+        &:hover {
+            cursor: pointer;
+
+        }
+}
+.like__text {
+    margin: 0;
+    font-size: 10px;
+    color:  $DarkShade-25;
+    font-family: 'MontserratRegular';
+}
+.like__heart {
+    display: block;
+    width: 12px;
+    height: 12px;
+    background-image: url('./favorite_border.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+
+    margin-right: 5px;
+       
+}

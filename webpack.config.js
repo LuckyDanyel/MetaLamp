@@ -27,6 +27,10 @@ const plugins = () =>  {
         new MiniCssExtractPlugin({
             filename: `./css/${filename('css')}`
         }),
+        new webpack.ProvidePlugin({
+            $: 'jquery', 
+            jQuery: 'jquery',
+          }),
         
             
         require('autoprefixer'),
