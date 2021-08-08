@@ -1,0 +1,75 @@
+.buttons-general {
+       max-width: 320px;
+       position: relative;
+       
+}
+
+.buttons-general__btn {
+
+    box-sizing: border-box;
+    border-radius: 22px;
+    
+    outline: none;
+    border: none;
+
+    font-family: 'MontserratBold';
+    font-size: $fn-xxs;
+
+    height: 44px;
+
+    text-transform: uppercase;
+
+    transition: 0.4s;
+} 
+.buttons-general__btn-background {
+    background: linear-gradient($Purple, $Blue);
+
+    color: white;
+
+} 
+.buttons-general__btn_hover {
+
+    &:hover {
+        opacity: 50%;
+        cursor: pointer;
+    }
+}
+.buttons-general__btn_width {
+    width: 100px;
+}
+
+.buttons-general__btn-border {
+    background-color: white;
+    border: 1px solid $Purple;
+
+    color: $Purple;
+    
+}
+
+.buttons-general__btn-no-border {
+    background-color: white;
+
+    color: $Purple;
+} 
+.buttons-general__btn_click {
+
+    &:hover{
+        cursor: pointer;
+    }
+
+        &:focus{
+            color: $DarkShade-50;
+        }
+   
+}
+
+.buttons-general__btn-big_width {
+    display: inline-block;
+    width: 100%;
+
+    position: relative;
+   
+}
+.buttons-general__big-arrow {
+    @include arrowRight(white, 5px, right);
+}

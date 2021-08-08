@@ -22,10 +22,10 @@
 }
 
 .calendar__arrow-right {
-      @include arrowRight($Purple, 22px, right);
+      @include arrowRight($Purple, 15px, right);
 }
 .calendar__arrow-left {
-      @include arrowRight($Purple, 22px, left);
+      @include arrowRight($Purple, 18px, left);
 }
 
 .calendar__week {

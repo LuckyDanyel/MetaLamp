@@ -14,48 +14,31 @@
     position: absolute;
     right: 10px;
     @if($direction == left){
-            left: 10px;
-      }
+            left: 4px;
+            &::after {
+                  
+                  font-size: 24px;
+                  content: '\279C';
+                  color: $colorOne;
+                  display:block;
+                  transform: rotate(180deg);
+                 
+            }
+      }	
        @else {
             
-            right: 10px;
+            right: 0px;
+            &::after {
+                  font-size: 24px;
+                  content: '\279C';
+                  color: $colorOne;
+                  display:block;
+                  
+            }
       }
     top: $top;
-        &::after {
-            content: " ";
-            position: absolute;
-            top: 3px;
-            
-            
-            border: solid $colorOne;
-            border-width: 0 3px 3px 0;
         
-            display: inline-block;
-            padding: 4px;
-        @if($direction == left){
-            transform: rotate(135deg);
-            right: 18px;
-        }
-        @else {
-            transform: rotate(-45deg);
-            right: 10px;
-        }
-        }
-        &::before {
-            content: " ";
-            position: absolute;
-            top: 7px;
-            right: 0;
-            left: 0;
-            margin-left: auto;
-            margin-right: auto;
-           
-              background-color: $colorOne;
 
-            width: 15px;
-            height: 3px;
-            display: inline-block;
-        }
 
       &:hover,:focus {
             cursor: pointer;
