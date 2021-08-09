@@ -48,3 +48,19 @@
 @import '../blocks/form-elements/buttons/rate/rate.scss';
 
 @import '../blocks/form-elements/buttons/buttons-general/buttons-general.scss';
+
+
+/*----------- buttons-blocks ------------------*/
+
+/* ---------- toggle --------------------------*/
+
+@import '../blocks/form-elements/toggle/toggle.scss';
+
+/* ---------- toggle --------------------------*/
+
+/* ---------- range-slider --------------------------*/
+
+@import '../blocks/form-elements/range-slider/range-slider.scss';
+@import '../../node_modules/nouislider/dist/nouislider.css';
+
+/* ---------- range-slider --------------------------*/

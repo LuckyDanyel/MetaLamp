@@ -28,9 +28,10 @@
     display: none;
 
         &:checked + .check-box__fake {
-            background-image: url('./Vector.svg');
-            background-repeat: no-repeat;
-            background-position: center;
+            border-color: $Purple;
+            &::after {
+                content: '\2714';
+            }
         }
         &:hover + .check-box__fake {
             cursor: pointer;
@@ -47,7 +48,13 @@
     border: 1px solid $DarkShade-25;
     border-radius: 5px;
 
-    transition: 0.1s;
+        &::after {
+            color: $Purple;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+        }
 }
 .check-box__heading {
     margin-bottom: 22px;

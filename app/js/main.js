@@ -7,6 +7,7 @@ import '../blocks/form-elements/drop-downs/__general/drop-downs__general.js';
 import '../blocks/form-elements/drop-downs/calendar/calendar.js';
 
 import '../blocks/form-elements/check-box/__list/check-box__list.js';
-import '../blocks/form-elements/buttons/like/like.js';
 import '../blocks/form-elements/buttons/rate/rate.js';
+
+import '../blocks/form-elements/range-slider/range-slider.js';
 

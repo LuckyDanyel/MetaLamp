@@ -9,9 +9,22 @@
 
 }
 .like__input {
+    opacity: 0;
+    position: absolute;
 
-    display: none;
-    position: relative;
+        &:checked + .like__fake {
+            border-color: $Purple;
+
+            .like__text {
+                color: $Purple;
+            }
+            .like__heart {
+                &::after {
+                    color: $Purple;
+                    -webkit-text-stroke-color: $Purple;
+                }
+            }
+        }
        
 }
 .like__fake {
@@ -37,11 +50,17 @@
 .like__heart {
     display: block;
     width: 12px;
-    height: 12px;
-    background-image: url('./favorite_border.svg');
-    background-repeat: no-repeat;
-    background-position: center;
-
+    height: 100%;
     margin-right: 5px;
-       
+        &::after {
+            content: '\2764';
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            height: 100%;
+
+            -webkit-text-stroke-color: $DarkShade-25;
+            -webkit-text-stroke-width: 1px;
+            color: white;
+        }
 }
