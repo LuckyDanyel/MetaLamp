@@ -11,3 +11,5 @@ import '../blocks/form-elements/buttons/rate/rate.js';
 
 import '../blocks/form-elements/range-slider/range-slider.js';
 
+import '../blocks/form-elements/pagination/pagination.js';
+
