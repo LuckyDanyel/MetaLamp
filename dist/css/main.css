@@ -444,6 +444,10 @@ body {
   max-width: 267px;
 }
 
+.text h1 {
+  margin-bottom: 25px;
+}
+
 /*----------- text-blocks  --------------*/
 /*----------- drop-downs-blocks  --------------*/
 .drop-downs__date {
@@ -1003,6 +1007,9 @@ body {
           align-items: center;
   width: 110px;
 }
+.radio__label:hover {
+  cursor: pointer;
+}
 
 .radio__input {
   display: none;
@@ -1200,10 +1207,23 @@ body {
   width: 100px;
 }
 
+.buttons-general__block-border {
+  display: inline-block;
+  background: -webkit-gradient(linear, left top, left bottom, from(#BC9CFF), to(#8BA4F9));
+  background: -o-linear-gradient(#BC9CFF, #8BA4F9);
+  background: linear-gradient(#BC9CFF, #8BA4F9);
+  padding: 2px;
+  border-radius: 30px;
+}
+
 .buttons-general__btn-border {
   background-color: white;
-  border: 1px solid #BC9CFF;
   color: #BC9CFF;
+}
+
+.buttons-general__btn_hover-border:hover {
+  cursor: pointer;
+  color: #dacbfc;
 }
 
 .buttons-general__btn-no-border {
@@ -1522,9 +1542,8 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -1632,5 +1651,38 @@ body {
 }
 
 /* ---------- review --------------------------*/
+/*----------- litle blocks ---------------
+
+/* ---------- login --------------------------*/
+.login {
+  max-width: 380px;
+  height: auto;
+  border-radius: 10px;
+  padding: 45px 30px 30px 30px;
+  -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.login__btn-block {
+  margin-top: 20px;
+}
+
+.login__footer {
+  margin-top: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.login__text {
+  font-family: "MontserratRegular";
+  font-size: 0.875rem;
+  color: #1F2041;
+}
+
+/* ---------- login --------------------------*/
 
 /*# sourceMappingURL=main.css.map*/

@@ -13,3 +13,5 @@ import '../blocks/form-elements/range-slider/range-slider.js';
 
 import '../blocks/form-elements/pagination/pagination.js';
 
+import '../blocks/cards/login/login.js';
+

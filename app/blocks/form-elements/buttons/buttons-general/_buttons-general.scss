@@ -37,13 +37,28 @@
 .buttons-general__btn_width {
     width: 100px;
 }
+.buttons-general__block-border {
+    display: inline-block;
+    background:linear-gradient($Purple, $Blue);
 
+    padding: 2px;
+    border-radius: 30px;
+   
+        
+}
 .buttons-general__btn-border {
     background-color: white;
-    border: 1px solid $Purple;
 
-    color: $Purple;
+     color: $Purple;
+
     
+}
+.buttons-general__btn_hover-border {
+    &:hover {
+        cursor: pointer;
+        color: #dacbfc;
+        ;
+    }
 }
 
 .buttons-general__btn-no-border {

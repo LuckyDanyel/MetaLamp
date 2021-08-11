@@ -34,6 +34,19 @@ module.exports = __webpack_require__.p + "images/image.png";
 
 /***/ }),
 
+/***/ "./blocks/cards/login/login.js":
+/*!*************************************!*\
+  !*** ./blocks/cards/login/login.js ***!
+  \*************************************/
+/***/ (() => {
+
+var getLoginForm = document.querySelector('.login__form');
+var getEmailLoginForm = getLoginForm.loginName;
+var getPasswordLoginForm = getLoginForm.loginPassword;
+var getBtnLoginForm = getLoginForm.btnSign;
+
+/***/ }),
+
 /***/ "./blocks/form-elements/buttons/rate/rate.js":
 /*!***************************************************!*\
   !*** ./blocks/form-elements/buttons/rate/rate.js ***!
@@ -14190,7 +14203,7 @@ pug_html = pug_html + "\u003C\u002Fdiv\u003E";
 pug_indent.push("    ");
 pug_mixins["TextDate"]();
 pug_indent.pop();
-pug_mixins["TextUser"] = pug_interp = function(firstValue, secondValue, condition){
+pug_mixins["TextUser"] = pug_interp = function(firstValue, secondValue, condition, firstName, secondName){
 var block = (this && this.block), attributes = (this && this.attributes) || {};
 pug_html = pug_html + "\n    ";
 pug_html = pug_html + pug_indent.join("");
@@ -14217,9 +14230,24 @@ pug_html = pug_html + "\n      ";
 pug_html = pug_html + pug_indent.join("");
 pug_html = pug_html + "\u003C\u002Flabel\u003E\n      ";
 pug_html = pug_html + pug_indent.join("");
-pug_html = pug_html + "\u003Cinput" + (" class=\"text__user text__global text__global_hover-focus\""+" type=\"text\""+pug.attr("id", "text__" + condition + "_first-field", true, true)+pug.attr("placeholder", firstValue, true, true)) + "\u003E\n      ";
+pug_html = pug_html + "\u003Cinput" + (" class=\"text__user text__global text__global_hover-focus\""+" type=\"text\""+pug.attr("name", firstName, true, true)+pug.attr("id", "text__" + condition + "_first-field", true, true)+pug.attr("placeholder", firstValue, true, true)) + "\u003E";
+if (condition == "registr") {
+pug_html = pug_html + "\n      ";
 pug_html = pug_html + pug_indent.join("");
-pug_html = pug_html + "\u003Cinput" + (" class=\"text__user text__global text__global_hover-focus\""+" type=\"text\""+pug.attr("id", "text__" + condition + "_second-field", true, true)+pug.attr("placeholder", secondValue, true, true)) + "\u003E\n    ";
+pug_html = pug_html + "\u003Cinput" + (" class=\"text__user text__global text__global_hover-focus\""+" type=\"password\""+pug.attr("name", secondName, true, true)+pug.attr("id", "text__" + condition + "_second-field", true, true)+pug.attr("placeholder", secondValue, true, true)) + "\u003E";
+}
+else
+if (condition == "enter") {
+pug_html = pug_html + "\n      ";
+pug_html = pug_html + pug_indent.join("");
+pug_html = pug_html + "\u003Cinput" + (" class=\"text__user text__global text__global_hover-focus\""+" type=\"password\""+pug.attr("name", secondName, true, true)+pug.attr("id", "text__" + condition + "_second-field", true, true)+pug.attr("placeholder", secondValue, true, true)) + "\u003E";
+}
+else {
+pug_html = pug_html + "\n      ";
+pug_html = pug_html + pug_indent.join("");
+pug_html = pug_html + "\u003Cinput" + (" class=\"text__user text__global text__global_hover-focus\""+" type=\"text\""+pug.attr("name", secondName, true, true)+pug.attr("id", "text__" + condition + "_second-field", true, true)+pug.attr("placeholder", secondValue, true, true)) + "\u003E";
+}
+pug_html = pug_html + "\n    ";
 pug_html = pug_html + pug_indent.join("");
 pug_html = pug_html + "\u003C\u002Fdiv\u003E";
 };
@@ -14472,13 +14500,13 @@ pug_html = pug_html + "\u003Cinput class=\"buttons-general__btn buttons-general_
 pug_html = pug_html + pug_indent.join("");
 pug_html = pug_html + "\u003C\u002Fdiv\u003E";
 };
-pug_mixins["buttonWithBorder"] = pug_interp = function(){
+pug_mixins["buttonWithBorder"] = pug_interp = function(name){
 var block = (this && this.block), attributes = (this && this.attributes) || {};
 pug_html = pug_html + "\n    ";
 pug_html = pug_html + pug_indent.join("");
-pug_html = pug_html + "\u003Cdiv class=\"buttons-general\"\u003E\n      ";
+pug_html = pug_html + "\u003Cdiv class=\"buttons-general buttons-general__block-border\"\u003E\n      ";
 pug_html = pug_html + pug_indent.join("");
-pug_html = pug_html + "\u003Cinput class=\"buttons-general__btn buttons-general__btn-border buttons-general__btn_hover buttons-general__btn_width\" type=\"button\" value=\"нажми\"\u003E\n    ";
+pug_html = pug_html + "\u003Cinput" + (" class=\"buttons-general__btn buttons-general__btn-border buttons-general__btn_hover-border buttons-general__btn_width\""+" type=\"button\""+pug.attr("value", name, true, true)) + "\u003E\n    ";
 pug_html = pug_html + pug_indent.join("");
 pug_html = pug_html + "\u003C\u002Fdiv\u003E";
 };
@@ -14492,13 +14520,13 @@ pug_html = pug_html + "\u003Cinput class=\"buttons-general__btn buttons-general_
 pug_html = pug_html + pug_indent.join("");
 pug_html = pug_html + "\u003C\u002Fdiv\u003E";
 };
-pug_mixins["buttonBig"] = pug_interp = function(){
+pug_mixins["buttonBig"] = pug_interp = function(name){
 var block = (this && this.block), attributes = (this && this.attributes) || {};
 pug_html = pug_html + "\n    ";
 pug_html = pug_html + pug_indent.join("");
 pug_html = pug_html + "\u003Cdiv class=\"buttons-general\"\u003E\n      ";
 pug_html = pug_html + pug_indent.join("");
-pug_html = pug_html + "\u003Cinput class=\"buttons-general__btn buttons-general__btn-background buttons-general__btn_hover buttons-general__btn-big_width\" type=\"button\" value=\"нажми\"\u003E\n      ";
+pug_html = pug_html + "\u003Cinput" + (" class=\"buttons-general__btn buttons-general__btn-background buttons-general__btn_hover buttons-general__btn-big_width\""+" name=\"btnSign\" type=\"button\""+pug.attr("value", name, true, true)) + "\u003E\n      ";
 pug_html = pug_html + pug_indent.join("");
 pug_html = pug_html + "\u003Cdiv class=\"buttons-general__big-arrow\"\u003E \u003C\u002Fdiv\u003E\n    ";
 pug_html = pug_html + pug_indent.join("");
@@ -14508,7 +14536,7 @@ pug_indent.push("    ");
 pug_mixins["buttonWithBg"]();
 pug_indent.pop();
 pug_indent.push("    ");
-pug_mixins["buttonWithBorder"]();
+pug_mixins["buttonWithBorder"]("Название");
 pug_indent.pop();
 pug_indent.push("    ");
 pug_mixins["buttonNoBorder"]();
@@ -14516,7 +14544,151 @@ pug_indent.pop();
 pug_indent.push("    ");
 pug_mixins["buttonBig"]();
 pug_indent.pop();
-pug_html = pug_html + (null == (pug_interp = __webpack_require__(/*! ./blocks/form-elements/toggle/toggle.pug */ "./blocks/form-elements/toggle/toggle.pug").call(this, locals)) ? "" : pug_interp) + (null == (pug_interp = __webpack_require__(/*! ./blocks/form-elements/range-slider/range-slider.pug */ "./blocks/form-elements/range-slider/range-slider.pug").call(this, locals)) ? "" : pug_interp) + (null == (pug_interp = __webpack_require__(/*! ./blocks/form-elements/pagination/pagination.pug */ "./blocks/form-elements/pagination/pagination.pug").call(this, locals)) ? "" : pug_interp) + (null == (pug_interp = __webpack_require__(/*! ./blocks/form-elements/bullet-list/bullet-list.pug */ "./blocks/form-elements/bullet-list/bullet-list.pug").call(this, locals)) ? "" : pug_interp) + (null == (pug_interp = __webpack_require__(/*! ./blocks/form-elements/comfort/comfort.pug */ "./blocks/form-elements/comfort/comfort.pug").call(this, locals)) ? "" : pug_interp) + (null == (pug_interp = __webpack_require__(/*! ./blocks/form-elements/review/review.pug */ "./blocks/form-elements/review/review.pug").call(this, locals)) ? "" : pug_interp) + "\n  \u003C\u002Fbody\u003E\n\u003C\u002Fhtml\u003E";
+pug_html = pug_html + (null == (pug_interp = __webpack_require__(/*! ./blocks/form-elements/toggle/toggle.pug */ "./blocks/form-elements/toggle/toggle.pug").call(this, locals)) ? "" : pug_interp) + (null == (pug_interp = __webpack_require__(/*! ./blocks/form-elements/range-slider/range-slider.pug */ "./blocks/form-elements/range-slider/range-slider.pug").call(this, locals)) ? "" : pug_interp) + (null == (pug_interp = __webpack_require__(/*! ./blocks/form-elements/pagination/pagination.pug */ "./blocks/form-elements/pagination/pagination.pug").call(this, locals)) ? "" : pug_interp) + (null == (pug_interp = __webpack_require__(/*! ./blocks/form-elements/bullet-list/bullet-list.pug */ "./blocks/form-elements/bullet-list/bullet-list.pug").call(this, locals)) ? "" : pug_interp) + (null == (pug_interp = __webpack_require__(/*! ./blocks/form-elements/comfort/comfort.pug */ "./blocks/form-elements/comfort/comfort.pug").call(this, locals)) ? "" : pug_interp) + (null == (pug_interp = __webpack_require__(/*! ./blocks/form-elements/review/review.pug */ "./blocks/form-elements/review/review.pug").call(this, locals)) ? "" : pug_interp) + "\n    \u003Cdiv class=\"login\"\u003E\n      \u003Cform class=\"login__form\" action=\"\"\u003E";
+pug_mixins["TextUser"] = pug_interp = function(firstValue, secondValue, condition, firstName, secondName){
+var block = (this && this.block), attributes = (this && this.attributes) || {};
+pug_html = pug_html + "\n        ";
+pug_html = pug_html + pug_indent.join("");
+pug_html = pug_html + "\u003Cdiv class=\"text\"\u003E\n          ";
+pug_html = pug_html + pug_indent.join("");
+pug_html = pug_html + "\u003Clabel" + (pug.attr("for", "text__" + condition + "_first-field", true, true)) + "\u003E";
+if (condition == "registr") {
+pug_html = pug_html + "\n            ";
+pug_html = pug_html + pug_indent.join("");
+pug_html = pug_html + "\u003Ch1\u003EРегистрация аккаунта\u003C\u002Fh1\u003E";
+}
+else
+if (condition == "enter") {
+pug_html = pug_html + "\n            ";
+pug_html = pug_html + pug_indent.join("");
+pug_html = pug_html + "\u003Ch1\u003EВойти\u003C\u002Fh1\u003E";
+}
+else {
+pug_html = pug_html + "\n            ";
+pug_html = pug_html + pug_indent.join("");
+pug_html = pug_html + "\u003Ch3\u003EДанные для входа в сервис\u003C\u002Fh3\u003E";
+}
+pug_html = pug_html + "\n          ";
+pug_html = pug_html + pug_indent.join("");
+pug_html = pug_html + "\u003C\u002Flabel\u003E\n          ";
+pug_html = pug_html + pug_indent.join("");
+pug_html = pug_html + "\u003Cinput" + (" class=\"text__user text__global text__global_hover-focus\""+" type=\"text\""+pug.attr("name", firstName, true, true)+pug.attr("id", "text__" + condition + "_first-field", true, true)+pug.attr("placeholder", firstValue, true, true)) + "\u003E";
+if (condition == "registr") {
+pug_html = pug_html + "\n          ";
+pug_html = pug_html + pug_indent.join("");
+pug_html = pug_html + "\u003Cinput" + (" class=\"text__user text__global text__global_hover-focus\""+" type=\"password\""+pug.attr("name", secondName, true, true)+pug.attr("id", "text__" + condition + "_second-field", true, true)+pug.attr("placeholder", secondValue, true, true)) + "\u003E";
+}
+else
+if (condition == "enter") {
+pug_html = pug_html + "\n          ";
+pug_html = pug_html + pug_indent.join("");
+pug_html = pug_html + "\u003Cinput" + (" class=\"text__user text__global text__global_hover-focus\""+" type=\"password\""+pug.attr("name", secondName, true, true)+pug.attr("id", "text__" + condition + "_second-field", true, true)+pug.attr("placeholder", secondValue, true, true)) + "\u003E";
+}
+else {
+pug_html = pug_html + "\n          ";
+pug_html = pug_html + pug_indent.join("");
+pug_html = pug_html + "\u003Cinput" + (" class=\"text__user text__global text__global_hover-focus\""+" type=\"text\""+pug.attr("name", secondName, true, true)+pug.attr("id", "text__" + condition + "_second-field", true, true)+pug.attr("placeholder", secondValue, true, true)) + "\u003E";
+}
+pug_html = pug_html + "\n        ";
+pug_html = pug_html + pug_indent.join("");
+pug_html = pug_html + "\u003C\u002Fdiv\u003E";
+};
+pug_indent.push("        ");
+pug_mixins["TextUser"]("Email", "Пароль", "enter", "loginName", "loginPassword");
+pug_indent.pop();
+pug_html = pug_html + "\n        \u003Cdiv class=\"login__btn-block\"\u003E";
+pug_mixins["buttonWithBg"] = pug_interp = function(){
+var block = (this && this.block), attributes = (this && this.attributes) || {};
+pug_html = pug_html + "\n          ";
+pug_html = pug_html + pug_indent.join("");
+pug_html = pug_html + "\u003Cdiv class=\"buttons-general\"\u003E\n            ";
+pug_html = pug_html + pug_indent.join("");
+pug_html = pug_html + "\u003Cinput class=\"buttons-general__btn buttons-general__btn-background buttons-general__btn_hover buttons-general__btn_width\" type=\"button\" value=\"нажми\"\u003E\n          ";
+pug_html = pug_html + pug_indent.join("");
+pug_html = pug_html + "\u003C\u002Fdiv\u003E";
+};
+pug_mixins["buttonWithBorder"] = pug_interp = function(name){
+var block = (this && this.block), attributes = (this && this.attributes) || {};
+pug_html = pug_html + "\n          ";
+pug_html = pug_html + pug_indent.join("");
+pug_html = pug_html + "\u003Cdiv class=\"buttons-general buttons-general__block-border\"\u003E\n            ";
+pug_html = pug_html + pug_indent.join("");
+pug_html = pug_html + "\u003Cinput" + (" class=\"buttons-general__btn buttons-general__btn-border buttons-general__btn_hover-border buttons-general__btn_width\""+" type=\"button\""+pug.attr("value", name, true, true)) + "\u003E\n          ";
+pug_html = pug_html + pug_indent.join("");
+pug_html = pug_html + "\u003C\u002Fdiv\u003E";
+};
+pug_mixins["buttonNoBorder"] = pug_interp = function(){
+var block = (this && this.block), attributes = (this && this.attributes) || {};
+pug_html = pug_html + "\n          ";
+pug_html = pug_html + pug_indent.join("");
+pug_html = pug_html + "\u003Cdiv class=\"buttons-general\"\u003E\n            ";
+pug_html = pug_html + pug_indent.join("");
+pug_html = pug_html + "\u003Cinput class=\"buttons-general__btn buttons-general__btn-no-border buttons-general__btn_click buttons-general__btn_width\" type=\"button\" value=\"нажми\"\u003E\n          ";
+pug_html = pug_html + pug_indent.join("");
+pug_html = pug_html + "\u003C\u002Fdiv\u003E";
+};
+pug_mixins["buttonBig"] = pug_interp = function(name){
+var block = (this && this.block), attributes = (this && this.attributes) || {};
+pug_html = pug_html + "\n          ";
+pug_html = pug_html + pug_indent.join("");
+pug_html = pug_html + "\u003Cdiv class=\"buttons-general\"\u003E\n            ";
+pug_html = pug_html + pug_indent.join("");
+pug_html = pug_html + "\u003Cinput" + (" class=\"buttons-general__btn buttons-general__btn-background buttons-general__btn_hover buttons-general__btn-big_width\""+" name=\"btnSign\" type=\"button\""+pug.attr("value", name, true, true)) + "\u003E\n            ";
+pug_html = pug_html + pug_indent.join("");
+pug_html = pug_html + "\u003Cdiv class=\"buttons-general__big-arrow\"\u003E \u003C\u002Fdiv\u003E\n          ";
+pug_html = pug_html + pug_indent.join("");
+pug_html = pug_html + "\u003C\u002Fdiv\u003E";
+};
+pug_indent.push("          ");
+pug_mixins["buttonBig"]("Войти");
+pug_indent.pop();
+pug_html = pug_html + "\n        \u003C\u002Fdiv\u003E\n      \u003C\u002Fform\u003E\n      \u003Cdiv class=\"login__footer\"\u003E\n        \u003Cp class=\"login__text\"\u003EНет аккаунта на Toxin?\u003C\u002Fp\u003E";
+pug_mixins["buttonWithBg"] = pug_interp = function(){
+var block = (this && this.block), attributes = (this && this.attributes) || {};
+pug_html = pug_html + "\n        ";
+pug_html = pug_html + pug_indent.join("");
+pug_html = pug_html + "\u003Cdiv class=\"buttons-general\"\u003E\n          ";
+pug_html = pug_html + pug_indent.join("");
+pug_html = pug_html + "\u003Cinput class=\"buttons-general__btn buttons-general__btn-background buttons-general__btn_hover buttons-general__btn_width\" type=\"button\" value=\"нажми\"\u003E\n        ";
+pug_html = pug_html + pug_indent.join("");
+pug_html = pug_html + "\u003C\u002Fdiv\u003E";
+};
+pug_mixins["buttonWithBorder"] = pug_interp = function(name){
+var block = (this && this.block), attributes = (this && this.attributes) || {};
+pug_html = pug_html + "\n        ";
+pug_html = pug_html + pug_indent.join("");
+pug_html = pug_html + "\u003Cdiv class=\"buttons-general buttons-general__block-border\"\u003E\n          ";
+pug_html = pug_html + pug_indent.join("");
+pug_html = pug_html + "\u003Cinput" + (" class=\"buttons-general__btn buttons-general__btn-border buttons-general__btn_hover-border buttons-general__btn_width\""+" type=\"button\""+pug.attr("value", name, true, true)) + "\u003E\n        ";
+pug_html = pug_html + pug_indent.join("");
+pug_html = pug_html + "\u003C\u002Fdiv\u003E";
+};
+pug_mixins["buttonNoBorder"] = pug_interp = function(){
+var block = (this && this.block), attributes = (this && this.attributes) || {};
+pug_html = pug_html + "\n        ";
+pug_html = pug_html + pug_indent.join("");
+pug_html = pug_html + "\u003Cdiv class=\"buttons-general\"\u003E\n          ";
+pug_html = pug_html + pug_indent.join("");
+pug_html = pug_html + "\u003Cinput class=\"buttons-general__btn buttons-general__btn-no-border buttons-general__btn_click buttons-general__btn_width\" type=\"button\" value=\"нажми\"\u003E\n        ";
+pug_html = pug_html + pug_indent.join("");
+pug_html = pug_html + "\u003C\u002Fdiv\u003E";
+};
+pug_mixins["buttonBig"] = pug_interp = function(name){
+var block = (this && this.block), attributes = (this && this.attributes) || {};
+pug_html = pug_html + "\n        ";
+pug_html = pug_html + pug_indent.join("");
+pug_html = pug_html + "\u003Cdiv class=\"buttons-general\"\u003E\n          ";
+pug_html = pug_html + pug_indent.join("");
+pug_html = pug_html + "\u003Cinput" + (" class=\"buttons-general__btn buttons-general__btn-background buttons-general__btn_hover buttons-general__btn-big_width\""+" name=\"btnSign\" type=\"button\""+pug.attr("value", name, true, true)) + "\u003E\n          ";
+pug_html = pug_html + pug_indent.join("");
+pug_html = pug_html + "\u003Cdiv class=\"buttons-general__big-arrow\"\u003E \u003C\u002Fdiv\u003E\n        ";
+pug_html = pug_html + pug_indent.join("");
+pug_html = pug_html + "\u003C\u002Fdiv\u003E";
+};
+pug_indent.push("        ");
+pug_mixins["buttonWithBorder"]("Создать");
+pug_indent.pop();
+pug_html = pug_html + "\n      \u003C\u002Fdiv\u003E\n    \u003C\u002Fdiv\u003E\n  \u003C\u002Fbody\u003E\n\u003C\u002Fhtml\u003E";
     }.call(this, "pug_indent" in locals_for_with ?
         locals_for_with.pug_indent :
         typeof pug_indent !== 'undefined' ? pug_indent : undefined));
@@ -14956,6 +15128,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _blocks_form_elements_range_slider_range_slider_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../blocks/form-elements/range-slider/range-slider.js */ "./blocks/form-elements/range-slider/range-slider.js");
 /* harmony import */ var _blocks_form_elements_pagination_pagination_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../blocks/form-elements/pagination/pagination.js */ "./blocks/form-elements/pagination/pagination.js");
 /* harmony import */ var _blocks_form_elements_pagination_pagination_js__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_blocks_form_elements_pagination_pagination_js__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _blocks_cards_login_login_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../blocks/cards/login/login.js */ "./blocks/cards/login/login.js");
+/* harmony import */ var _blocks_cards_login_login_js__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_blocks_cards_login_login_js__WEBPACK_IMPORTED_MODULE_9__);
+
 
 
 
