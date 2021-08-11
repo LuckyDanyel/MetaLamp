@@ -89,7 +89,7 @@ module.exports = {
             },
             {
                 test: /\.css$/i,
-                use: [
+                use: ['css-loader',
                 {
                 loader: MiniCssExtractPlugin.loader,
                 options: {
@@ -98,8 +98,6 @@ module.exports = {
                        
                 },
             },
-            'css-loader',
-            
         
         ],
         
