@@ -1,0 +1,32 @@
+.bullet-list {
+display: inline-block;
+max-width: 270px;
+}
+
+.bullet-list__list {
+      
+      list-style-type: none;
+      padding: 0;
+      padding-left: 24px;
+
+}
+
+.bullet-list__item {
+      font-size: $fn-xs;
+      font-family: 'MontserratRegular';
+      color: $DarkShade-75;
+      line-height: 30px;
+      position: relative;
+            &::before {
+                  content: ' ';
+                  display: inline-block;
+                  width: 10px;
+                  height: 10px;
+                  border-radius: 100%;
+                  background-color: $DarkShade-25;
+                  position: absolute;
+                  left: -20px;
+                  top: 11px;
+            }
+
+}

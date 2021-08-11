@@ -1,0 +1,35 @@
+.comfort {
+      max-width: 270px;
+}
+
+.comfort__row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 0;
+      padding: 22px 0;
+
+      border-bottom: 1px solid $DarkShade-25;
+}
+
+.comfort__image {
+
+}
+
+.comfrot__block-text {
+      display: inline-block;
+      max-width: 200px;
+      width: 100%;
+}
+
+.comfort__heading {
+      text-transform: uppercase;
+      margin-bottom: 13px;
+}
+
+.comfort__text {
+      font-size: $fn-xs;
+      font-family: 'MontserratRegular';
+      color: $DarkShade-75;
+      margin: 0;
+}

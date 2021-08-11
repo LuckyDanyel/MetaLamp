@@ -85,7 +85,6 @@ module.exports = {
             },
             {
                 test: /\.html$/,
-            
                 loader: 'html-loader'
             },
             {
@@ -127,14 +126,12 @@ module.exports = {
                     publicPath: '../'
                     
                 },
-              
-                
-                
             },
             {
-                test: /\.(gif|png|jpe?g|)$/i,
+                test: /\.(png|svg|jpg|jpeg|gif)$/i,
                 type: 'asset/resource',
                 generator: {
+                    
                     filename: 'images/[name][ext][query]',
                     
                 }
