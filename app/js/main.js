@@ -1,4 +1,7 @@
 import 'jquery';
+import 'jquery-validation';
+
+
 
 import '../scss/main.scss';
 import '../index.pug';
@@ -14,4 +17,8 @@ import '../blocks/form-elements/range-slider/range-slider.js';
 import '../blocks/form-elements/pagination/pagination.js';
 
 import '../blocks/cards/login/login.js';
+
+import '../blocks/cards/registr/registr.js';
+
+import '../blocks/cards/rooms/rooms.js';
 

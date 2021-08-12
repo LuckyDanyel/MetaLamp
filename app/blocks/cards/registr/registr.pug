@@ -1,0 +1,31 @@
+div(class = "registr")
+      form(action="" class = "registr-form")
+
+            div(class = "registr__name")
+                  include ../../form-elements/text/__user/text__user.pug
+                  +TextUser("Имя", "Фамилия", "registr", "Name", "Second-name")
+
+            div(class = "registr__sex")
+                  include ../../form-elements/buttons/radio/radio.pug
+                  +RadioSex("SecondSex")
+
+            div(class = "registr__date")
+                  include ../../form-elements/text/__date/text__date.pug
+                  +TextDate("SecondDate")
+                  
+            div(class = "registr__data")
+                  include ../../form-elements/text/__user/text__user.pug
+                  +TextUser("Email", "Пароль", "registr-data", "RegistrEmail", "RegistrPassword")
+
+            div(class = "registr__toggle")
+                  include ../../form-elements/toggle/toggle.pug
+                  +Toggle("second")
+                  
+            div(class = "registr__pay")
+                  include ../../form-elements/buttons/buttons-general/buttons-general.pug
+                  +buttonBig("Перейти к оплате")
+
+            div(class = "registr__footer")
+                  p(class = "registr__text") Уже есть аккаунт на Toxin?
+                  include ../../form-elements/buttons/buttons-general/buttons-general.pug
+                  +buttonWithBorder("Войти")

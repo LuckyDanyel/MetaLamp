@@ -12,19 +12,17 @@ html(lang="ru")
             include blocks/form-elements/text/__subscribe-email/text__subscribe__email.pug
             +TextSubscribe()
             include blocks/form-elements/text/__date/text__date.pug
-            +TextDate()
+            +TextDate("firstDate")
             include blocks/form-elements/text/__user/text__user.pug
             +TextUser("Email", "Пароль", "pay-user")
             //- ----------- text-blocks ----------------
 
             //- ----------- drop-downs-blocks ----------
-            include blocks/form-elements/drop-downs/__date/drop-downs__date.pug
 
             include blocks/form-elements/drop-downs/__filter-date/drop-downs__filter-date.pug
 
             include blocks/form-elements/drop-downs/__general/drop-downs__general.pug
             +DropBoxRooms()
-            +DropBoxGuest()
              //- ----------- drop-downs-blocks ----------
 
             //- ------------ check-box-blocks ----------
@@ -40,10 +38,14 @@ html(lang="ru")
             //- ------------ buttons-blocks ------------
 
             include blocks/form-elements/buttons/radio/radio.pug
+            +RadioSex("firstSex")
 
             include blocks/form-elements/buttons/like/like.pug
             
             include blocks/form-elements/buttons/rate/rate.pug
+            +Rate("First")
+            include blocks/form-elements/buttons/rate/rate.pug
+            +Rate("Second")
 
             include blocks/form-elements/buttons/buttons-general/buttons-general.pug
             +buttonWithBg()
@@ -55,6 +57,7 @@ html(lang="ru")
 
             //- ------------ toggle --------------------
             include blocks/form-elements/toggle/toggle.pug
+            +Toggle("first")
             //- ------------ toggle --------------------
 
             //- ------------ range-slider --------------------
@@ -85,5 +88,17 @@ html(lang="ru")
             include blocks/cards/login/login.pug
             
             //- ------------ login --------------------
+
+            //- ------------ registr --------------------
+
+            include blocks/cards/registr/registr.pug
+
+            //- ------------ registr --------------------
+
+            //- ------------ rooms --------------------
+
+            include blocks/cards/rooms/rooms.pug
+
+            //- ------------ rooms --------------------
             
             

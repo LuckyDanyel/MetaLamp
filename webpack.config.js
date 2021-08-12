@@ -116,7 +116,7 @@ module.exports = {
                 ],
             },
             {
-                test: /\.(svg|eot|ttf|woff|woff2|otf)$/,
+                test: /\.(eot|ttf|woff|woff2|otf)$/,
         
                 type: 'asset',
                 generator:{
@@ -126,7 +126,7 @@ module.exports = {
                 },
             },
             {
-                test: /\.(png|jpg|jpeg|gif)$/i,
+                test: /\.(svg|png|jpg|jpeg|gif)$/i,
                 type: 'asset/resource',
                 generator: {
                     

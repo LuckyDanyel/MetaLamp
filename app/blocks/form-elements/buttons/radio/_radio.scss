@@ -9,7 +9,7 @@
     justify-content: space-between;
 }
 .radio__heading {
-    margin-bottom: 8px;
+
 }
 .radio__block {
 }
@@ -34,7 +34,7 @@
         &:checked  {
 
            + .radio__fake {
-          
+            border-color: $Purple;
                 &::before {
                     content: " ";
                     display: block;
@@ -67,7 +67,7 @@
     height: 20px;
 
     border-radius: 100%;
-    border: 1px solid $Purple;
+    border: 1px solid $DarkShade-25;
 
     margin-right: 15px;
 

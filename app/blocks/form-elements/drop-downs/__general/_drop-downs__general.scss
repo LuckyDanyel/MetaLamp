@@ -4,12 +4,20 @@
     display: none;
     flex-direction: column;
     max-width: 320px;
+    width: 100%;
+
+    background-color: white;
+    z-index: 800;
 
     padding-left: 0.6em;
     padding-right: 0.4em;
     padding-bottom: 0.6em;
 
     border: 1px solid $DarkShade-25;
+
+    position: absolute;
+    top: 66px;
+  
 
 
 }
@@ -58,6 +66,9 @@
     max-width: 100px;
     width: 100%;
     
+}
+.drop-downs__guest {
+    position: relative;
 }
 .drop-downs__buttons-guest {
     width: 100%;

@@ -3,9 +3,18 @@
       height: 400px;
       padding-bottom: 15px;
       margin-top: 5px;
-
+      max-width: 320px;
+      width: 100%;
       border: 1px solid $DarkShade-25;
       display: none;
+      background-color: white;
+
+      position: absolute;
+      top: 70px;
+      z-index: 1000;
+
+    
+      
 }
 
 

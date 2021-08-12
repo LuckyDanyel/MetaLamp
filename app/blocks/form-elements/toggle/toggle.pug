@@ -1,4 +1,5 @@
-div(class = "toggle")
-    label(for="invite" class = "toggle__label") Получать спец предложения
-        input(type="checkbox" id = "invite" name="invite" class = "toggle__input")
-        span(class = "toggle__fake")
+mixin Toggle(nameToggle)
+    div(class = "toggle")
+        label(for="invite-" + nameToggle class = "toggle__label") Получать спец предложения
+            input(type="checkbox" id = "invite-" + nameToggle name = "invite-" + nameToggle class = "toggle__input")
+            span(class = "toggle__fake")

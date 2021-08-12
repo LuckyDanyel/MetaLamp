@@ -316,7 +316,7 @@ function DeleteOrSend(ObjectOne, ObjectSecond, ObjectThird, getBlock) {
             ObjectSecond.count = 0;
             ObjectThird.count = 0;
 
-            getDropTextGuest.innerHTML = countAllGuest + " Гостей";
+            
            
             getBlock.style.display = 'none';
             if(countAllGuest > 0){

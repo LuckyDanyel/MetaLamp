@@ -1,0 +1,45 @@
+.registr {
+      max-width: 405px;
+      padding: 45px 30px 30px 30px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+      border-radius: 10px;
+}
+
+.registr-form {
+
+}
+
+.registr__name {
+
+}
+
+.registr__sex {
+
+}
+
+.registr__date {
+      margin: 20px 0;
+}
+
+.registr__data {
+
+}
+
+.registr__toggle {
+      margin: 10px 0 20px 0;
+}
+
+.registr__pay {
+
+}
+
+.registr__footer {
+      margin-top: 30px;
+      display: flex;
+      justify-content: space-between;
+}
+.registr__text {
+      font-family: 'MontserratRegular';
+      font-size: $fn-xs;
+      color: $DarkShade-100;
+}

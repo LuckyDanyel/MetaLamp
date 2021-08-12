@@ -9,8 +9,8 @@ mixin TextUser(firstValue, secondValue, condition, firstName, secondName)
                 h3 Данные для входа в сервис
         input(type="text" class = "text__user text__global text__global_hover-focus" name = firstName id = "text__" + condition + "_first-field"  placeholder = firstValue)
         if condition == "registr"
-            input(type="password" class = "text__user text__global text__global_hover-focus" name = secondName id = "text__" + condition + "_second-field" placeholder = secondValue)
+            input(type="text" class = "text__user text__global text__global_hover-focus" name = secondName id = "text__" + condition + "_second-field" placeholder = secondValue)
         else if condition == "enter"
             input(type="password" class = "text__user text__global text__global_hover-focus" name = secondName id = "text__" + condition + "_second-field" placeholder = secondValue)
         else 
-            input(type="text" class = "text__user text__global text__global_hover-focus" name = secondName id = "text__" + condition + "_second-field" placeholder = secondValue)
+            input(type="password" class = "text__user text__global text__global_hover-focus" name = secondName id = "text__" + condition + "_second-field" placeholder = secondValue)

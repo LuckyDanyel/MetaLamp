@@ -1,5 +1,5 @@
-mixin TextDate()    
+mixin TextDate(nameDate)    
     div(class = "text")
         label(for="text-date")
             h3 Дата рождения
-        input(type="text" class = "text__date text__global text__global_hover-focus" id = "text-date" placeholder = "ДД.ММ.ГГ")
+        input(type="text" class = "text__date text__global text__global_hover-focus" name = nameDate id = "text-date-" + nameDate placeholder = "ММ.ДД.ГГ")

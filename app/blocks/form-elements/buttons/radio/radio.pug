@@ -1,14 +1,14 @@
-
-div(class = "radio")
-    h3(class = "radio__heading") ТЕКСТ
-    div(class = "radio__inner")
-        div(class = "radio__block")
-            label(class = "radio__label" for = "men")
-                input(class = "radio__input" name = "sex" type = "radio" id = "men")
-                span(class = "radio__fake")
-                p(class = "radio__text") Мужчина
-        div(class = "radio__block")
-            label(class = "radio__label" for = "mele")
-                input(class = "radio__input" name = "sex" type = "radio" id = "mele")
-                span(class = "radio__fake")
-                p(class = "radio__text") Женщина
+mixin RadioSex(GroupName)
+    div(class = "radio")
+        h3(class = "radio__heading")
+        div(class = "radio__inner")
+            div(class = "radio__block")
+                label(class = "radio__label" for = "men-" + GroupName)
+                    input(class = "radio__input" name = GroupName type = "radio" id = "men-" + GroupName)
+                    span(class = "radio__fake")
+                    p(class = "radio__text") Мужчина
+            div(class = "radio__block")
+                label(class = "radio__label" for = "mele-" + GroupName)
+                    input(class = "radio__input" name = GroupName type = "radio" id = "mele-" + GroupName)
+                    span(class = "radio__fake")
+                    p(class = "radio__text") Женщина

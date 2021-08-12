@@ -1,31 +1,36 @@
-let getLoginForm = document.querySelector('.login__form');
-let getPasswordLoginForm = getLoginForm.loginPassword;
-let getBtnLoginForm = getLoginForm.btnSign;
-let getLabel = document.querySelector('#text__enter_first-field');
+let getRegistrForm = document.querySelector('.registr-form');
 
-$(getLoginForm).validate({
+
+$(getRegistrForm).validate({
 	rules: {
-		loginName: {
+		RegistrEmail: {
                   required: true, 
                   email: true,
                   minlength: 2,
             },
-            loginPassword: {
+            RegistrPassword: {
                   required: true,
                   maxlength: 20,
                   minlength: 5,
+            },
+            SecondDate:{
+                  required: true,
+                  date: true,
             }
 	},
       messages: {
-            loginName: {
+            SecondDate: {
+                  required: "Обязательное поле",
+                  date: "Неправильный формат даты",
+            },
+            RegistrEmail: {
                   required: "Пожалуйста, введите эмаил",
                   email: "Пожалуйста введите валидный эмаил"
             },
-            loginPassword:{
+            RegistrPassword:{
                   required: "Пожалуйста, введите пароль",
                   maxlength: "Пожалуйста, введите меньше чем 20 символов",
                   minlength: "Пожалуйста, введите больше чем 5 символов"
             }
       }
 });
-
