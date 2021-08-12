@@ -1,0 +1,31 @@
+div(class = "appart")
+      form(action="" class = "appart__form") 
+            div(class = "appart__header")
+                  div(class = "appart__header-left")
+                        span(class = "appart__header-left-item") №
+                        span(class = "appart__header-left-item") 200
+                        span(class = "appart__header-left-item") люкс
+                  div(class = "appart__header-right")
+                        span(class = "appart__header-right-item") 9 990₽
+                        span(class = "appart__header-right-item") в сутки
+            div(class = "appart__date")
+                  include ../../form-elements/drop-downs/__date/drop-downs__date.pug
+            div(class = "appart__guest")
+                  include ../../form-elements/drop-downs/__general/drop-downs__general.pug
+                  +DropBoxGuest()
+            div(class = "appart__main")
+                  p(class = "appart__main-text") 9 990₽ х 4 суток
+                  p(class = "appart__main-text") 39 960₽
+                  p(class = "appart__main-text appart__main-ifno") Сбор за услуги: скидка 2 179₽
+                        span i
+                  p(class = "appart__main-text") 0₽
+                  p(class = "appart__main-text appart__main-ifno") Сбор за дополнительные услуги
+                        span i
+                  p(class = "appart__main-text") 300₽
+            div(class = "appart__footer")
+                  h2(class = "appart__footer-total") Итого
+                  h2(class = "appart__footer-total") 38 081₽
+                  div(class = "appart__btn")
+                        include ../../form-elements/buttons/buttons-general/buttons-general.pug
+                        +buttonBig("Забронировать")
+                  

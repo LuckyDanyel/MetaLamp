@@ -16,9 +16,11 @@ import '../blocks/form-elements/range-slider/range-slider.js';
 
 import '../blocks/form-elements/pagination/pagination.js';
 
-import '../blocks/cards/login/login.js';
+import '../blocks/forms/login/login.js';
 
-import '../blocks/cards/registr/registr.js';
+import '../blocks/forms/registr/registr.js';
 
-import '../blocks/cards/rooms/rooms.js';
+import '../blocks/forms/rooms/rooms.js';
+
+
 

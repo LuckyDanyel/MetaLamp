@@ -1,4 +1,14 @@
 
+
+// -------------------- Global -------------------//
+
+let numberOfPage = window.name - 1;
+
+ // В завимимости на какой странице сейчас находится пользователь, применяется одна функция для конкретной страницы.
+
+// К примеру. Есть функция подсчета гостей, которая должна работать на трех страниц и в зависимости от переменой numberOfPage, функция будет работать на своей странице.
+// 0 означет что функция работает на первой странице(Главная страница)
+
 // -------------------- Rooms ------------------- //
 
 var scoreMinusBedrooms = document.querySelector('#drop-downs__score-minus-Bedrooms');
@@ -35,42 +45,44 @@ let getDropBlockRooms = document.querySelector('.drop-downs__block-general');
 
 // -------------------- Guests ------------------ //
 var Adult = {
-    scoreMinus: document.querySelector('#drop-downs__score-minus-Adults'),
-    value: document.querySelector('#drop-downs__score-value-Adults'),
-    scorePlus: document.querySelector('#drop-downs__score-plus-Adults'),
-    heading: document.querySelector('.drop-downs__h3-Adults').innerHTML,
-    active: document.querySelector('.drop-downs__score-minus_active-Adults'),
+    scoreMinus: document.querySelectorAll('#drop-downs__score-minus-Adults')[numberOfPage],
+    value: document.querySelectorAll('#drop-downs__score-value-Adults')[numberOfPage],
+    scorePlus: document.querySelectorAll('#drop-downs__score-plus-Adults')[numberOfPage],
+    heading: document.querySelectorAll('.drop-downs__h3-Adults')[numberOfPage].innerHTML,
+    active: document.querySelectorAll('.drop-downs__score-minus_active-Adults')[numberOfPage],
     count: 0,
 }
 
+
 var Child = {
-    scoreMinus: document.querySelector('#drop-downs__score-minus-Child'),
-    value: document.querySelector('#drop-downs__score-value-Child'),
-    scorePlus: document.querySelector('#drop-downs__score-plus-Child'),
-    heading: document.querySelector('.drop-downs__h3-Child').innerHTML,
-    active: document.querySelector('.drop-downs__score-minus_active-Child'),
+    scoreMinus: document.querySelectorAll('#drop-downs__score-minus-Child')[numberOfPage],
+    value: document.querySelectorAll('#drop-downs__score-value-Child')[numberOfPage],
+    scorePlus: document.querySelectorAll('#drop-downs__score-plus-Child')[numberOfPage],
+    heading: document.querySelectorAll('.drop-downs__h3-Child')[numberOfPage].innerHTML,
+    active: document.querySelectorAll('.drop-downs__score-minus_active-Child')[numberOfPage],
     count: 0,
 }
 
 var Baby = {
 
-    scoreMinus: document.querySelector('#drop-downs__score-minus-Baby'),
-    value: document.querySelector('#drop-downs__score-value-Baby'),
-    scorePlus: document.querySelector('#drop-downs__score-plus-Baby'),
-    heading: document.querySelector('.drop-downs__h3-Baby').innerHTML,
-    active: document.querySelector('.drop-downs__score-minus_active-Baby'),
+    scoreMinus: document.querySelectorAll('#drop-downs__score-minus-Baby')[numberOfPage],
+    value: document.querySelectorAll('#drop-downs__score-value-Baby')[numberOfPage],
+    scorePlus: document.querySelectorAll('#drop-downs__score-plus-Baby')[numberOfPage],
+    heading: document.querySelectorAll('.drop-downs__h3-Baby')[numberOfPage].innerHTML,
+    active: document.querySelectorAll('.drop-downs__score-minus_active-Baby')[numberOfPage],
     count: 0,
 }
 
 
 
 var countAllGuest = 0;
-let getDropInputGuest = document.getElementById("drop-downs__input-guest");
-let getDropBlockGuest = document.querySelector('.drop-downs__block-guest');
-let getDropTextGuest = document.querySelector('.drop-downs__guest-text');
-let getDropDeleteGuest = document.querySelector('#drop-downs__buttons-item_delete');
-let getDropSendGuest = document.querySelector('#drop-downs__buttons-item_send');
-let getDropButtonsGuest = document.querySelector('.drop-downs__buttons-guest');
+let getDropInputGuest = document.querySelectorAll('#drop-downs__input-guest')[numberOfPage];
+let getDropBlockGuest = document.querySelectorAll('.drop-downs__block-guest')[numberOfPage];
+let getDropTextGuest = document.querySelectorAll('.drop-downs__guest-text')[numberOfPage];
+let getDropTextGuestAllPages = document.querySelectorAll('.drop-downs__guest-text');
+let getDropDeleteGuest = document.querySelectorAll('#drop-downs__buttons-item_delete')[numberOfPage];
+let getDropSendGuest = document.querySelectorAll('#drop-downs__buttons-item_send')[numberOfPage];
+let getDropButtonsGuest = document.querySelectorAll('.drop-downs__buttons-guest')[numberOfPage];
 
 
 
@@ -89,12 +101,10 @@ function clickDropDown(getInput, getBlock) {
     
         e.stopImmediatePropagation();
         this.removeEventListener("click", first);
-        console.log(second);
         getInput.onclick = second;
         getBlock.style.display = 'flex';
     }
     function second() {
-        console.log(first);
         getBlock.style.display = 'none';
         getInput.onclick = first;
     
@@ -281,8 +291,10 @@ function countGuest(Object) {
 function DeleteOrSend(ObjectOne, ObjectSecond, ObjectThird, getBlock) {
     getDropDeleteGuest.addEventListener('click', function () {
         countAllGuest = 0;
-        
-        getDropTextGuest.innerHTML = countAllGuest + " Гостей";
+
+        for(i = 0; i < getDropTextGuestAllPages.length; i++){
+            getDropTextGuestAllPages[i].innerHTML = countAllGuest + " Гостей";
+         }
 
         ObjectOne.value.innerHTML = 0;
         ObjectSecond.value.innerHTML = 0;
@@ -310,7 +322,9 @@ function DeleteOrSend(ObjectOne, ObjectSecond, ObjectThird, getBlock) {
             console.log('Введите количетсво гостей!');
         }
         else {
-                 
+                 for(i = 0; i < getDropTextGuestAllPages.length; i++){
+                    getDropTextGuestAllPages[i].innerHTML = getDropTextGuest.innerHTML;
+                 }
 
              ObjectOne.count = 0;
             ObjectSecond.count = 0;

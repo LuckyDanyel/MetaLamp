@@ -1,4 +1,5 @@
 
+let numberOfPage = window.name - 1;
 
 let getCalendarBlock = document.querySelector('.calendar-filter');
 let getCalendarButtonSend = document.querySelector('.calendar__buttons-item-send-filter');
@@ -12,17 +13,17 @@ let getCalendarFilterDate = document.querySelector('#calendar-filter-date');
 let getCalendarFilterText = document.querySelector('#calendar-filter-text');
 let getItemFilter = document.querySelectorAll('.calednar__days-item-filter');
 
-let getCalendarBlockOne = document.querySelector('.calendar-one');
-let getCalendarButtonSendOne = document.querySelector('.calendar__buttons-item-send-one');
-let getCalendarDeleteOne = document.querySelector('#calendar-delete-one');
-let getDaysBlockOne = document.querySelector('.calednar__days-one');
-let getRightArrowOne = document.querySelector('.calendar__arrow-right-one');
-let getLeftArrowOne = document.querySelector('.calendar__arrow-left-one');
-let getCalendarTitleOne = document.querySelector('.calendar__heading-one');
-let getCalendarBlockFooterOne = document.querySelector('.calendar__footer-one');
-let getCalendarOneDate = document.querySelector('#calendar-date-one');
-let getCalendarOneText = document.querySelector('#calendar__text-one');
-let getCalendarOneTextSecond = document.querySelector('#calendar__text-one-second');
+let getCalendarBlockOne = document.querySelectorAll('.calendar-one')[numberOfPage];
+let getCalendarButtonSendOne = document.querySelectorAll('.calendar__buttons-item-send-one')[numberOfPage];
+let getCalendarDeleteOne = document.querySelectorAll('#calendar-delete-one')[numberOfPage];
+let getDaysBlockOne = document.querySelectorAll('.calednar__days-one')[numberOfPage];
+let getRightArrowOne = document.querySelectorAll('.calendar__arrow-right-one')[numberOfPage];
+let getLeftArrowOne = document.querySelectorAll('.calendar__arrow-left-one')[numberOfPage];
+let getCalendarTitleOne = document.querySelectorAll('.calendar__heading-one')[numberOfPage];
+let getCalendarBlockFooterOne = document.querySelectorAll('.calendar__footer-one')[numberOfPage];
+let getCalendarOneDate = document.querySelectorAll('#calendar-date-one')[numberOfPage];
+let getCalendarOneText = document.querySelectorAll('#calendar__text-one')[numberOfPage];
+let getCalendarOneTextSecond = document.querySelectorAll('#calendar__text-one-second')[numberOfPage];
 
 let isTwoNumberFind = false;
 let typeCalendar;
