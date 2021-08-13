@@ -7,6 +7,7 @@ let getRoomSliderCircle = getRoom.querySelectorAll('.room__circle-item');
 
 let numberImagePlus = 1;
 
+import {setRate} from "../form-elements/buttons/rate/rate";
 
 
 function imageChangeRight() {
@@ -150,16 +151,16 @@ function GetUpdate(item){
       
             $(circleItem).unbind('click');
       }
-      numberImagePlus = 1;
-            $(getRoomSliderItem[3]).css('order', 4);
-            $(getRoomSliderItem[2]).css('order', 3);
-            $(getRoomSliderItem[1]).css('order', 2);
-            $(getRoomSliderItem[0]).css('order', 1);
 
-            getRoomSliderCircle[0].setAttribute("class","room__circle-item room__circle-active");
-            getRoomSliderCircle[1].setAttribute("class","room__circle-item");
-            getRoomSliderCircle[2].setAttribute("class","room__circle-item");
-            getRoomSliderCircle[3].setAttribute("class","room__circle-item");
+      numberImagePlus = 1;
+      $(getRoomSliderItem[3]).css('order', 4);
+      $(getRoomSliderItem[2]).css('order', 3);
+      $(getRoomSliderItem[1]).css('order', 2);
+      $(getRoomSliderItem[0]).css('order', 1);
+      getRoomSliderCircle[0].setAttribute("class","room__circle-item room__circle-active");
+      getRoomSliderCircle[1].setAttribute("class","room__circle-item");
+      getRoomSliderCircle[2].setAttribute("class","room__circle-item");
+      getRoomSliderCircle[3].setAttribute("class","room__circle-item");
 
 
       numberRooms = item; // обновляем
@@ -167,8 +168,6 @@ function GetUpdate(item){
       getRoomSliderItem = getRoom.querySelectorAll('.room__slider-item');
       getRoomSliderArrow = getRoom.querySelectorAll('.room__arrow-item');
       getRoomSliderCircle = getRoom.querySelectorAll('.room__circle-item');
-
-
 
       $(getRoomSliderArrow[1]).click(imageChangeRight.bind(this))  // Добавляем новый обрабочтик событий
 
@@ -178,11 +177,11 @@ function GetUpdate(item){
             $(circleItem).click(circleChagneImage.bind(this, i));
       
       }
-      
-      
-      
+
 }
 for(i = 0; i < getRoomAll.length; i++){
+      let randomRate = Math.floor(Math.random() * 6);
+      setRate(randomRate, i);
       let getRooms = getRoomAll[i];
       $(getRooms).mouseenter(GetUpdate.bind(this, i));
 }
