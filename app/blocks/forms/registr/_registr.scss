@@ -34,9 +34,11 @@
 }
 
 .registr__footer {
+      height: 50px;
       margin-top: 30px;
       display: flex;
       justify-content: space-between;
+      align-items: center;
 }
 .registr__text {
       font-family: 'MontserratRegular';

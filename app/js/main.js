@@ -22,6 +22,8 @@ import '../blocks/forms/registr/registr.js';
 
 import '../blocks/forms/find-rooms/find-rooms.js';
 
+import '../blocks/room/room.js';
+
 
 
 
