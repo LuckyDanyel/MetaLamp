@@ -1,7 +1,7 @@
+
+
 import 'jquery';
 import 'jquery-validation';
-
-
 
 import '../scss/main.scss';
 import '../index.pug';
@@ -20,7 +20,9 @@ import '../blocks/forms/login/login.js';
 
 import '../blocks/forms/registr/registr.js';
 
-import '../blocks/forms/rooms/rooms.js';
+import '../blocks/forms/find-rooms/find-rooms.js';
+
+
 
 
 

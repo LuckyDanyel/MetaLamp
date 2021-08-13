@@ -3,17 +3,14 @@ let widthRate = document.querySelectorAll('.rate__active');
 let rateBlockInputs = document.querySelector('.rate__inputs');
 
 
-
-setRate(3, 0);
-
-setRate(4, 1);
-
 function setRate(value, index){ 
     let countValue;
     countValue = value * 20;
 
     widthRate[index].style.width = String(countValue + "%");
 }
+
+export {setRate};
 // function getRate() {
 //     for(i = 0; i < rateInputs.length; i++){
 //         const index = rateInputs[i];

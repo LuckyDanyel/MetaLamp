@@ -1,16 +1,16 @@
-div(class = "rooms")
-      form(action="" class = "rooms__form") 
-            div(class = "rooms__tilte")
+div(class = "find-rooms")
+      form(action="" class = "find-rooms__form") 
+            div(class = "find-rooms__tilte")
                   h1 Найдем номера под ваши пожелания
-            div(class = "rooms__main")
-                  div(class = "rooms__date")
+            div(class = "find-rooms__main")
+                  div(class = "find-rooms__date")
                         include ../../form-elements/drop-downs/__date/drop-downs__date.pug
 
-                  div(class = "rooms__guest")
+                  div(class = "find-rooms__guest")
                         include ../../form-elements/drop-downs/__general/drop-downs__general.pug
                         +DropBoxGuest()
 
-                  div(class = "rooms__btn")
+                  div(class = "find-rooms__btn")
                         include ../../form-elements/buttons/buttons-general/buttons-general.pug
                         +buttonBig("Подобрать номер")
             

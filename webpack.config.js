@@ -8,6 +8,8 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPugPlugin = require('html-webpack-pug-plugin');
 const CopyWepbackPlugin = require('copy-webpack-plugin');
 
+const NodePolyfillPlugin = require("node-polyfill-webpack-plugin")
+
 
 
 
@@ -24,6 +26,7 @@ const plugins = () =>  {
                 collapseWhitespace: isProd
             }
         }),
+        new NodePolyfillPlugin(),
         new MiniCssExtractPlugin({
             filename: `./css/${filename('css')}`
         }),
