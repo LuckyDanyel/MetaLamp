@@ -14,10 +14,11 @@ html(lang="ru")
             //- ------------ header ------------------
             
             main(class = "main-registr")
-                  div(class = "main-registr__image-block")
-                        img(class = "main-registr__imgae" src = require("./bg.jpg") alt="backgroundimage")
-                  div(class = "main-registr__wrapper")
-                        include ../../blocks/forms/registr/registr.pug
+                  div(class = "main-registr__inner")
+                        div(class = "main-registr__image-block")
+                              img(class = "main-registr__imgae" src = require("./bg.jpg") alt="backgroundimage")
+                        div(class = "main-registr__wrapper")
+                              include ../../blocks/forms/registr/registr.pug
                   
             //- ------------ footer ------------------
 

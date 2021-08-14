@@ -1,11 +1,16 @@
 .main-registr {
-      position: relative;
-      max-height: 780px;
-}
-.main-registr__image-block {
       
 }
+.main-registr__inner {
+      position: relative;
+}
+.main-registr__image-block {
+      max-height: 778px;
+      height: 100vh;
+}
 .main-registr__imgae {
+      min-height: 778px;
+      max-height: 778px;
       width: 100%;
       object-fit: cover;
       object-position: center;
