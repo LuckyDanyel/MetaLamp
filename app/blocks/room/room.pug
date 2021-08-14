@@ -1,65 +1,67 @@
-div(class = "room")
-      div(class = "room__up")
-            div(class = "room__image")
-                  div(class = "room__slider-item") 
-                        img(src = require("./blocks/room/1.jpg") alt = "room")
-                  div(class = "room__slider-item") 2
-                  div(class = "room__slider-item") 3 
-                  div(class = "room__slider-item") 4
-            div(class = "room__arrow")
-                  span(class = "room__arrow-item")
-                  span(class = "room__arrow-item")
-            div(class = "room__circle")
-                  span(class = "room__circle-item room__circle-active")
-                  span(class = "room__circle-item")
-                  span(class = "room__circle-item")
-                  span(class = "room__circle-item")
-      div(class = "room__main")
-            div(class = "room__info")
-                  div(class = "room__info-left")
-                        span(class = "room__info-item-left") №
-                        span(class = "room__info-item-left") 100
-                        span(class = "room__info-item-left") Люкс
+mixin roomLux(pathToImage, number)
+      div(class = "room")
+            div(class = "room__up")
+                  div(class = "room__image")
+                        div(class = "room__slider-item") 
+                              img(src = pathToImage alt = "room")
+                        div(class = "room__slider-item") 2
+                        div(class = "room__slider-item") 3 
+                        div(class = "room__slider-item") 4
+                  div(class = "room__arrow")
+                        span(class = "room__arrow-item")
+                        span(class = "room__arrow-item")
+                  div(class = "room__circle")
+                        span(class = "room__circle-item room__circle-active")
+                        span(class = "room__circle-item")
+                        span(class = "room__circle-item")
+                        span(class = "room__circle-item")
+            div(class = "room__main")
+                  div(class = "room__info")
+                        div(class = "room__info-left")
+                              span(class = "room__info-item-left") №
+                              span(class = "room__info-item-left") #{number}
+                              span(class = "room__info-item-left") Люкс
 
-                  div(class = "room__info-right")
-                        span(class = "room__info-item-right") 9 990₽
-                        span(class = "room__info-item-right") в сутки
-            div(class = "room__footer")
-                  div(class = "room__rate")
-                        include ../form-elements/buttons/rate/rate.pug
-                        +Rate()
-                  div(class = "room__review")
-                        span(class = "room__footer-item") 145
-                        span(class = "room__footer-item") отзывов
-div(class = "room")
-      div(class = "room__up")
-            div(class = "room__image")
-                  div(class = "room__slider-item") 
-                        img(src = require("./blocks/room/room2.jpg") alt = "room")
-                  div(class = "room__slider-item") 2
-                  div(class = "room__slider-item") 3 
-                  div(class = "room__slider-item") 4
-            div(class = "room__arrow")
-                  span(class = "room__arrow-item")
-                  span(class = "room__arrow-item")
-            div(class = "room__circle")
-                  span(class = "room__circle-item room__circle-active")
-                  span(class = "room__circle-item")
-                  span(class = "room__circle-item")
-                  span(class = "room__circle-item")
-      div(class = "room__main")
-            div(class = "room__info")
-                  div(class = "room__info-left")
-                        span(class = "room__info-item-left") №
-                        span(class = "room__info-item-left") 200
+                        div(class = "room__info-right")
+                              span(class = "room__info-item-right") 9 990₽
+                              span(class = "room__info-item-right") в сутки
+                  div(class = "room__footer")
+                        div(class = "room__rate")
+                              include ../form-elements/buttons/rate/rate.pug
+                              +Rate()
+                        div(class = "room__review")
+                              span(class = "room__footer-item") 145
+                              span(class = "room__footer-item") отзывов
+mixin roomUsual(pathToImage, number)
+      div(class = "room")
+            div(class = "room__up")
+                  div(class = "room__image")
+                        div(class = "room__slider-item") 
+                              img(src = pathToImage alt = "room")
+                        div(class = "room__slider-item") 2
+                        div(class = "room__slider-item") 3 
+                        div(class = "room__slider-item") 4
+                  div(class = "room__arrow")
+                        span(class = "room__arrow-item")
+                        span(class = "room__arrow-item")
+                  div(class = "room__circle")
+                        span(class = "room__circle-item room__circle-active")
+                        span(class = "room__circle-item")
+                        span(class = "room__circle-item")
+                        span(class = "room__circle-item")
+            div(class = "room__main")
+                  div(class = "room__info")
+                        div(class = "room__info-left")
+                              span(class = "room__info-item-left") №
+                              span(class = "room__info-item-left") #{number}
 
-                  div(class = "room__info-right")
-                        span(class = "room__info-item-right") 5 000₽
-                        span(class = "room__info-item-right") в сутки
-            div(class = "room__footer")
-                  div(class = "room__rate")
-                        include ../form-elements/buttons/rate/rate.pug
-                        +Rate()
-                  div(class = "room__review")
-                        span(class = "room__footer-item") 145
-                        span(class = "room__footer-item") отзывов
+                        div(class = "room__info-right")
+                              span(class = "room__info-item-right") 5 000₽
+                              span(class = "room__info-item-right") в сутки
+                  div(class = "room__footer")
+                        div(class = "room__rate")
+                              include ../form-elements/buttons/rate/rate.pug
+                              +Rate()
+                        div(class = "room__review")
+                              span(class = "room__footer-item") 145
+                              span(class = "room__footer-item") отзывов

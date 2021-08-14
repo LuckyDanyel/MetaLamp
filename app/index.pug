@@ -7,6 +7,14 @@ html(lang="ru")
             meta(name="viewport", content="width=device-width, initial-scale=1.0")
             title Document
       body
+            //- ------------ header ------------------
+
+            include blocks/header/header.pug
+            +header()
+
+            //- ------------ header ------------------
+
+
             //- ----------- litle blocks ---------------
             //- ----------- text-blocks ----------------
             include blocks/form-elements/text/__subscribe-email/text__subscribe__email.pug
@@ -106,7 +114,25 @@ html(lang="ru")
             //- ------------ room --------------------
 
             include blocks/room/room.pug
-
+            +roomLux(require("./blocks/room/image/room1.jpg"), 100)
+            +roomUsual(require("./blocks/room/image/room2.jpg"), 200)
+            +roomUsual(require("./blocks/room/image/room3.jpg"), 230)
+            +roomUsual(require("./blocks/room/image/room4.jpg"), 245)
+            +roomUsual(require("./blocks/room/image/room5.jpg"), 344)
+            +roomUsual(require("./blocks/room/image/room6.jpg"), 255)
+            +roomUsual(require("./blocks/room/image/room7.jpg"), 677)
+            +roomLux(require("./blocks/room/image/room8.jpg"), 242)
+            +roomUsual(require("./blocks/room/image/room9.jpg"), 323)
+            +roomUsual(require("./blocks/room/image/room10.jpg"), 535)
+            +roomUsual(require("./blocks/room/image/room11.jpg"), 124)
+            +roomLux(require("./blocks/room/image/room12.jpg"), 643)
             //- ------------ room --------------------
+
+
+            //- ------------ footer --------------------
+            
+            include blocks/footer/footer.pug
+
+            //- ------------ footer --------------------
             
             

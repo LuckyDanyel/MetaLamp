@@ -24,6 +24,8 @@ import '../blocks/forms/find-rooms/find-rooms.js';
 
 import '../blocks/room/room.js';
 
+import '../blocks/header/header.js';
+
 
 
 

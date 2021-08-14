@@ -181,8 +181,8 @@ function GetUpdate(item){
 }
 for(i = 0; i < getRoomAll.length; i++){
       let randomRate = Math.floor(Math.random() * 6);
-      setRate(randomRate, i);
       let getRooms = getRoomAll[i];
+      setRate(randomRate, i);
       $(getRooms).mouseenter(GetUpdate.bind(this, i));
 }
 

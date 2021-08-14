@@ -1,4 +1,9 @@
 @import './helpers/global';
+/* ---------- header --------------------------*/
+
+@import '../blocks/header/header.scss';
+
+/* ---------- header --------------------------*/
 
 /*----------- litle blocks ---------------
 //----------- text-blocks  --------------*/
@@ -122,5 +127,13 @@
 @import '../blocks/room/room.scss';
 
 /* ---------- room --------------------------*/
+
+/* ---------- footer --------------------------*/
+
+@import '../blocks/footer/footer.scss';
+
+/* ---------- footer --------------------------*/
+
+
 
 

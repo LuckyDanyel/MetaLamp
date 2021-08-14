@@ -1,0 +1,36 @@
+mixin header(second)
+      if second == "second"
+            header(class = "header")
+                  div(class = "container")
+                        div(class = "header__wrapper")
+                              div(class = "logo")
+                                    img(src = require("./blocks/Logo.svg") alt = "logo")
+                              div(class = "header__right")
+                                    menu(class = "header__menu")
+                                          a(href="#" class = "header__item header__item_active") О нас
+                                          a(href="#" class = "header__item header__item_arrow") Услуги
+                                          a(href="#" class = "header__item") Вакансии 
+                                          a(href="#" class = "header__item") Новости
+                                          a(href="#" class = "header__item header__item_arrow") Соглашения
+                                    div(class = "header__menu-сaesar")
+                                          span Юлий Цезарь
+                                         
+      else
+            header(class = "header")
+                  div(class = "container")
+                        div(class = "header__wrapper")
+                              div(class = "logo")
+                                    img(src = require("./blocks/Logo.svg") alt = "logo")
+                              div(class = "header__right")
+                                    menu(class = "header__menu")
+                                          a(href="#" class = "header__item header__item_active") О нас
+                                          a(href="#" class = "header__item header__item_arrow") Услуги
+                                          a(href="#" class = "header__item") Вакансии 
+                                          a(href="#" class = "header__item") Новости
+                                          a(href="#" class = "header__item header__item_arrow") Соглашения
+                                    div(class = "header__menu-btn")
+                                          a(href="#")
+                                                include ../form-elements/buttons/buttons-general/buttons-general.pug
+                                                +buttonWithBorderSmall("Войти")
+                                          a(href="#")
+                                                +buttonBig("Зарегистрироваться", "no")
