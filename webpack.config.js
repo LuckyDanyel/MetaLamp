@@ -20,8 +20,17 @@ const plugins = () =>  {
         
         new CleanWebpackPlugin(),
         new HTMLWebpackPlugin({
-            template:  path.join(__dirname, 'app/index.pug'),
+            template:  path.join(__dirname, 'app/pages/index/index.pug'),
             filename: 'index.html',
+            chunks: ['index'],
+            minify: {
+                collapseWhitespace: isProd
+            }
+        }),
+        new HTMLWebpackPlugin({
+            template:  path.join(__dirname, 'app/pages/second-page/second-page.pug'),
+            filename: 'second-page.html',
+            chunks: ['second'],
             minify: {
                 collapseWhitespace: isProd
             }
@@ -52,7 +61,10 @@ const plugins = () =>  {
 module.exports = {
     context: path.resolve(__dirname, 'app'),
     mode: 'development',
-    entry: '../app/js/main.js',
+    entry: {
+        index: '../app/pages/index/index.js',
+        second: '../app/pages/second-page/second-page.js',
+    },
     target: process.env.NODE_ENV === "development" ? "web" : "browserslist",
     watch: true,
     experiments: {

@@ -4,31 +4,20 @@ let numberOfPage = 0;
 
 let ruleRight = false;
 
+console.log(getCalendarOneDate);
 
-let getCalendarBlock = document.querySelector('.calendar-filter');
-let getCalendarButtonSend = document.querySelector('.calendar__buttons-item-send-filter');
-let getCalendarFilterDelete = document.querySelector('#calendar-delete-filter');
-let getDaysBlock = document.querySelector('.calednar__days-filter');
-let getRightArrow = document.querySelector('.calendar__arrow-right-filter');
-let getLeftArrow = document.querySelector('.calendar__arrow-left-filter');
-let getCalendarTitleFilter = document.querySelector('.calendar__heading-filter');
-let getCalendarBlockFooter = document.querySelector('.calendar__footer-filter');
-let getCalendarFilterDate = document.querySelector('#calendar-filter-date');
-let getCalendarFilterText = document.querySelector('#calendar-filter-text');
-let getItemFilter = document.querySelectorAll('.calednar__days-item-filter');
-
-
-let getCalendarBlockOne = document.querySelectorAll('.calendar-one')[numberOfPage];
-let getCalendarButtonSendOne = document.querySelectorAll('.calendar__buttons-item-send-one')[numberOfPage];
-let getCalendarDeleteOne = document.querySelectorAll('#calendar-delete-one')[numberOfPage];
-let getDaysBlockOne = document.querySelectorAll('.calednar__days-one')[numberOfPage];
-let getRightArrowOne = document.querySelectorAll('.calendar__arrow-right-one')[numberOfPage];
-let getLeftArrowOne = document.querySelectorAll('.calendar__arrow-left-one')[numberOfPage];
-let getCalendarTitleOne = document.querySelectorAll('.calendar__heading-one')[numberOfPage];
-let getCalendarBlockFooterOne = document.querySelectorAll('.calendar__footer-one')[numberOfPage];
-let getCalendarOneDate = document.querySelectorAll('.calendar-date-one')[numberOfPage];
-let getCalendarOneText = document.querySelectorAll('#calendar__text-one');
-let getCalendarOneTextSecond = document.querySelectorAll('#calendar__text-one-second');
+let getCalendarBlockOne = document.querySelector('.calendar-one');
+let getCalendarButtonSendOne = document.querySelector('.calendar__buttons-item-send-one');
+let getCalendarDeleteOne = document.querySelector('#calendar-delete-one');
+let getDaysBlockOne = document.querySelector('.calednar__days-one');
+let getRightArrowOne = document.querySelector('.calendar__arrow-right-one');
+let getLeftArrowOne = document.querySelector('.calendar__arrow-left-one');
+let getCalendarTitleOne = document.querySelector('.calendar__heading-one');
+let getCalendarBlockFooterOne = document.querySelector('.calendar__footer-one');
+let getCalendarOneDate = document.querySelector('.calendar-date-one');
+let getCalendarOneText = document.querySelector('#calendar__text-one');
+let getCalendarOneTextSecond = document.querySelector('#calendar__text-one-second');
+console.log(getCalendarOneDate);
 
 
 let isTwoNumberFind = false;
@@ -191,7 +180,7 @@ function renderNumberDays(daysItem, type){ // Функция для поиска
                 }
                
             let result;
-            for(i = 0; i < getItem.length; i++){
+            for(let i = 0; i < getItem.length; i++){
                 result = getItem[i];
             
                 result.addEventListener('click', function(e){
@@ -246,7 +235,7 @@ function renderNumberDays(daysItem, type){ // Функция для поиска
                         
                         getItem[dateNumberFirst.index].setAttribute("class", "calednar__days-item calednar__days-item_focus-left");
                         getItem[dateNumberSecond.index].setAttribute("class", "calednar__days-item calednar__days-item_focus-right");
-                        for(i = dateNumberFirst.index + 1; i < dateNumberSecond.index; i++){
+                        for(let i = dateNumberFirst.index + 1; i < dateNumberSecond.index; i++){
                             getItem[i].setAttribute("class", "calednar__days-item calednar__days-item_light");
                         }
                     }
@@ -256,77 +245,77 @@ function renderNumberDays(daysItem, type){ // Функция для поиска
             } 
 }
 
-//------------------ CalendarFilter -------------------------
+// //------------------ CalendarFilter -------------------------
 
-    getRightArrow.addEventListener('click', function(){
-        numberMonth++;
-        date.setMonth(date.getMonth() + 1)
-        if(numberMonth == 12){
-            numberMonth = 0;
-        }
+//     getRightArrow.addEventListener('click', function(){
+//         numberMonth++;
+//         date.setMonth(date.getMonth() + 1)
+//         if(numberMonth == 12){
+//             numberMonth = 0;
+//         }
         
-        renderCalendar(getDaysBlock, getCalendarBlockFooter, getCalendarTitleFilter, "calendar__days-item-filter");
-        renderNumberDays(".calendar__days-item-filter");
+//         renderCalendar(getDaysBlock, getCalendarBlockFooter, getCalendarTitleFilter, "calendar__days-item-filter");
+//         renderNumberDays(".calendar__days-item-filter");
         
-    })
-    getLeftArrow.addEventListener('click', function(){
-        numberMonth--;
-        date.setMonth(date.getMonth() - 1)
-        if(numberMonth == -1){
-            numberMonth = 11;
-        }
-        renderCalendar(getDaysBlock, getCalendarBlockFooter, getCalendarTitleFilter, "calendar__days-item-filter");
-        renderNumberDays(".calendar__days-item-filter");
+//     })
+//     getLeftArrow.addEventListener('click', function(){
+//         numberMonth--;
+//         date.setMonth(date.getMonth() - 1)
+//         if(numberMonth == -1){
+//             numberMonth = 11;
+//         }
+//         renderCalendar(getDaysBlock, getCalendarBlockFooter, getCalendarTitleFilter, "calendar__days-item-filter");
+//         renderNumberDays(".calendar__days-item-filter");
         
-    })
+//     })
 
-    getCalendarButtonSend.addEventListener('click', function() {
-        let result = massiveDays[numberMonth];
-        let nullingDaysFirst = "";
-        let nullingDaysSecond = "";
-        let nullingMonth = "";
-        if(dateNumberSecond.value < 10){
-            nullingDaysSecond = "0";
-        }
-        if(dateNumberFirst.value < 10) {
-            nullingDaysFirst = "0";
-        }
-        if(numberMonth < 10){
-            nullingMonth = "0";
-        }    
+//     getCalendarButtonSend.addEventListener('click', function() {
+//         let result = massiveDays[numberMonth];
+//         let nullingDaysFirst = "";
+//         let nullingDaysSecond = "";
+//         let nullingMonth = "";
+//         if(dateNumberSecond.value < 10){
+//             nullingDaysSecond = "0";
+//         }
+//         if(dateNumberFirst.value < 10) {
+//             nullingDaysFirst = "0";
+//         }
+//         if(numberMonth < 10){
+//             nullingMonth = "0";
+//         }    
         
-        for(i = 0; i < getCalendarOneText.length; i++) {
-            getCalendarOneText[i].innerHTML = nullingDaysFirst + dateNumberFirst.value + "." + nullingMonth + numberMonth + "." + date.getFullYear();
-            getCalendarOneTextSecond[i].innerHTML = nullingDaysSecond + dateNumberSecond.value + "." + nullingMonth + numberMonth + "." + date.getFullYear();
-        }
-        getCalendarFilterText.innerHTML = dateNumberFirst.value + " " + result.substring(0, 3) + " - " + dateNumberSecond.value + " " + result.substring(0, 3);
+//         for(i = 0; i < getCalendarOneText.length; i++) {
+//             getCalendarOneText[i].innerHTML = nullingDaysFirst + dateNumberFirst.value + "." + nullingMonth + numberMonth + "." + date.getFullYear();
+//             getCalendarOneTextSecond[i].innerHTML = nullingDaysSecond + dateNumberSecond.value + "." + nullingMonth + numberMonth + "." + date.getFullYear();
+//         }
+//         getCalendarFilterText.innerHTML = dateNumberFirst.value + " " + result.substring(0, 3) + " - " + dateNumberSecond.value + " " + result.substring(0, 3);
         
-        getCalendarBlock.style.display = 'none';
-        getCalendarFilterDate.addEventListener('click', first);
-    })
-    getCalendarFilterDelete.addEventListener('click', function(){
-        renderCalendar(getDaysBlock, getCalendarBlockFooter, getCalendarTitleFilter, "calendar__days-item-filter");
-        renderNumberDays(".calendar__days-item-filter");
-    })
+//         getCalendarBlock.style.display = 'none';
+//         getCalendarFilterDate.addEventListener('click', first);
+//     })
+//     getCalendarFilterDelete.addEventListener('click', function(){
+//         renderCalendar(getDaysBlock, getCalendarBlockFooter, getCalendarTitleFilter, "calendar__days-item-filter");
+//         renderNumberDays(".calendar__days-item-filter");
+//     })
 
     
-    getCalendarFilterDate.addEventListener('click', first);
+//     getCalendarFilterDate.addEventListener('click', first);
 
-    function first(e) {
-        typeCalendar = "FilterCalendar";
-        renderCalendar(getDaysBlock, getCalendarBlockFooter, getCalendarTitleFilter, "calendar__days-item-filter");
-        renderNumberDays(".calendar__days-item-filter");
+//     function first(e) {
+//         typeCalendar = "FilterCalendar";
+//         renderCalendar(getDaysBlock, getCalendarBlockFooter, getCalendarTitleFilter, "calendar__days-item-filter");
+//         renderNumberDays(".calendar__days-item-filter");
 
-        e.stopImmediatePropagation();
-        this.removeEventListener("click", first);
-        getCalendarFilterDate.onclick = second;
-        getCalendarBlock.style.display = 'block';
-    }
-    function second() {
-        getCalendarBlock.style.display = 'none';
-        getCalendarFilterDate.onclick = first;
+//         e.stopImmediatePropagation();
+//         this.removeEventListener("click", first);
+//         getCalendarFilterDate.onclick = second;
+//         getCalendarBlock.style.display = 'block';
+//     }
+//     function second() {
+//         getCalendarBlock.style.display = 'none';
+//         getCalendarFilterDate.onclick = first;
     
-    }  
+//     }  
 
 
 // ------------------ CalendarOne -------------------------
@@ -372,11 +361,8 @@ function getCalendarButtonSendOneListener(){
     }
 
     numberMonth++;
-    for(i = 0; i < getCalendarOneText.length; i++) {
-        getCalendarOneText[i].innerHTML = nullingDaysFirst + dateNumberFirst.value + "." + nullingMonth + numberMonth + "." + date.getFullYear();
-        getCalendarOneTextSecond[i].innerHTML = nullingDaysSecond + dateNumberSecond.value + "." + nullingMonth + numberMonth + "." + date.getFullYear();
-    }
-    getCalendarFilterText.innerHTML = dateNumberFirst.value + " " + result.substring(0, 3) + " - " + dateNumberSecond.value + " " + result.substring(0, 3);
+        getCalendarOneText.innerHTML = nullingDaysFirst + dateNumberFirst.value + "." + nullingMonth + numberMonth + "." + date.getFullYear();
+        getCalendarOneTextSecond.innerHTML = nullingDaysSecond + dateNumberSecond.value + "." + nullingMonth + numberMonth + "." + date.getFullYear();
 
     getCalendarBlockOne.style.display = 'none';
     numberMonth--;
