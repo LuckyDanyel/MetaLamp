@@ -134,7 +134,7 @@ function circleChagneImage(item){
       }     
 }
 
-for(i = 0; i < getRoomSliderCircle.length; i++){
+for(let i = 0; i < getRoomSliderCircle.length; i++){
       let circleItem = getRoomSliderCircle[i];
 
       $(circleItem).click(circleChagneImage.bind(this, i));
@@ -146,7 +146,7 @@ $(getRoomSliderArrow[1]).click(imageChangeRight.bind(this)) // правая ст
 function GetUpdate(item){
       $(getRoomSliderArrow[1]).unbind('click');  // Удаляем старый обработчик событий
 
-      for(i = 0; i < getRoomSliderCircle.length; i++){
+      for(let i = 0; i < getRoomSliderCircle.length; i++){
             let circleItem = getRoomSliderCircle[i];
       
             $(circleItem).unbind('click');
@@ -171,7 +171,7 @@ function GetUpdate(item){
 
       $(getRoomSliderArrow[1]).click(imageChangeRight.bind(this))  // Добавляем новый обрабочтик событий
 
-      for(i = 0; i < getRoomSliderCircle.length; i++){
+      for(let i = 0; i < getRoomSliderCircle.length; i++){
             let circleItem = getRoomSliderCircle[i];
       
             $(circleItem).click(circleChagneImage.bind(this, i));
@@ -179,7 +179,7 @@ function GetUpdate(item){
       }
 
 }
-for(i = 0; i < getRoomAll.length; i++){
+for(let i = 0; i < getRoomAll.length; i++){
       let randomRate = Math.floor(Math.random() * 6);
       let getRooms = getRoomAll[i];
       setRate(randomRate, i);

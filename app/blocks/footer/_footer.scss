@@ -1,11 +1,15 @@
 .footer {
-
+      padding-top: 100px;
+      border-top: 1px solid $DarkShade-25;
+      background-color: #F6F6F7;
 }
 .footer__wrapper {
       display: grid;
 
       grid-template-columns: repeat(5, auto);
       grid-gap: 0 30px;
+
+      padding-bottom: 100px;
 }
 .footer__logo {
       padding-top: 16px;

@@ -233,10 +233,6 @@ function renderNumberDays(daysItem, type){ // Функция для поиска
             nullingMonth = "0";
         }    
         
-        for(i = 0; i < getCalendarOneText.length; i++) {
-            getCalendarOneText[i].innerHTML = nullingDaysFirst + dateNumberFirst.value + "." + nullingMonth + numberMonth + "." + date.getFullYear();
-            getCalendarOneTextSecond[i].innerHTML = nullingDaysSecond + dateNumberSecond.value + "." + nullingMonth + numberMonth + "." + date.getFullYear();
-        }
         getCalendarFilterText.innerHTML = dateNumberFirst.value + " " + result.substring(0, 3) + " - " + dateNumberSecond.value + " " + result.substring(0, 3);
         
         getCalendarBlock.style.display = 'none';

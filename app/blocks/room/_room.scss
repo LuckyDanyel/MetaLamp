@@ -1,10 +1,10 @@
 .room {
       width: 270px;
       
-      border-radius: 10px;
+      border-radius: 5px;
       overflow: hidden;
       
-      box-shadow: 0 0 10px rgba(0,0,0,0.5)
+      background-color: white;
 }
 
 .room__up {
@@ -24,7 +24,7 @@
       display: inline-block;
       height: 150px;
       width: 270px;
-      border-top-left-radius: 10px;
+      border-top-left-radius: 5px;
 
             &:nth-child(1) {
                   background-color: rgb(0, 0, 0);

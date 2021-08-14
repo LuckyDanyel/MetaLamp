@@ -1,9 +1,70 @@
+
 doctype html
-html(lang="en")
+html(lang="ru")
       head
             meta(charset="UTF-8")
             meta(http-equiv="X-UA-Compatible", content="IE=edge")
             meta(name="viewport", content="width=device-width, initial-scale=1.0")
             title Document
-      body 
-            h3 Здарова ебать
+      body
+            //- ------------ header ------------------
+
+            include ../../blocks/header/header.pug
+            +header()
+
+            //- ------------ header ------------------
+            
+            main(class = "main-second")
+                  div(class = "container")
+                        div(class = "main-second__wrapper")
+                              aside(class = "aside")
+                                    div(class = "main-second__date")
+                                          include ../../blocks/form-elements/drop-downs/__filter-date/drop-downs__filter-date.pug
+
+                                    div(class = "main-second__guest")
+                                          include ../../blocks/form-elements/drop-downs/__general/drop-downs__general.pug
+                                          +DropBoxGuest()
+                                          
+                                    div(class = "main-second__range-slider")
+                                          include ../../blocks/form-elements/range-slider/range-slider.pug
+                                          p(class= "main-second__range-slider-text") Стоимость за сутки пребывания в номере
+
+                                    div(class = "main-second__rules-list")
+                                          include ../../blocks/form-elements/check-box/__buttons/check-box__buttons.pug
+
+                                    div(class = "main-second__reach-list")
+                                          include ../../blocks/form-elements/check-box/__buttons-rich/check-box__buttons-rich.pug
+                                          
+                                    div(class = "main-second__comfort-check")
+                                          include ../../blocks/form-elements/drop-downs/__general/drop-downs__general.pug
+                                          +DropBoxRooms()
+
+                                    div(class = "main-second__comfort-extra")
+                                          include ../../blocks/form-elements/check-box/__list/check-box__list.pug
+
+                              section(class = "main-second__all-rooms")
+                                    div(class = "main-second__heading")
+                                          h1 Номера, которые мы для вас подобрали
+                                    include ../../blocks/room/room.pug
+                                    +roomLux(require("../../blocks/room/image/room1.jpg"), 100)
+                                    +roomUsual(require("../../blocks/room/image/room2.jpg"), 143)
+                                    +roomUsual(require("../../blocks/room/image/room3.jpg"), 323)
+                                    +roomUsual(require("../../blocks/room/image/room4.jpg"), 413)
+                                    +roomUsual(require("../../blocks/room/image/room5.jpg"), 412)
+                                    +roomUsual(require("../../blocks/room/image/room6.jpg"), 563)
+                                    +roomLux(require("../../blocks/room/image/room7.jpg"), 423)
+                                    +roomUsual(require("../../blocks/room/image/room8.jpg"), 521)
+                                    +roomUsual(require("../../blocks/room/image/room9.jpg"), 731)
+                                    +roomUsual(require("../../blocks/room/image/room10.jpg"), 812)
+                                    +roomUsual(require("../../blocks/room/image/room11.jpg"), 467)
+                                    +roomUsual(require("../../blocks/room/image/room12.jpg"), 217)
+                              div(class = "main-second__pagination")
+                                    include ../../blocks/form-elements/pagination/pagination.pug
+                                    
+
+            //- ------------ footer ------------------
+
+            include ../../blocks/footer/footer.pug
+
+            //- ------------ footer ------------------
+            

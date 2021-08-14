@@ -1,5 +1,5 @@
 .range-slider {
-    max-width: 266px;
+    max-width: 310px;
 
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -28,6 +28,7 @@
     color: $DarkShade-50;
 }
 .range-slider__block {
+    margin-top: 25px;
     grid-column: 1/3;
     grid-row: 2/3;
 }
