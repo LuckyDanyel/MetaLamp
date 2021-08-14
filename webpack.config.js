@@ -35,6 +35,14 @@ const plugins = () =>  {
                 collapseWhitespace: isProd
             }
         }),
+        new HTMLWebpackPlugin({
+            template:  path.join(__dirname, 'app/pages/registration/registration.pug'),
+            filename: 'registration.html',
+            chunks: ['registr'],
+            minify: {
+                collapseWhitespace: isProd
+            }
+        }),
         new NodePolyfillPlugin(),
         new MiniCssExtractPlugin({
             filename: `./css/${filename('css')}`
@@ -64,6 +72,7 @@ module.exports = {
     entry: {
         index: '../app/pages/index/index.js',
         second: '../app/pages/second-page/second-page.js',
+        registr: '../app/pages/registration/registration.js',
     },
     target: process.env.NODE_ENV === "development" ? "web" : "browserslist",
     watch: true,
