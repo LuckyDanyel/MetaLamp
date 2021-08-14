@@ -1,11 +1,11 @@
 doctype html
-html(lang="ru")
+html(lang="en")
       head
             meta(charset="UTF-8")
             meta(http-equiv="X-UA-Compatible", content="IE=edge")
             meta(name="viewport", content="width=device-width, initial-scale=1.0")
             title Document
-      body
+      body 
             //- ------------ header ------------------
 
             include ../../blocks/header/header.pug
@@ -13,12 +13,8 @@ html(lang="ru")
 
             //- ------------ header ------------------
             
-            main(class = "main-registr")
-                  div(class = "main-registr__inner")
-                        div(class = "main-registr__image-block")
-                              img(class = "main-registr__imgae" src = require("../bg.jpg") alt="backgroundimage")
-                        div(class = "main-registr__wrapper")
-                              include ../../blocks/forms/registr/registr.pug
+            main(class = 'main-specific')
+                  include ../../blocks/forms/appart/appart.pug
                   
             //- ------------ footer ------------------
 

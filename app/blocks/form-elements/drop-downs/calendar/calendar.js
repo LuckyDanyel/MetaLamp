@@ -4,8 +4,6 @@ let numberOfPage = 0;
 
 let ruleRight = false;
 
-console.log(getCalendarOneDate);
-
 let getCalendarBlockOne = document.querySelector('.calendar-one');
 let getCalendarButtonSendOne = document.querySelector('.calendar__buttons-item-send-one');
 let getCalendarDeleteOne = document.querySelector('#calendar-delete-one');
@@ -17,7 +15,7 @@ let getCalendarBlockFooterOne = document.querySelector('.calendar__footer-one');
 let getCalendarOneDate = document.querySelector('.calendar-date-one');
 let getCalendarOneText = document.querySelector('#calendar__text-one');
 let getCalendarOneTextSecond = document.querySelector('#calendar__text-one-second');
-console.log(getCalendarOneDate);
+
 
 
 let isTwoNumberFind = false;

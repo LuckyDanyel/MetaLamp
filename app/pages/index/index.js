@@ -12,3 +12,7 @@ let getFromBtn = getForm.btnSign;
 $(getFromBtn).click(function(){
       window.location.href = 'second-page.html';
 })
+
+let text = "Дарова, Забеал";
+
+export default text;

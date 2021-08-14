@@ -27,5 +27,6 @@ div(class = "registr")
 
             div(class = "registr__footer")
                   p(class = "registr__text") Уже есть аккаунт на Toxin?
-                  include ../../form-elements/buttons/buttons-general/buttons-general.pug
-                  +buttonWithBorder("Войти")
+                  a(href = "login.html")
+                        include ../../form-elements/buttons/buttons-general/buttons-general.pug
+                        +buttonWithBorder("Войти")

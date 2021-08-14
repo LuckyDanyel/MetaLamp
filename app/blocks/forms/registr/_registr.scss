@@ -40,6 +40,10 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+            a {
+                  display: block;
+                  height: 44px;
+            }
 }
 .registr__text {
       font-family: 'MontserratRegular';

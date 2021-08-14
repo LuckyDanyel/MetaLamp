@@ -8,6 +8,7 @@ div(class = "login")
                   +buttonBig("Войти")
       div(class = "login__footer")
             p(class = "login__text") Нет аккаунта на Toxin?
-            include ../../form-elements/buttons/buttons-general/buttons-general.pug
-            +buttonWithBorder("Создать")
+            a(href = "registration.html")
+                  include ../../form-elements/buttons/buttons-general/buttons-general.pug
+                  +buttonWithBorder("Создать")
             

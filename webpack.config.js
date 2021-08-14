@@ -43,6 +43,22 @@ const plugins = () =>  {
                 collapseWhitespace: isProd
             }
         }),
+        new HTMLWebpackPlugin({
+            template:  path.join(__dirname, 'app/pages/login/login.pug'),
+            filename: 'login.html',
+            chunks: ['login'],
+            minify: {
+                collapseWhitespace: isProd
+            }
+        }),
+        new HTMLWebpackPlugin({
+            template:  path.join(__dirname, 'app/pages/specific/specific.pug'),
+            filename: 'specific.html',
+            chunks: ['specific'],
+            minify: {
+                collapseWhitespace: isProd
+            }
+        }),
         new NodePolyfillPlugin(),
         new MiniCssExtractPlugin({
             filename: `./css/${filename('css')}`
@@ -73,6 +89,8 @@ module.exports = {
         index: '../app/pages/index/index.js',
         second: '../app/pages/second-page/second-page.js',
         registr: '../app/pages/registration/registration.js',
+        login: '../app/pages/login/login.js',
+        specific: '../app/pages/specific/specific.js',
     },
     target: process.env.NODE_ENV === "development" ? "web" : "browserslist",
     watch: true,

@@ -20,7 +20,8 @@ mixin header(second)
                   div(class = "container")
                         div(class = "header__wrapper")
                               div(class = "logo")
-                                    img(src = require("../../blocks/Logo.svg") alt = "logo")
+                                    a(href = "index.html") 
+                                          img(src = require("../../blocks/Logo.svg") alt = "logo")
                               div(class = "header__right")
                                     menu(class = "header__menu")
                                           a(href="#" class = "header__item header__item_active") О нас
@@ -29,7 +30,7 @@ mixin header(second)
                                           a(href="#" class = "header__item") Новости
                                           a(href="#" class = "header__item header__item_arrow") Соглашения
                                     div(class = "header__menu-btn")
-                                          a(href="#")
+                                          a(href="login.html")
                                                 include ../form-elements/buttons/buttons-general/buttons-general.pug
                                                 +buttonWithBorderSmall("Войти")
                                           a(href = "registration.html")

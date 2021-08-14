@@ -1,0 +1,31 @@
+.main-login {
+      
+}
+.main-login__inner {
+      position: relative;
+}
+.main-login__image-block {
+      max-height: 778px;
+      height: 100vh;
+}
+.main-login__imgae {
+      min-height: 778px;
+      max-height: 778px;
+      width: 100%;
+      object-fit: cover;
+      object-position: center;
+}
+.main-login__wrapper {
+      max-width: 1170px;
+      max-height: 780px;
+      height: 100vh;
+      top: 0;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+      position: absolute;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+}
