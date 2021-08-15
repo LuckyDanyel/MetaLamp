@@ -2,7 +2,7 @@ mixin TextUser(firstValue, secondValue, condition, firstName, secondName)
     div(class = "text")
         label(for = "text__" + condition + "_first-field")
             if condition == "registr"
-                h1 Регистрация аккаунта
+                h1(class = "text__heading-registr") Регистрация аккаунта
             else if condition == "enter"
                 h1 Войти
             else 

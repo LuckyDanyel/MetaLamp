@@ -5,3 +5,11 @@
                 max-width: 267px;
         }
 }
+@include media(large) {
+        .text__subscribe-email {
+
+                &_width {
+                        max-width: 100%;
+                }
+        }
+}

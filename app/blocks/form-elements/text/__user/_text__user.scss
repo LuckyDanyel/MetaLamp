@@ -1,7 +1,12 @@
 
 
-.text {
-      h1 {
-            margin-bottom: 25px;
-      }
+.text__heading-registr {
+      margin-bottom: 25px;
 }
+@include media(large) {
+      .text__heading-registr {
+          font-size: 1.25rem;
+          margin-bottom: 10px;
+      }
+  
+  }
