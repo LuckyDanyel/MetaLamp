@@ -2,6 +2,8 @@
 import '../../scss/main.scss';
 import './second-page.pug';
 
+import '../../blocks/header/header.js';
+
 import '../../blocks/form-elements/range-slider/range-slider.js';
 
 import '../../blocks/form-elements/drop-downs/calendar/calendar-filter.js';

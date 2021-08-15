@@ -4,5 +4,13 @@
     }
        
 }
+@include media(extraSmall) {
+    .drop-downs__date {
+        &_width {
+            width: 100%;
+        }
+    }
+}
+
 
 

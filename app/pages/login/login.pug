@@ -12,14 +12,14 @@ html(lang="en")
             +header()
 
             //- ------------ header ------------------
-            
-            main(class = "main-login")
-                  div(class = "main-login__inner")
-                        div(class = "main-login__image-block")
-                              img(class = "main-login__imgae" src = require("../bg.jpg") alt="backgroundimage")
-                        div(class = "main-login__wrapper")
-                              include ../../blocks/forms/login/login.pug
                   
+            main(class = "main-login")
+                  div(class = "main-logn__image")
+                        img(class = "main-login__image-item" src = require("../bg.jpg") alt = " ")
+                  div(class = "main-login__container")
+                        div(class = "main-login__wrapper")
+                              div(class = "main-login__find-rooms")
+                                          include ../../blocks/forms/login/login.pug
             //- ------------ footer ------------------
 
             include ../../blocks/footer/footer.pug

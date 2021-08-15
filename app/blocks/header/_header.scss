@@ -1,5 +1,6 @@
 .header {
-     
+     padding-left: 15px;
+     padding-right: 15px;
 }
 .header__wrapper {
       display: flex;
@@ -41,6 +42,9 @@
       &:nth-child(5) {
             width: 109px;
       }
+}
+.header__item_display-none {
+      display: none;
 }
 .header__item_arrow {
       position: relative;
@@ -89,5 +93,72 @@
             color: $DarkShade-50;
             font-size: $fn-xs;
             font-family: 'MontserratRegular';
+      }
+}
+.burger__menu {
+      display: none;
+     height: 100%;
+     align-items: center;
+     flex-direction: column;
+     justify-content: center;
+     margin-right: 10px;
+
+            &:hover {
+                  cursor: pointer;
+      }
+}
+.burger__item{
+            display: block;
+            width: 30px;
+            height: 4px;
+            background: linear-gradient($Purple, $Blue);
+            margin-bottom: 3px;
+            border-radius: 5px;
+
+}
+@include media(large) {
+      .burger__menu {
+            display: flex;
+      }
+      .header__menu {
+            display: none;
+            padding: 30px 15px 45px 30px;
+            height: auto;
+            margin: 0;
+            max-width: none;
+            width: 100%;
+            top: 70px;
+            right: 0;
+            position: absolute;
+            flex-direction: column;
+            align-items: flex-start;
+            background-color: $Blue;
+            z-index: 100;
+                  .header__item {
+                        width: 100%;
+                        display: inline-block;
+                        color: white;
+                        padding: 12px 0;
+                        border-bottom: 1px solid rgb(247, 246, 246);
+                              &:hover {
+                                    opacity: 1;
+
+                              }
+                  }
+            
+      }
+      .header__item_arrow {
+            
+                  &::after {
+                        top: 12px;
+                        right: 6px;
+                  }
+      }
+      .header__item_display-none {
+            display: inline-block;
+      }
+    
+      .header__menu-btn {
+            display: none;
       }
 }

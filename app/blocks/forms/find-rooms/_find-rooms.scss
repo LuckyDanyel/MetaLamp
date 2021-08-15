@@ -25,3 +25,15 @@
 .find-rooms__btn {
       height: 44px;
 }
+
+@include media(extraSmall) {
+      .find-rooms {
+            padding-top: 30px;
+      }
+      .find-rooms__tilte {
+            margin-bottom: 20px;
+            h1 {
+                  font-size: 1.25rem; 
+            }
+      }
+}

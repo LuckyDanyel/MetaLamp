@@ -4,7 +4,16 @@
 }
 
 @mixin media($breakpoint){
-    
+    @if($breakpoint == extraSmall) {
+          @media(max-width: 400px) {
+                @content;
+          }
+    }
+    @if($breakpoint == large) {
+          @media(max-width: 960px) {
+                @content;
+          }
+    }
 }
 
 @mixin arrowRight($colorOne, $top, $direction) {

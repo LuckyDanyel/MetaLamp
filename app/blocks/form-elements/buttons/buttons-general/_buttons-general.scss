@@ -94,3 +94,8 @@
 .buttons-general__big-arrow {
     @include arrowRight(white, 5px, right);
 }
+@include media(large) {
+    .buttons-general__big-arrow {
+        display: none;
+    }
+}

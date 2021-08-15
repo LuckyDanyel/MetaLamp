@@ -10,5 +10,10 @@
     }
      
 }
+@include media(extraSmall) {
+    .drop-downs__date {
+        flex-direction: column;
+    }
+}
 
 

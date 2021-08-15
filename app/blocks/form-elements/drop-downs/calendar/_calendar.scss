@@ -3,7 +3,9 @@
       height: 400px;
       padding-bottom: 15px;
       margin-top: 5px;
-      width: 320px;
+      min-width: 285px;
+      width: 100%;
+      max-width: 320px;
       border: 1px solid $DarkShade-25;
       display: none;
       background-color: white;
@@ -164,4 +166,9 @@
       color: $DarkShade-5;
 
            
+}
+@include media(extraSmall) {
+    .calendar {
+          left: -27px;
+    }
 }

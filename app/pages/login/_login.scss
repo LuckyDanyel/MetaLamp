@@ -1,31 +1,35 @@
 .main-login {
-      
-}
-.main-login__inner {
       position: relative;
+      min-height: 450px;
+      height: 100vw;
+      max-height: 840px;
 }
-.main-login__image-block {
-      max-height: 778px;
-      height: 100vh;
+.main-login__image {
 }
-.main-login__imgae {
-      min-height: 778px;
-      max-height: 778px;
+.main-login__image-item {
       width: 100%;
+      height: 100vw;
+      min-height: 450px;
+      max-height: 840px;
       object-fit: cover;
       object-position: center;
 }
-.main-login__wrapper {
-      max-width: 1170px;
-      max-height: 780px;
-      height: 100vh;
+.main-login__container {
+      padding-left: 15px;
+      padding-right: 15px;
+      height: 420px;
+      max-width: 380px;
+      width: 100%;
+      position: absolute;
       top: 0;
       left: 0;
       right: 0;
-      margin: 0 auto;
-      position: absolute;
+      bottom: 0;
+      margin: auto;
+}
+.main-login__wrapper {
 
-      display: flex;
-      justify-content: center;
-      align-items: center;
+}
+.main-login__find-rooms {
+
 }
