@@ -14,7 +14,44 @@ html(lang="en")
             //- ------------ header ------------------
             
             main(class = 'main-specific')
-                  include ../../blocks/forms/appart/appart.pug
+                  div(class = "container")
+                        div(class = "main-specific__wrapper")
+                              div(class = "main-specific__up")
+                                    div(class = "main-specific__up-left")
+                                          h2(class = "main-specific__up-left-heading") Сведения о номере
+                                          include ../../blocks/form-elements/comfort/comfort.pug
+                                    div(class = "main-specific__up-right")
+                                          h2(class = "main-specific__up-right-heading") Впечатления о номере
+                                          div(class = "voices")
+                                                div(class = "voices__circle")
+                                                      div(class = "voices__circle-wrapper")
+                                                      div(class = "voices__circle-super")
+                                                      div(class = "voices__circle-good")
+                                                      div(class = "voices__circle-satisfy")
+                                                      div(class = "voices__circle-no-good")
+                                                      div(class = "voices__circle-text")
+                                                            span 260
+                                                            span голосов
+                                                ul(class = "voices__list")
+                                                      li(class = "voices__item") Великолепно
+                                                      li(class = "voices__item") Хорошо
+                                                      li(class = "voices__item") Удовлетворительно
+                                                      li(class = "voices__item") Разочарован
+                                    div(class = "main-specific__down")
+                                          h2(class = "main-specific__down-title") Отзывы посетителей номера
+                                          include ../../blocks/form-elements/review/review.pug
+                                          +review(require("../../blocks/form-elements/review/image/human1.png"), "Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.")
+                                          +review(require("../../blocks/form-elements/review/image/human2.png"), "Обслуживание на высоте! Всё аккуратно, чисто. Завтраки в номер советую заказать, каждый день новое блюдо и десерт как комплимент")
+
+                              div(class = "main-specific__appart")
+                                    include ../../blocks/forms/appart/appart.pug
+                        div(class = "main-specific__footer")
+                              div(class = "main-specific__rules")
+                                    h2(class = "main-specific__heading-rules") Правила
+                                    include ../../blocks/form-elements/bullet-list/bullet-list.pug
+                              div(class = "main-specific__stop")
+                                    h2(class = "main-specific__heading-stop") Отмена
+                                    p(class = "main-specific__text-stop") Бесплатная отмена в течение 48 ч. После этого при отмене не позднее чем за 5 дн. до прибытия вы получите полный возврат за вычетом сбора за услуги.
                   
             //- ------------ footer ------------------
 

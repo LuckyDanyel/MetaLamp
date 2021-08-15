@@ -10,6 +10,10 @@
       padding: 22px 0;
 
       border-bottom: 1px solid $DarkShade-25;
+
+            &:nth-child(3){
+                  border-bottom: none;
+            }
 }
 
 .comfort__image {

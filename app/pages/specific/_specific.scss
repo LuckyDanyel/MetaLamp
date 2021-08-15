@@ -1,0 +1,199 @@
+.main-specific {
+      padding-top: 70px;
+      padding-bottom: 100px;
+      background-color: #F6F6F7;
+}
+.main-specific__heading {
+
+}
+.main-specific__wrapper {
+      width: 100%;
+      display: grid;
+      grid-template-columns: auto auto;
+      grid-template-rows: auto auto
+}
+.main-specific__up {
+      display: grid;
+      grid-template-columns: 320px auto;
+      grid-template-rows: 350px auto;
+}
+.main-specific__up-left {
+
+}
+.main-specific__up-left-heading {
+      margin-bottom: 10px;
+}
+.main-specific__up-right {
+      justify-self: end;
+      width: 100%;
+      max-width: 320px;
+}
+.main-specific__up-right-heading {
+
+}
+.voices {
+      
+      margin-top: 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+}
+.voices__circle {
+      
+      padding: 5px;
+      width: 120px;
+      height: 120px;
+      position: relative;
+      border-radius: 100%;
+      overflow: hidden;
+      
+}
+.voices__circle-wrapper {
+     width: 93%;
+     height: 93%;
+     border-radius: 100%;
+     background-color: #F6F6F7;
+     position: absolute;
+     z-index: 4;
+     top: 0;
+     left: 0;
+     right: 0;
+     bottom: 0;
+     margin: auto auto;
+     
+}
+.voices__circle-super {
+      height: 87%;
+      width: 50%;
+      position: absolute;
+      background: linear-gradient(to top, #FFE39C, #FFBA9C);
+      top: 0;
+      left: 0;
+      z-index: 3;
+}
+.voices__circle-good {
+      height: 50%;
+      width: 50%;
+      position: absolute;
+      top: 0;
+      right: 0;
+      background: linear-gradient(to top, #6FCF97, #66D2EA);
+      z-index: 2;
+}
+.voices__circle-satisfy {
+      height: 50%;
+      width: 50%;
+      position: absolute; 
+      background: linear-gradient(to top ,#BC9CFF, #8BA4F9);
+      bottom: 0;
+      left: 0;
+      z-index: 1;
+}
+.voices__circle-no-good {
+      height: 50%;
+      width: 50%;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      z-index: 0;
+      background: linear-gradient(to top, #909090, #3D4975);
+}
+.voices__circle-text {
+      width: 72px;
+      height: 50px;
+      position: absolute;
+      z-index: 6;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      margin: auto auto;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      span {
+            &:nth-child(1){
+                  color: $Purple;
+                  font-family: 'MontserratBold';
+                  font-size: $fn-m;
+            }
+            &:nth-child(2){
+                  color: $Purple;
+                  font-family: 'MontserratBold';
+                  font-size: $fn-xs;
+            }
+      }
+}
+.voices__list {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+}
+.voices__item {
+      font-family: 'MontserratRegular';
+      font-size: $fn-xs;
+      line-height: 24px;
+
+      &::before {
+            content: ' ';
+            width: 11px;
+            height: 11px;
+            display: inline-block;
+            border-radius: 100%;
+            margin-right: 9px;
+            
+      }
+
+      &:nth-child(1) {
+            
+            &::before {
+                  background: linear-gradient(#FFE39C, #FFBA9C);
+            }
+      }
+      &:nth-child(2) {
+           
+            &::before {
+                  background: linear-gradient(#6FCF97, #66D2EA);
+            }
+      }
+      &:nth-child(3) {
+           
+            &::before {
+                  background: linear-gradient(#BC9CFF, #8BA4F9);
+            }
+      }
+      &:nth-child(4) {
+            
+            &::before {
+                  background: linear-gradient(#909090, #3D4975);
+            }
+      }
+}
+.main-specific__down {
+      grid-column: 1/3;
+}
+.main-specific__appart {
+      justify-self: end;
+}
+.main-specific__footer {
+      margin-top: 50px;
+      max-width: 760px;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+}
+.main-specific__rules {
+
+}
+.main-specific__stop {
+      max-width: 340px;
+      width: 100%;
+}
+.main-specific__text-stop {
+
+      font-family: 'MontserratRegular';
+      font-size: $fn-xs;
+      line-height: 24px;
+      color: $DarkShade-75;
+}

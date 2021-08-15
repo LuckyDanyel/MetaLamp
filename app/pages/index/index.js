@@ -10,9 +10,11 @@ let getForm = document.querySelector('.find-rooms__form');
 let getFromBtn = getForm.btnSign;
 
 $(getFromBtn).click(function(){
-      window.location.href = 'second-page.html';
+      let getTextInputCalendar = document.querySelector('#calendar__text-one').innerHTML;
+      let getTextInputCalendarSecond = document.querySelector('#calendar__text-one-second').innerHTML;;
+      let getTextInputGuest = document.querySelector('.drop-downs__guest-text').innerHTML;
+
+      let url = "second-page.html" + "?" + getTextInputCalendar.substring(0, 5) + "?" + getTextInputCalendarSecond.substring(0, 5) + "?" + getTextInputGuest;
+      window.location = url;
 })
 
-let text = "Дарова, Забеал";
-
-export default text;

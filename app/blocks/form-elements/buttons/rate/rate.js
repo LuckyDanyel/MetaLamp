@@ -11,20 +11,3 @@ function setRate(value, index){
 }
 
 export {setRate};
-// function getRate() {
-//     for(i = 0; i < rateInputs.length; i++){
-//         const index = rateInputs[i];
-//         index.addEventListener('mouseenter', function(e){
-//             setRate(index.value);
-//         })
-//         index.addEventListener('click', function(e){
-//             valueFinishRaing = index.value;
-//             setRate(valueFinishRaing);
-//         })
-//         rateBlockInputs.addEventListener('mouseleave', function(e){
-//             setRate(valueFinishRaing);
-//         })
-        
-//     }
-// }
-// getRate();
