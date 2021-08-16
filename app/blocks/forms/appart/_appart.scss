@@ -107,8 +107,10 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       grid-template-rows: auto auto;
+
 }
 .appart__footer-total {
+      white-space: nowrap;
       &:nth-child(1){
             justify-self: start;
       }
