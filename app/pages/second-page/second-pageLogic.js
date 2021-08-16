@@ -4,6 +4,10 @@ let getAllRoom = document.querySelectorAll('.room__box');
 let getNumber = document.querySelectorAll('.room__info-item-left');
 let getCalendarTextFilter = document.querySelector('#calendar-filter-text');
 let getGuestText = document.querySelector('.drop-downs__guest-text');
+let getBtnFilter = document.querySelector('.aside__filter-btn');
+let getBtnEnd = document.querySelector('.aside__filter-end');
+let firstClick = true;
+let firstClickEnd = false;
 
 let masiveMonth = ["Янв", "Фев", "Мар", "Апр", "Май", "Июн", "Июл", "Авг", "Сен", "Окт", "Ноя", "Дек"];
 
@@ -45,3 +49,71 @@ function findRoom(numberRoom) {
       console.log(sendCalendarTextFilter, sendCountGuest);
       window.location = 'specific.html?' + sendNumberRoom + "?" + isLux + "?" + priceRoom.split(" ")[0] + priceRoom.split(" ")[1] + "?" + sendCalendarTextFilter + "?" + sendCountGuest; 
 }
+
+      $(document).scroll(function(){
+                  if(window.innerWidth > 890 && window.innerWidth < 1200) {
+                        let marginTop = 0;
+                        let scrolled = $(this).scrollTop();
+                        console.log(scrolled, document.body.scrollHeight - scrolled - 1200);
+                        marginTop = scrolled - 50;
+                        if(scrolled < 600) {
+                              $('.aside').css("margin-top", 0 + "px")
+                        }
+                        if( scrolled > 601 && scrolled < document.body.scrollHeight - scrolled - 1200) {
+                           $('.aside').css("margin-top", marginTop + "px")
+                        
+                        }
+                  }
+                  if(window.innerWidth > 650 && window.innerWidth < 890) {
+                        let marginTop = 0;
+                        let scrolled = $(this).scrollTop();
+                        console.log(scrolled, document.body.scrollHeight - scrolled - 1200);
+                        marginTop = scrolled - 50;
+                        if(scrolled < 600) {
+                              $('.aside').css("margin-top", 0 + "px")
+                        }
+                        if( scrolled > 601 && scrolled < document.body.scrollHeight - scrolled + 300) {
+                           $('.aside').css("margin-top", marginTop + "px")
+                        
+                        }
+                  }
+      
+        });
+           
+        $(getBtnFilter).click(function(){
+            console.log("Первая фунция");
+              if(firstClick == true) {
+                  $('.aside').show();
+                  $('.aside__filter-end').show();
+                  firstClick = false;
+                  firstClickEnd = true;
+              } else {
+                  firstClick = true;
+              }
+        })
+
+        getBtnEnd.addEventListener('click', function(){
+            console.log("Вторая фунция")
+            if(firstClickEnd == true){
+                  $('.aside').hide();
+                  $('.aside__filter-end').hide();
+                  firstClickEnd = false;
+                  
+            }       
+        })
+      
+const mediaMin = window.matchMedia('(min-width: 651px)')
+
+
+function displayAsideMin(e) {
+      if (e.matches) {
+            $('.aside').show();
+      } else {
+            $('.aside__filter-end').hide();
+            $('.aside').hide();
+            firstClick = true;
+      }
+    }
+    mediaMin.addListener(displayAsideMin)
+    displayAsideMin(mediaMin)
+ 

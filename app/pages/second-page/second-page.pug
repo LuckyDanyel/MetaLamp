@@ -41,7 +41,12 @@ html(lang="ru")
 
                                     div(class = "main-second__comfort-extra")
                                           include ../../blocks/form-elements/check-box/__list/check-box__list.pug
-
+                              div(class = "aside__filter-btn")
+                                    span Все фильтры
+                                    div(class = "asside__filter-img")
+                                          img(src = require("./filter.svg") alt = "icon-filter")
+                                    div(class = "aside__filter-end")
+                                          img(src = require("./end.svg") alt = "icon-end")
                               section(class = "main-second__all-rooms")
                                     div(class = "main-second__heading")
                                           h1 Номера, которые мы для вас подобрали

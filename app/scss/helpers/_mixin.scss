@@ -9,16 +9,31 @@
                 @content;
           }
     }
+    @if($breakpoint == mediumSmall) {
+      @media(max-width: 650px) {
+            @content;
+            }
+      }
+    @if($breakpoint == medium) {
+      @media(max-width: 760px) {
+            @content;
+            }
+      }
     @if($breakpoint == large) {
           @media(max-width: 960px) {
                 @content;
           }
     }
-    @if($breakpoint == medium) {
-      @media(max-width: 760px) {
-            @content;
+      @if($breakpoint == largeMeduim) {
+        @media(max-width: 890px) {
+              @content;
+        }
       }
-}
+      @if($breakpoint == extraLarge) {
+            @media(max-width: 1200px) {
+                  @content;
+            }
+      }
 }
 
 @mixin arrowRight($colorOne, $top, $direction) {
