@@ -80,6 +80,9 @@
                   justify-self: end;
                   
             }
+            &:nth-child(2) {
+                  white-space: nowrap;
+            }
      
       
 }

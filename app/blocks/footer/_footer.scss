@@ -34,20 +34,21 @@
       list-style-type: none;
 
        &:nth-child(1) {
-
-       }
+            
+            }
        &:nth-child(2) {
-             
-      }
+            white-space: nowrap; 
+            }
       &:nth-child(3) {
-             
-      }
+            white-space: nowrap;    
+            }
       &:nth-child(4) {
+            white-space: nowrap;
              justify-self: center;
-      }
+            }
       &:nth-child(5) {
             justify-self: center;
-      }
+            }
 }
 .footer__item {
       color: $DarkShade-50;
