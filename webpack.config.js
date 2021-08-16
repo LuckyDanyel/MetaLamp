@@ -9,6 +9,7 @@ const HtmlWebpackPugPlugin = require('html-webpack-pug-plugin');
 const CopyWepbackPlugin = require('copy-webpack-plugin');
 
 const NodePolyfillPlugin = require("node-polyfill-webpack-plugin")
+const CompressionPlugin = require("compression-webpack-plugin");
 
 
 
@@ -67,7 +68,6 @@ const plugins = () =>  {
             $: 'jquery', 
             jQuery: 'jquery',
           }),
-        
             
         require('autoprefixer'),
       
@@ -112,6 +112,11 @@ module.exports = {
         port: 8080,
        
 
+    },
+    optimization: {
+        splitChunks: {
+            chunks: 'all'
+        }
     },
     plugins: plugins(),
      devtool: 'source-map',
