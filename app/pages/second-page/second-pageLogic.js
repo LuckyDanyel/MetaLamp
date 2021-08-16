@@ -54,7 +54,7 @@ function findRoom(numberRoom) {
                   if(window.innerWidth > 890 && window.innerWidth < 1200) {
                         let marginTop = 0;
                         let scrolled = $(this).scrollTop();
-                        console.log(scrolled, document.body.scrollHeight - scrolled - 1200);
+                       
                         marginTop = scrolled - 50;
                         if(scrolled < 600) {
                               $('.aside').css("margin-top", 0 + "px")
@@ -67,7 +67,7 @@ function findRoom(numberRoom) {
                   if(window.innerWidth > 650 && window.innerWidth < 890) {
                         let marginTop = 0;
                         let scrolled = $(this).scrollTop();
-                        console.log(scrolled, document.body.scrollHeight - scrolled - 1200);
+                        
                         marginTop = scrolled - 50;
                         if(scrolled < 600) {
                               $('.aside').css("margin-top", 0 + "px")
