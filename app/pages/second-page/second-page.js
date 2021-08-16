@@ -1,5 +1,5 @@
 
-import '../../scss/main.scss';
+import './second-page.scss';
 import './second-page.pug';
 
 import '../../blocks/header/header.js';

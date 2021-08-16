@@ -1,7 +1,7 @@
 
 import 'jquery';
 
-import '../../scss/main.scss';
+import './specific.scss';
 import './specific.pug';
 
 import './specificLogic.js';

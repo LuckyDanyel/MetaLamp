@@ -1,5 +1,6 @@
 
-import '../../scss/main.scss';
+// import '../../scss/main.scss';
+import './index.scss';
 import './index.pug';
 
 import '../../blocks/header/header.js';

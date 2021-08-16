@@ -1,7 +1,7 @@
 import 'jquery';
 import 'jquery-validation';
 
-import '../../scss/main.scss';
+import './registration.scss';
 import './registration.pug';
 import '../../blocks/header/header.js';
 

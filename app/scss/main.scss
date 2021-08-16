@@ -1,40 +1,11 @@
 
 @import './helpers/global';
 
-/* ---------- Main-page --------------------------*/
 
-@import '../pages/index/index.scss';
-
-/* ---------- Main-page --------------------------*/
-
-/* ---------- Second-page --------------------------*/
-
-@import '../pages/second-page/second-page.scss';
-
-/* ---------- Second-page --------------------------*/
-
-/* ---------- Registration-page --------------------------*/
-
-@import '../pages/registration/registration.scss';
-
-/* ---------- Registration-page --------------------------*/
-
-/* ---------- login-page --------------------------*/
-
-@import '../pages//login/login.scss';
-
-/* ---------- login-page --------------------------*/
-
-
-/* ---------- Specific-page --------------------------*/
-
-@import '../pages/specific/specific.scss';
 
 /* ---------- specific --------------------------*/
 
 /* ---------- header --------------------------*/
-
-@import '../blocks/header/header.scss';
 
 /* ---------- header --------------------------*/
 
@@ -61,8 +32,6 @@
 @import '../blocks/form-elements/drop-downs/__general/_width/drop-downs__general_width.scss';
 
 @import '../blocks/form-elements/drop-downs/drop-downs.scss';
-
-@import '../blocks/form-elements/drop-downs/calendar/calendar.scss';
 /*----------- drop-downs-blocks  --------------*/
 
 /*----------- check-box-blocks ------------------*/

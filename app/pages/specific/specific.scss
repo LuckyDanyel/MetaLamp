@@ -1,3 +1,36 @@
+
+@import '../../scss/helpers/global.scss';
+
+@import '../../blocks/footer/footer.scss';
+@import '../../blocks/header/header.scss';
+
+
+@import '../../blocks/form-elements/buttons/buttons-general/buttons-general.scss';
+
+@import '../../blocks/form-elements/drop-downs/calendar/calendar.scss';
+@import '../../blocks/form-elements/drop-downs/__date/drop-downs__date.scss';
+@import '../../blocks/form-elements/drop-downs/drop-downs.scss';
+@import '../../blocks/form-elements/drop-downs/__general/drop-downs__general.scss';
+@import '../../blocks/form-elements/drop-downs/__date/_width/drop-downs__date_width.scss';
+
+@import '../../blocks/form-elements/text/text.scss';
+@import '../../blocks/form-elements/text/_hover-foucs/text__global_hover-focus.scss';
+@import '../../blocks/form-elements/text/__user/text__user.scss';
+@import '../../blocks/form-elements/text/__subscribe-email/text__subscribe-email.scss';
+
+@import '../../blocks/form-elements/comfort/comfort.scss';
+
+@import '../../blocks/forms/appart/appart.scss';
+
+@import '../../blocks/form-elements/review/review.scss';
+
+@import '../../blocks/form-elements/buttons/like/like.scss';
+
+@import '../../blocks/form-elements/bullet-list/bullet-list.scss';
+
+
+
+
 .main-specific {
       padding-top: 70px;
       padding-bottom: 100px;

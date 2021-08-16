@@ -1,0 +1,97 @@
+@import '../../scss/helpers/global.scss';
+
+@import '../../blocks/footer/footer.scss';
+@import '../../blocks/header/header.scss';
+
+@import '../../blocks/form-elements/buttons/buttons-general/buttons-general.scss';
+
+@import '../../blocks/form-elements/text/text.scss';
+@import '../../blocks/form-elements/text/_hover-foucs/text__global_hover-focus.scss';
+@import '../../blocks/form-elements/text/__user/text__user.scss';
+@import '../../blocks/form-elements/text/__subscribe-email/text__subscribe-email.scss';
+
+
+@import '../../blocks/room/room.scss';
+@import '../../blocks/form-elements/buttons/rate/rate.scss';
+
+@import '../../blocks/form-elements/drop-downs/__filter-date/drop-downs__filter-date';
+@import '../../blocks/form-elements/drop-downs/drop-downs.scss';
+@import '../../blocks/form-elements/drop-downs/calendar/calendar.scss';
+@import '../../blocks/form-elements/drop-downs/__general/drop-downs__general.scss';
+@import '../../blocks/form-elements/drop-downs/__general/_width/drop-downs__general_width.scss';
+@import '../../blocks/form-elements/range-slider/range-slider.scss';
+@import '../../blocks/form-elements/check-box/__buttons-rich/check-box__buttons-rich.scss';
+@import '../../blocks/form-elements/check-box/__buttons/check-box__buttons.scss';
+@import '../../blocks/form-elements/check-box/__list/check-box__list.scss';
+@import '../../blocks/form-elements/check-box/check-box.scss';
+@import '../../blocks/form-elements/pagination/pagination.scss';
+
+
+
+
+
+
+
+
+
+
+
+
+.main-second {
+      padding-top: 30px;
+      padding-bottom: 80px;
+      background-color: #F6F6F7;
+}
+.main-second__wrapper {
+      display: grid;
+      grid-template-columns: 1fr minmax(300px, auto);
+      grid-template-rows: auto 80px;
+      grid-gap: 25px 0;
+}
+.aside {
+      grid-row: 1/2;
+      max-width: 266px;
+}
+.main-second__date {
+      
+}
+.main-second__guest {
+      margin: 25px 0;
+}
+.main-second__range-slider {
+      margin: 25px 0;
+}
+.main-second__range-slider-text {
+      font-family: 'MontserratRegular';
+      font-size: $fn-xxs;
+      color: $DarkShade-50;
+}
+.main-second__rules-list {
+      margin: 25px 0;
+}
+.main-second__reach-list {
+      margin: 25px 0;
+}
+.main-second__comfort-check {
+      margin: 25px 0;
+}
+.main-second__comfort-extra {
+      margin-top: 25px;
+}
+.main-second__all-rooms {
+      padding-top: 50px;
+      position: relative;
+      grid-row: 1/2;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-gap: 25px 15px;
+}
+.main-second__pagination {
+      grid-column: 2/3;
+      justify-self: center;
+}
+.main-second__heading {
+      position: absolute;
+      top: 0;
+      left: 0;
+}
