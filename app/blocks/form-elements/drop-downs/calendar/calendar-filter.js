@@ -34,20 +34,7 @@ const date = new Date();
 let numberMonth = date.getMonth();
 console.log(numberMonth);
 
-const massiveDays = [
-    "Январь",
-    "Ферваль",
-    "Март",
-    "Апрель",
-    "Май",
-    "Июнь",
-    "Июль",
-    "Август",
-    "Сентябрь",
-    "Октябрь",
-    "Ноябрь",
-    "Декабрь"
-];
+const massiveDays = ["Январь","Ферваль","Март","Апрель","Май","Июнь","Июль","Август","Сентябрь","Октябрь","Ноябрь","Декабрь"];
   
 const renderCalendar = (daysBlock, blockFooter, getCalendarHeading, daysItem)=>{ 
     date.setDate(1);

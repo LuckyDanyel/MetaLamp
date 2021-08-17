@@ -1,407 +1,163 @@
 
-
-let numberOfPage = 0;
-
-let ruleRight = false;
-
-let getCalendarBlockOne = document.querySelector('.calendar-one');
-let getCalendarButtonSendOne = document.querySelector('.calendar__buttons-item-send-one');
-let getCalendarDeleteOne = document.querySelector('#calendar-delete-one');
-let getDaysBlockOne = document.querySelector('.calednar__days-one');
-let getRightArrowOne = document.querySelector('.calendar__arrow-right-one');
-let getLeftArrowOne = document.querySelector('.calendar__arrow-left-one');
-let getCalendarTitleOne = document.querySelector('.calendar__heading-one');
-let getCalendarBlockFooterOne = document.querySelector('.calendar__footer-one');
-let getCalendarOneDate = document.querySelector('.calendar-date-one');
-let getCalendarOneText = document.querySelector('#calendar__text-one');
-let getCalendarOneTextSecond = document.querySelector('#calendar__text-one-second');
-
-
-
-let isTwoNumberFind = false;
-let typeCalendar;
-
-let dateNumberFirst = {
-    value: 0,
-    index : 0
-}
-let dateNumberSecond = {
-    value: 0,
-    index : 0
-}
-
-
-let nextDays;
-let firstDayIndex;
-
 const date = new Date();
+const massiveDays = ["Январь","Ферваль","Март","Апрель","Май","Июнь","Июль","Август","Сентябрь","Октябрь","Ноябрь","Декабрь"];
 
-let numberMonth = date.getMonth();
-console.log(numberMonth);
 
-const massiveDays = [
-    "Январь",
-    "Ферваль",
-    "Март",
-    "Апрель",
-    "Май",
-    "Июнь",
-    "Июль",
-    "Август",
-    "Сентябрь",
-    "Октябрь",
-    "Ноябрь",
-    "Декабрь"
-];
-  
-const renderCalendar = (daysBlock, blockFooter, getCalendarHeading, daysItem)=>{ 
-    date.setDate(1);
+function init() { // Если на странице будет несколько календарей, то изменять данные придется только в функции init()
 
-const month = date.getMonth();
+    let getCalendarClick = document.querySelector('.calendar-date-one'); // Блок на который пользователь нажимет для открытия календаря
+    let getCalendarShowBlock = document.querySelector('.calendar-one'); // Блок который показывается
+    let getDaysBlockOne = document.querySelector('.calednar__days-one'); // Блок в который записываются дни
+    let getRightArrowOne = document.querySelector('.calendar__arrow-right-one'); // Стрелка для переключения следующего месяца
+    let getLeftArrowOne = document.querySelector('.calendar__arrow-left-one'); // Стрелка для переключения предыдущего месяца
+    let getCalendarTitleOne = document.querySelector('.calendar__heading-one'); // Заголовок месяца в календаре
+    let getCalendarDeleteOne = document.querySelector('#calendar-delete-one'); // Кнопка очистки календаря
+    let getCalendarButtonSendOne = document.querySelector('.calendar__buttons-item-send-one'); // Кнопка подтверждения
+    let getCalendarOneTextSecond = document.querySelector('#calendar__text-one-second'); // Текстовое поле заезда
+    let getCalendarOneText = document.querySelector('#calendar__text-one'); // Текстовое поле выезда
 
-const Year = date.getFullYear();
+                                                                                                                                                        // цифра 1 означает тип календаря, отличается только способом вывода
+    $(getCalendarClick).click(controllerCalendar.DropCalendar.bind(this, getCalendarShowBlock, getDaysBlockOne, getCalendarTitleOne, getCalendarOneText, getCalendarOneTextSecond, 1)); // Кнопка дропа календаря
+    $(getRightArrowOne).click(controllerCalendar.NexMonth.bind(this, getDaysBlockOne, getCalendarTitleOne, getCalendarOneText, getCalendarOneTextSecond, 1)); // Кнопка следующешо месяца
+    $(getLeftArrowOne).click(controllerCalendar.PrevMonth.bind(this, getDaysBlockOne, getCalendarTitleOne, getCalendarOneText, getCalendarOneTextSecond, 1)); // Кнопка предыдущего месяца
+    $(getCalendarDeleteOne).click(controllerCalendar.Clean.bind(this, getDaysBlockOne, getCalendarTitleOne, getCalendarOneText, getCalendarOneTextSecond, 1)); // Кнопка удаленя 
+    $(getCalendarButtonSendOne).click(controllerCalendar.SendArrivalExit.bind(this, getCalendarShowBlock));
+}
 
-const lastDay = new Date(date.getFullYear(), date.getMonth() + 1,0).getDate(); // Возрващаем количество дней текущего месяца
-
-const prevLastDay = new Date(date.getFullYear(), date.getMonth() ,0).getDate(); // Возрвашает последнее число предыдущего месяца
-
-const lastMonthDayIndex = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDay(); // Возвращаем день недели, с которого начинается  следующий месяц
-
-    nextDays = 7 - lastMonthDayIndex;
-    firstDayIndex = date.getDay();
-
-let banAdding = 0;
-
-    getCalendarHeading.innerHTML = massiveDays[month] + " " + Year;
-
-    let days = " ";
-    let result = daysItem;
-
-        if(firstDayIndex == 0){
-
-        for(let x = 6; x > 0; x--){ 
-            let prevLast = prevLastDay - x + 1;  
-            days += '<div class = "calednar__days-item ' + result + ' calendar__prev-item" tabindex="0">' + prevLast + '</div>';
-            daysBlock.innerHTML = days;                                                              
-            banAdding++;
-        } 
-
-        }else{
-            for(let x = firstDayIndex - 1; x > 0; x--){ 
-                let prevLast = prevLastDay - x + 1;  
-                days += '<div class = "calednar__days-item ' + result + ' calendar__prev-item" tabindex="0">' + prevLast + '</div>';
-                daysBlock.innerHTML = days;                                                              
-                banAdding++;
-            } 
-        }
-        for(let i = 1; i <= lastDay; i++){
-            if( i === new Date().getDate() && date.getMonth() === new Date().getMonth()){
-                days += '<div class = "calednar__days-item ' + result + ' calendar__days-today" tabindex="0">' + i + '</div>';
-                banAdding++;
-            
-            }else {
-                days += '<div class = "calednar__days-item ' + result + '" tabindex="0">' + i + '</div>';
-                daysBlock.innerHTML = days;
-                banAdding++;
-
+let viewCalendar = { // ---------------------- VIEW ---------------------------------------
+    displayMain: function(item, getDaysBlockOne){
+        getDaysBlockOne.innerHTML = item;
+    },
+    displayTitle: function(headingMonthCalendar, item) {
+        headingMonthCalendar.innerHTML = item + " " + date.getFullYear();
+    },
+    showCalendar: function(block) {
+        $(block).show();
+    },
+    hideCalendar: function(block) {
+        $(block).hide();
+    },
+    displayArrivalExit: function(arrivalNumber, exitNumber, allDaysItem, firstDays, firstTextInput, secondTextInput, typeCalendar) {
+            if(exitNumber - arrivalNumber < 0) {
+                let changeNumber = exitNumber;
+                exitNumber = arrivalNumber;
+                arrivalNumber = changeNumber;
             }
-
+                allDaysItem[arrivalNumber + firstDays - 2].setAttribute('class', 'calednar__days-item calednar__days-item_focus-left');
+                allDaysItem[exitNumber + firstDays - 2].setAttribute('class', 'calednar__days-item calednar__days-item_focus-right');
+                
+            for(i = arrivalNumber + firstDays - 1; i < exitNumber + firstDays - 2; i++) {
+                    allDaysItem[i].setAttribute('class', 'calednar__days-item calednar__days-item_light');
+            }
+            this.displayTextArrivalExit(firstTextInput, secondTextInput, arrivalNumber, exitNumber, typeCalendar);
+    },
+    displayTextArrivalExit: function(FirstBlockText, SecondBlockText, arrivalNumber, exitNumber, typeCalendar) {
+        if(typeCalendar === 1) {
+            let nullingMonth = (date.getMonth() < 9) ? "0" : "";
+            let nullingDayArrival = (arrivalNumber < 9) ? "0" : "";
+            let nullingDayExit = (exitNumber < 9) ? "0" : "";
+            FirstBlockText.innerHTML = nullingDayArrival + arrivalNumber + "." + nullingMonth + (date.getMonth() + 1) + "." + date.getFullYear();
+            SecondBlockText.innerHTML = nullingDayExit + exitNumber + "." + nullingMonth + (date.getMonth() + 1) + "." + date.getFullYear();
+        } else if(typeCalendar === 2) {
+            console.log("Дарова")
         }
+        
+    }
+} // ---------------------- END VIEW ---------------------------------------
 
-            for(let j = 1; j <= nextDays; j++){
-                days += '<div class = "calednar__days-item ' + result + '  calendar__prev-item" tabindex="0">' + j + '</div>';
-                daysBlock.innerHTML = days;
-                banAdding++;
-
-                if(banAdding > 36){
-                    blockFooter.style.marginTop = "6px"
-                }
-                else{
-                    blockFooter.style.marginTop = "25px"
-                }
-            
-        }
-        dateNumberSecond.value = 0;
-        dateNumberSecond.index = 0;
-        dateNumberFirst.value = 0;
-        dateNumberFirst.index = 0;
-
-}
-function renderCalendarItems(number) {
-     // Удаляем ненужные обработчики событий
-
-    getRightArrowOne.removeEventListener('click', getRightArrowOneListener, false);
-
-    getLeftArrowOne.removeEventListener('click', getLeftArrowOneListener, false);
-
-    getCalendarButtonSendOne.removeEventListener('click', getCalendarButtonSendOneListener, false); 
-
-    getCalendarDeleteOne.removeEventListener('click', getCalendarDeleteOneListener, false);
-
-    getCalendarOneDate.removeEventListener('click', getCalendarOneListener, false);
-
-    numberOfPage = number;
-
-    getCalendarBlockOne = document.querySelectorAll('.calendar-one')[numberOfPage];
-    getCalendarButtonSendOne = document.querySelectorAll('.calendar__buttons-item-send-one')[numberOfPage];
-    getCalendarDeleteOne = document.querySelectorAll('#calendar-delete-one')[numberOfPage];
-    getDaysBlockOne = document.querySelectorAll('.calednar__days-one')[numberOfPage];
-    getRightArrowOne = document.querySelectorAll('.calendar__arrow-right-one')[numberOfPage];
-    getLeftArrowOne = document.querySelectorAll('.calendar__arrow-left-one')[numberOfPage];
-    getCalendarTitleOne = document.querySelectorAll('.calendar__heading-one')[numberOfPage];
-    getCalendarBlockFooterOne = document.querySelectorAll('.calendar__footer-one')[numberOfPage];
-    getCalendarOneDate = document.querySelectorAll('.calendar-date-one')[numberOfPage];
+let modelCalendar = { // ---------------------- MODEL ---------------------------------------
+    renderCalendar: function(writeBlock, headingMonthCalendar, firstTextInput, secondTextInput, typeCalendar){
+        date.setDate(1);
+        const DaysNowMonth = new Date(date.getFullYear(), date.getMonth() + 1,0).getDate(); // Возрващаем количество дней текущего месяца
+        const DayLastMonth = new Date(date.getFullYear(), date.getMonth() ,0).getDate(); // Возрвашает последнее число предыдущего месяца
+        const WeekDayNextMonth = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDay(); // Возвращает день недели, с которого начинается следующий месяц
     
-
-     // Снова добавляем обработчики событий
-
-    getRightArrowOne.addEventListener('click', getRightArrowOneListener);
-
-    getLeftArrowOne.addEventListener('click', getLeftArrowOneListener);
-
-    getCalendarButtonSendOne.addEventListener('click', getCalendarButtonSendOneListener); 
-
-    getCalendarDeleteOne.addEventListener('click', getCalendarDeleteOneListener);
-
-    getCalendarOneDate.addEventListener('click', getCalendarOneListener);
-
-
-}
-export {renderCalendarItems};
-function renderNumberDays(daysItem, type){ // Функция для поиска двух чисел, которые не повторяются.
-                let getItem;
-                if(type == "one") {
-                    getItem = getDaysBlockOne.querySelectorAll(daysItem);
-                    
-                } else {
-                    getItem = document.querySelectorAll(daysItem);
-                }
+        let nextDays = 7 - WeekDayNextMonth; // Количество дней до конца недели
+        let firstDayIndex = (date.getDay() == 0) ? 7 : date.getDay(); //Вс начинается с нуля // День недели с которого начинается текущий месяц 
+        let days = " ";
                
-            let result;
-            for(let i = 0; i < getItem.length; i++){
-                result = getItem[i];
-            
-                result.addEventListener('click', function(e){
-                    let count = 0;
+                viewCalendar.displayTitle(headingMonthCalendar, massiveDays[date.getMonth()]);
+
+                for(i = 1; i < firstDayIndex; i++) {
+                    days += '<div class = "calednar__days-item calendar__prev-item">' + Number(DayLastMonth - firstDayIndex + i + 1) + '</div>'; // Заполняем дни предыдущего месяца
+                    viewCalendar.displayMain(days, writeBlock);
+                }
+                for(i = 1; i <= DaysNowMonth; i++){
+                        if(i === new Date().getDate() && date.getMonth() === new Date().getMonth()) { // Сегодняшний день // Если i = текущему дню и установленный месяц = текущему месяцу
+                            days += '<div class = "calednar__days-item calendar__days-today">' + i + '</div>';
+                            viewCalendar.displayMain(days, writeBlock);
+                        } else {
+                            days += '<div class = "calednar__days-item">' + i + '</div>'; // Заполняем дни текущего месяца
+                            viewCalendar.displayMain(days, writeBlock);
+                        }
+                }
+                for(i = 1; i <= nextDays; i++) {
+                    days += '<div class = "calednar__days-item calendar__prev-item">' + i + '</div>'; // Заполняем дни следующего месяца
+                    viewCalendar.displayMain(days, writeBlock);
+                }
+                this.renderEventDays(firstDayIndex, nextDays, '.calednar__days-item', writeBlock, headingMonthCalendar, firstTextInput, secondTextInput, typeCalendar);
+        
+    },
+    renderEventDays: function(firstDays, nextDays, NameItem, writeBlock, headingMonthCalendar, firstTextInput, secondTextInput, typeCalendar) { // Устанавливаем события на дни текущего месяца
+            let calendarDaysItem = document.querySelectorAll(NameItem);
+
+            for(i = firstDays - 1; i < calendarDaysItem.length - nextDays; i++) {
+                $(calendarDaysItem[i]).click(this.takeTwoNumber.bind(this, i + 1, calendarDaysItem, firstDays, writeBlock, headingMonthCalendar, firstTextInput, secondTextInput, typeCalendar)); 
+            }
+    },
+    takeFirstDate: true,
+    firstNumber: 0,
+    secondNumber: 0,
+    takeTwoNumber: function(item, allDaysItem, firstDays, writeBlock, headingMonthCalendar, firstTextInput, secondTextInput, typeCalendar) { // Определяем два числа на которые нажал пользователь
+            if(this.takeFirstDate == true) {
+                console.log("Первая функция");
+                this.firstNumber = item - firstDays + 1;
+                this.takeFirstDate = false;
+                this.renderCalendar(writeBlock, headingMonthCalendar, firstTextInput, secondTextInput, typeCalendar); // Нужно для того, чтобы при повтором первом нажатии календарь снова ренерился
                 
-                    if(isTwoNumberFind == false) {
-
-                        dateNumberFirst.value = e.composedPath().values().next().value.innerHTML;
-                      
-                        isTwoNumberFind = true;
-                    }
-                    else if(isTwoNumberFind == true) {
-
-                        dateNumberSecond.value = e.composedPath().values().next().value.innerHTML;
-                    
-                        if(firstDayIndex == 0){
-                            count = 6;
-                        }
-                        if(firstDayIndex == 1){
-                            count = firstDayIndex - 1;
-
-                        }
-                        if(firstDayIndex > 1) {
-                            count = firstDayIndex - 1;
-                        }
-                        if(dateNumberSecond.value - dateNumberFirst.value < 0) {
-                            let result;
-                            result = dateNumberFirst.value;
-                            dateNumberFirst.value = dateNumberSecond.value;
-                            dateNumberSecond.value = result;
-                        }
-                        
-                            while (count < getItem.length - nextDays){
-        
-                               if(dateNumberFirst.value == getItem[count].innerHTML){
-
-                                   dateNumberFirst.index = count;
-                                }
-                                else if(dateNumberSecond.value == getItem[count].innerHTML){
-                                
-                                    dateNumberSecond.index = count;
-                                    count =  getItem.length - nextDays;
-                                }
-
-                                count++; 
-                            
-                        }
-                        
-                        isTwoNumberFind = false;
-                    }
-                    if(dateNumberFirst.index >= 0 && dateNumberSecond.index > 0) {
-                        
-                        getItem[dateNumberFirst.index].setAttribute("class", "calednar__days-item calednar__days-item_focus-left");
-                        getItem[dateNumberSecond.index].setAttribute("class", "calednar__days-item calednar__days-item_focus-right");
-                        for(let i = dateNumberFirst.index + 1; i < dateNumberSecond.index; i++){
-                            getItem[i].setAttribute("class", "calednar__days-item calednar__days-item_light");
-                        }
-                    }
-                
-                })
-
-            } 
-}
-
-// //------------------ CalendarFilter -------------------------
-
-//     getRightArrow.addEventListener('click', function(){
-//         numberMonth++;
-//         date.setMonth(date.getMonth() + 1)
-//         if(numberMonth == 12){
-//             numberMonth = 0;
-//         }
-        
-//         renderCalendar(getDaysBlock, getCalendarBlockFooter, getCalendarTitleFilter, "calendar__days-item-filter");
-//         renderNumberDays(".calendar__days-item-filter");
-        
-//     })
-//     getLeftArrow.addEventListener('click', function(){
-//         numberMonth--;
-//         date.setMonth(date.getMonth() - 1)
-//         if(numberMonth == -1){
-//             numberMonth = 11;
-//         }
-//         renderCalendar(getDaysBlock, getCalendarBlockFooter, getCalendarTitleFilter, "calendar__days-item-filter");
-//         renderNumberDays(".calendar__days-item-filter");
-        
-//     })
-
-//     getCalendarButtonSend.addEventListener('click', function() {
-//         let result = massiveDays[numberMonth];
-//         let nullingDaysFirst = "";
-//         let nullingDaysSecond = "";
-//         let nullingMonth = "";
-//         if(dateNumberSecond.value < 10){
-//             nullingDaysSecond = "0";
-//         }
-//         if(dateNumberFirst.value < 10) {
-//             nullingDaysFirst = "0";
-//         }
-//         if(numberMonth < 10){
-//             nullingMonth = "0";
-//         }    
-        
-//         for(i = 0; i < getCalendarOneText.length; i++) {
-//             getCalendarOneText[i].innerHTML = nullingDaysFirst + dateNumberFirst.value + "." + nullingMonth + numberMonth + "." + date.getFullYear();
-//             getCalendarOneTextSecond[i].innerHTML = nullingDaysSecond + dateNumberSecond.value + "." + nullingMonth + numberMonth + "." + date.getFullYear();
-//         }
-//         getCalendarFilterText.innerHTML = dateNumberFirst.value + " " + result.substring(0, 3) + " - " + dateNumberSecond.value + " " + result.substring(0, 3);
-        
-//         getCalendarBlock.style.display = 'none';
-//         getCalendarFilterDate.addEventListener('click', first);
-//     })
-//     getCalendarFilterDelete.addEventListener('click', function(){
-//         renderCalendar(getDaysBlock, getCalendarBlockFooter, getCalendarTitleFilter, "calendar__days-item-filter");
-//         renderNumberDays(".calendar__days-item-filter");
-//     })
-
-    
-//     getCalendarFilterDate.addEventListener('click', first);
-
-//     function first(e) {
-//         typeCalendar = "FilterCalendar";
-//         renderCalendar(getDaysBlock, getCalendarBlockFooter, getCalendarTitleFilter, "calendar__days-item-filter");
-//         renderNumberDays(".calendar__days-item-filter");
-
-//         e.stopImmediatePropagation();
-//         this.removeEventListener("click", first);
-//         getCalendarFilterDate.onclick = second;
-//         getCalendarBlock.style.display = 'block';
-//     }
-//     function second() {
-//         getCalendarBlock.style.display = 'none';
-//         getCalendarFilterDate.onclick = first;
-    
-//     }  
-
-
-// ------------------ CalendarOne -------------------------
-function getRightArrowOneListener() {
-
-    numberMonth++;
-    date.setMonth(date.getMonth() + 1)
-    if(numberMonth == 12){
-        numberMonth = 0;
+            } else {
+                console.log("Вторая функция");
+                this.secondNumber = item - firstDays + 1;
+                this.takeFirstDate = true;
+                viewCalendar.displayArrivalExit(this.firstNumber, this.secondNumber, allDaysItem, firstDays, firstTextInput, secondTextInput, typeCalendar); // Отображаем для пользователя промежуток этих чисел
+            }
     }
-    
-    renderCalendar(getDaysBlockOne, getCalendarBlockFooterOne, getCalendarTitleOne, "calendar__days-item-one");
-    renderNumberDays(".calendar__days-item-one", "one");
-    
+}// ---------------------- END MODEL ---------------------------------------
 
-}
-function getLeftArrowOneListener(){
+let controllerCalendar = { // ---------------------- CONTROLER ---------------------------------------
+    firstClick: true,
+    DropCalendar: function(blockShow, blockWrite, headingMonthCalendar, firstInputText, SecondInputText, typeCalendar){ 
 
-    numberMonth--;
-        date.setMonth(date.getMonth() - 1)
-        if(numberMonth == -1){
-            numberMonth = 11;
+        if(this.firstClick == false){
+            viewCalendar.hideCalendar(blockShow);
+            this.firstClick = true;
+
+        } else {
+            modelCalendar.renderCalendar(blockWrite, headingMonthCalendar, firstInputText, SecondInputText, typeCalendar);
+            viewCalendar.showCalendar(blockShow);
+            this.firstClick = false;
         }
-        renderCalendar(getDaysBlockOne, getCalendarBlockFooterOne, getCalendarTitleOne, "calendar__days-item-one");
-        renderNumberDays(".calendar__days-item-one", "one");
-        
-}
-function getCalendarButtonSendOneListener(){
-
-    let nullingDaysFirst = "";
-    let nullingDaysSecond = "";
-    let nullingMonth = "";
-    let result = massiveDays[numberMonth];
-
-    if(dateNumberSecond.value < 10){
-        nullingDaysSecond = "0";
+    },
+    NexMonth: function(blockWrite, headingMonthCalendar, firstInputText, SecondInputText, typeCalendar) {
+            date.setMonth(date.getMonth() + 1);
+            modelCalendar.renderCalendar(blockWrite, headingMonthCalendar, firstInputText, SecondInputText, typeCalendar);
+    },
+    PrevMonth: function(blockWrite, headingMonthCalendar, firstInputText, SecondInputText, typeCalendar) {
+            date.setMonth(date.getMonth() - 1);
+            modelCalendar.renderCalendar(blockWrite, headingMonthCalendar, firstInputText, SecondInputText, typeCalendar);
+    },
+    Clean: function(blockWrite, headingMonthCalendar, firstInputText, SecondInputText, typeCalendar) {
+            modelCalendar.renderCalendar(blockWrite, headingMonthCalendar, firstInputText, SecondInputText, typeCalendar);
+    },
+    SendArrivalExit: function(blockShow) {
+            viewCalendar.hideCalendar(blockShow);
+            this.firstClick = true;
     }
-    if(dateNumberFirst.value < 10) {
-        nullingDaysFirst = "0";
-    }
-    if(numberMonth < 10){
-        nullingMonth = "0";
-    }
+} // ---------------------- END CONTROLER ---------------------------------------
 
-    numberMonth++;
-        getCalendarOneText.innerHTML = nullingDaysFirst + dateNumberFirst.value + "." + nullingMonth + numberMonth + "." + date.getFullYear();
-        getCalendarOneTextSecond.innerHTML = nullingDaysSecond + dateNumberSecond.value + "." + nullingMonth + numberMonth + "." + date.getFullYear();
+init();
 
-    getCalendarBlockOne.style.display = 'none';
-    numberMonth--;
-    ruleRight = false;
-    
-}
-function getCalendarDeleteOneListener() {
 
-    renderCalendar(getDaysBlockOne, getCalendarBlockFooterOne, getCalendarTitleOne, "calendar__days-item-one");
-    renderNumberDays(".calendar__days-item-one", "one");
-    
-}
-
-function getCalendarOneListener() {
-    console.log(getCalendarOneDate);
-
-    if(ruleRight == false) {
-    typeCalendar = "FilterCalendar";
-    renderCalendar(getDaysBlockOne, getCalendarBlockFooterOne, getCalendarTitleOne, "calendar__days-item-one");
-    renderNumberDays(".calendar__days-item-one", "one");
-
-    getCalendarBlockOne.style.display = 'block';
-    ruleRight = true;
-    }else {
-        getCalendarBlockOne.style.display = 'none';
-        ruleRight = false;
-
-    }  
-}
-    getRightArrowOne.addEventListener('click', getRightArrowOneListener);
-
-    getLeftArrowOne.addEventListener('click', getLeftArrowOneListener);
-
-    getCalendarButtonSendOne.addEventListener('click', getCalendarButtonSendOneListener); 
-
-    getCalendarDeleteOne.addEventListener('click', getCalendarDeleteOneListener);
-
-    getCalendarOneDate.addEventListener('click', getCalendarOneListener);
-
-   
-      
     
 
 
