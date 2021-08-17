@@ -99,7 +99,7 @@ let modelCalendar = { // ---------------------- MODEL --------------------------
         
     },
     renderEventDays: function(firstDays, nextDays, NameItem, writeBlock, headingMonthCalendar, firstTextInput, secondTextInput, typeCalendar) { // Устанавливаем события на дни текущего месяца
-            let calendarDaysItem = document.querySelectorAll(NameItem);
+            let calendarDaysItem = writeBlock.querySelectorAll(NameItem);
 
             for(i = firstDays - 1; i < calendarDaysItem.length - nextDays; i++) {
                 $(calendarDaysItem[i]).click(this.takeTwoNumber.bind(this, i + 1, calendarDaysItem, firstDays, writeBlock, headingMonthCalendar, firstTextInput, secondTextInput, typeCalendar)); 

@@ -1,3 +1,4 @@
+const { get } = require("jquery");
 
 const date = new Date();
 
@@ -50,16 +51,15 @@ getCalendarTextSecond.innerHTML = nullingDaysSecond + dateDaysSecond + "." + nul
 
 
 let getLikeAll = document.querySelectorAll('.like');
-let getLikeTextAll = document.querySelectorAll('.like__text');
+let getLikeTextAll = document.querySelector('.like__text');
 
 
-for(let i = 0; i < getLikeAll.length; i++) {
-      let clickLike = getLikeAll[i];
-      $(getLikeAll[i]).click(countLike.bind(this, i))
-}
+getLikeAll.forEach(getLike => {
+    $(getLike).click(countLike)
+},)
 
-function countLike(number) {
-      getLikeTextAll[number].innerHTML = Number(getLikeTextAll[number].innerHTML) + 1;
-      console.log(getLikeTextAll[number].innerHTML);
-
+function countLike(event) {
+    //   console.log(event.currentTarget);
+    //   event.currentTarget.querySelector('.like__text').innerHTML =  Number(event.currentTarget.querySelector('.like__text').innerHTML) + 1; 
+    //   event.stopPropagation();
 }
