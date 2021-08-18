@@ -14,8 +14,6 @@ import '../../blocks/form-elements/drop-downs/__general/drop-downs__general-room
 
 import '../../blocks/form-elements/check-box/__list/check-box__list.js';
 
-import '../../blocks/room/room.js';
-
 import '../../blocks/form-elements/pagination/pagination.js';
 
 import './second-pageLogic.js';

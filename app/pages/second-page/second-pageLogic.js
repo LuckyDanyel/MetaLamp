@@ -116,4 +116,7 @@ function displayAsideMin(e) {
     }
     mediaMin.addListener(displayAsideMin)
     displayAsideMin(mediaMin)
- 
+
+import {getSlider} from "../../blocks/room/room";
+
+getSlider();
