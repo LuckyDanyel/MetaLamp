@@ -1,9 +1,11 @@
 
 const date = new Date();
-const massiveDays = ["Январь","Ферваль","Март","Апрель","Май","Июнь","Июль","Август","Сентябрь","Октябрь","Ноябрь","Декабрь"];
+const massiveMonth = ["Январь","Ферваль","Март","Апрель","Май","Июнь","Июль","Август","Сентябрь","Октябрь","Ноябрь","Декабрь"];
 
 
 function init() { // Если на странице будет несколько календарей, то изменять данные придется только в функции init()
+
+    // ----------------------------- Первый тип календаря -------------------------- //
 
     let getCalendarClick = document.querySelector('.calendar-date-one'); // Блок на который пользователь нажимет для открытия календаря
     let getCalendarShowBlock = document.querySelector('.calendar-one'); // Блок который показывается
@@ -22,6 +24,25 @@ function init() { // Если на странице будет нескольк�
     $(getLeftArrowOne).click(controllerCalendar.PrevMonth.bind(this, getDaysBlockOne, getCalendarTitleOne, getCalendarOneText, getCalendarOneTextSecond, 1)); // Кнопка предыдущего месяца
     $(getCalendarDeleteOne).click(controllerCalendar.Clean.bind(this, getDaysBlockOne, getCalendarTitleOne, getCalendarOneText, getCalendarOneTextSecond, 1)); // Кнопка удаленя 
     $(getCalendarButtonSendOne).click(controllerCalendar.SendArrivalExit.bind(this, getCalendarShowBlock));
+
+    // ----------------------------- Второй тип календаря ------------------------- //
+    let getCalendarShowBlockFilter = document.querySelector('.calendar-filter');
+    let getCalendarButtonSendFilter = document.querySelector('.calendar__buttons-item-send-filter');
+    let getCalendarFilterDelete = document.querySelector('#calendar-delete-filter');
+    let getDaysBlockFilter = document.querySelector('.calednar__days-filter');
+    let getRightArrowFilter = document.querySelector('.calendar__arrow-right-filter');
+    let getLeftArrowFilter = document.querySelector('.calendar__arrow-left-filter');
+    let getCalendarTitleFilter = document.querySelector('.calendar__heading-filter');
+    let getCalendarBlockFooter = document.querySelector('.calendar__footer-filter');
+    let getCalendarClickFilter = document.querySelector('#calendar-filter-date');
+    let getCalendarFilterText = document.querySelector('#calendar-filter-text');
+    
+    $(getCalendarClickFilter).click(controllerCalendar.DropCalendar.bind(this, getCalendarShowBlockFilter, getDaysBlockFilter, getCalendarTitleFilter, getCalendarFilterText, null, 2)); // null передается потому у второго календаря только одно текстовое поле
+    $(getRightArrowFilter).click(controllerCalendar.NexMonth.bind(this, getDaysBlockFilter, getCalendarTitleFilter, getCalendarFilterText, null, 2)); 
+    $(getLeftArrowFilter).click(controllerCalendar.PrevMonth.bind(this, getDaysBlockFilter, getCalendarTitleFilter, getCalendarFilterText, null, 2)); 
+    $(getCalendarFilterDelete).click(controllerCalendar.Clean.bind(this, getDaysBlockFilter, getCalendarTitleFilter, getCalendarFilterText, null, 2));
+    $(getCalendarButtonSendFilter).click(controllerCalendar.SendArrivalExit.bind(this, getCalendarShowBlockFilter));
+
 }
 
 let viewCalendar = { // ---------------------- VIEW ---------------------------------------
@@ -59,7 +80,7 @@ let viewCalendar = { // ---------------------- VIEW ----------------------------
             FirstBlockText.innerHTML = nullingDayArrival + arrivalNumber + "." + nullingMonth + (date.getMonth() + 1) + "." + date.getFullYear();
             SecondBlockText.innerHTML = nullingDayExit + exitNumber + "." + nullingMonth + (date.getMonth() + 1) + "." + date.getFullYear();
         } else if(typeCalendar === 2) {
-            console.log("Дарова")
+            FirstBlockText.innerHTML = arrivalNumber + " " + massiveMonth[date.getMonth()].substr(0, 3) + " - " + exitNumber + " " + massiveMonth[date.getMonth()].substr(0, 3);
         }
         
     }
@@ -76,7 +97,7 @@ let modelCalendar = { // ---------------------- MODEL --------------------------
         let firstDayIndex = (date.getDay() == 0) ? 7 : date.getDay(); //Вс начинается с нуля // День недели с которого начинается текущий месяц 
         let days = " ";
                
-                viewCalendar.displayTitle(headingMonthCalendar, massiveDays[date.getMonth()]);
+                viewCalendar.displayTitle(headingMonthCalendar, massiveMonth[date.getMonth()]);
 
                 for(i = 1; i < firstDayIndex; i++) {
                     days += '<div class = "calednar__days-item calendar__prev-item">' + Number(DayLastMonth - firstDayIndex + i + 1) + '</div>'; // Заполняем дни предыдущего месяца
@@ -109,18 +130,26 @@ let modelCalendar = { // ---------------------- MODEL --------------------------
     firstNumber: 0,
     secondNumber: 0,
     takeTwoNumber: function(item, allDaysItem, firstDays, writeBlock, headingMonthCalendar, firstTextInput, secondTextInput, typeCalendar) { // Определяем два числа на которые нажал пользователь
+            
             if(this.takeFirstDate == true) {
+                
                 console.log("Первая функция");
                 this.firstNumber = item - firstDays + 1;
                 this.takeFirstDate = false;
-                this.renderCalendar(writeBlock, headingMonthCalendar, firstTextInput, secondTextInput, typeCalendar); // Нужно для того, чтобы при повтором первом нажатии календарь снова ренерился
+                console.log(this.firstNumber + firstDays);
+                allDaysItem[this.firstNumber + firstDays - 2].setAttribute('class', 'calednar__days-item calednar__days-item_focus');
                 
             } else {
                 console.log("Вторая функция");
+                 // Нужно для того, чтобы при повторном нажатии рендерился календарь снова
                 this.secondNumber = item - firstDays + 1;
-                this.takeFirstDate = true;
                 viewCalendar.displayArrivalExit(this.firstNumber, this.secondNumber, allDaysItem, firstDays, firstTextInput, secondTextInput, typeCalendar); // Отображаем для пользователя промежуток этих чисел
+                this.takeFirstDate = true;
+                this.firstNumber = 0;
+                this.secondNumber = 0;
             }
+            
+           
     }
 }// ---------------------- END MODEL ---------------------------------------
 

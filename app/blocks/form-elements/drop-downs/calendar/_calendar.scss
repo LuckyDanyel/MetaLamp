@@ -77,17 +77,14 @@
       box-sizing: border-box;
 
       transition: 0.2s;
-
             &:hover {
                   
                   cursor: pointer;
                   background: linear-gradient($Purple, $Blue);
                   color: $DarkShade-5;
             }
-            &:focus{
-                  background: linear-gradient($Purple, $Blue);
-                  color: $DarkShade-5;
-            }
+            
+           
            
             
       
@@ -116,6 +113,10 @@
                   }
            
 }
+.calednar__days-item_focus {
+      background: linear-gradient($Purple, $Blue);
+      color: $DarkShade-5;
+}
 .calednar__days-item_focus-right {
       background: linear-gradient($Purple, $Blue);
       color: $DarkShade-5;
@@ -135,10 +136,13 @@
 }
 
 .calendar__footer {
+      position: absolute;
+      left: 0;
+      bottom: 15px;
+      right: 0;
+
       max-width: 255px;
-      
       margin: 0 auto;
-      margin-top: 25px;
       
       display: flex;
       justify-content: space-between;

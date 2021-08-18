@@ -6,7 +6,7 @@ import '../../blocks/header/header.js';
 
 import '../../blocks/form-elements/range-slider/range-slider.js';
 
-import '../../blocks/form-elements/drop-downs/calendar/calendar-filter.js';
+import '../../blocks/form-elements/drop-downs/calendar/calendar.js';
 
 import '../../blocks/form-elements/drop-downs/__general/drop-downs__general.js';
 
