@@ -1,4 +1,4 @@
-mixin roomLux(pathToImage, number)
+mixin roomLux(pathToImage, number, price)
       div(class = "room")
             div(class = "room__box")
             div(class = "room__up")
@@ -24,7 +24,7 @@ mixin roomLux(pathToImage, number)
                               span(class = "room__info-item-left") Люкс
 
                         div(class = "room__info-right")
-                              span(class = "room__info-item-right") 9 990₽
+                              span(class = "room__info-item-right") #{price}₽
                               span(class = "room__info-item-right") в сутки
                   div(class = "room__footer")
                         div(class = "room__rate")
@@ -33,7 +33,7 @@ mixin roomLux(pathToImage, number)
                         div(class = "room__review")
                               span(class = "room__footer-item") 145
                               span(class = "room__footer-item") отзывов
-mixin roomUsual(pathToImage, number)
+mixin roomUsual(pathToImage, number, price)
       div(class = "room")
             div(class = "room__box")
             div(class = "room__up")
@@ -58,7 +58,7 @@ mixin roomUsual(pathToImage, number)
                               span(class = "room__info-item-left") #{number}
 
                         div(class = "room__info-right")
-                              span(class = "room__info-item-right") 5 000₽
+                              span(class = "room__info-item-right") #{price}₽
                               span(class = "room__info-item-right") в сутки
                   div(class = "room__footer")
                         div(class = "room__rate")

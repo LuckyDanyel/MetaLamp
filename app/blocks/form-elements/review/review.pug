@@ -1,4 +1,4 @@
-mixin review(pathToImage, text)
+mixin review(pathToImage, text, countLike)
       div(class = "review")
             div(class = "review__human")
                   div(class = "review__human-image")
@@ -10,5 +10,6 @@ mixin review(pathToImage, text)
             div(class = "review__main")
                   div(class = "review__like")
                         include ../buttons/like/like.pug
+                        +Like(countLike)
                   div(class = "review__human-text")
                         p #{text}

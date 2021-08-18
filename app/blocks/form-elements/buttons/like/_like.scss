@@ -9,7 +9,11 @@
 
 }
 .like__input {
-    opacity: 0;
+    display: none;
+    margin: 0;
+    width: 45px;
+    height: 20px;
+    opacity: 1;
     position: absolute;
 
         &:checked + .like__fake {
