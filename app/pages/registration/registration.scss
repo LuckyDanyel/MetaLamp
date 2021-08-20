@@ -28,15 +28,19 @@
 }
 .main-registr__inner {
       position: relative;
+      min-height: 780px;
+      height: 100vh;
+      max-height: 1100px;
 }
 .main-registr__image-block {
       max-height: 778px;
       height: 100vh;
 }
 .main-registr__imgae {
-      min-height: 778px;
-      max-height: 778px;
+      max-height: 1100px;
       width: 100%;
+      height: 100vh;
+      min-height: 780px;
       object-fit: cover;
       object-position: center;
 }
@@ -45,8 +49,7 @@
       padding-right: 15px;
       max-width: 1170px;
       max-height: 780px;
-      height: 100vh;
-      top: 0;
+      top: 7%;
       left: 0;
       right: 0;
       margin: 0 auto;
