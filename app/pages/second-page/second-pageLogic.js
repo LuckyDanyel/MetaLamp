@@ -1,4 +1,5 @@
 
+
 let getAllRooms = document.querySelectorAll('.room');
 let getAllRoom = document.querySelectorAll('.room__box');
 let getNumber = document.querySelectorAll('.room__info-item-left');
@@ -117,6 +118,9 @@ function displayAsideMin(e) {
     mediaMin.addListener(displayAsideMin)
     displayAsideMin(mediaMin)
 
+  
 import {getSlider} from "../../blocks/room/room";
 
 getSlider();
+
+

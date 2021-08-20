@@ -11,6 +11,7 @@ import '../../blocks/form-elements/drop-downs/calendar/calendar.js';
 let getForm = document.querySelector('.find-rooms__form');
 let getFromBtn = getForm.btnSign;
 
+
  $(getFromBtn).click(function(){
       let getCaledarText = document.querySelector('#calendar__text-one').innerHTML;
       if(isNaN(Number(getCaledarText.substring(0, 2))) == false) {
