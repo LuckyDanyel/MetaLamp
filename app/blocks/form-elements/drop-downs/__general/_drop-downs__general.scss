@@ -21,7 +21,9 @@
 
 
 }
-
+.drop-downs__open {
+    display: block;
+}
 .drop-downs__block-row {
     display: flex;
     justify-content: space-between;
@@ -53,7 +55,7 @@
                
         }
 }
-.drop-downs__score-minus_no-active {
+.drop-downs__minus_no-active {
 
         opacity: 0.5;
 

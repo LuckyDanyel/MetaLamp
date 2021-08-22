@@ -33,32 +33,32 @@ mixin DropBoxGuest()
             h3(class = "drop-downs__global-heading") Гости
             div(class = "drop-downs__global drop-downs__guest")
                 p(class = "drop-downs__global-text drop-downs__guest-text") Сколько гостей
-                span(class = "drop-downs__global-arrow" id = "drop-downs__input-guest")
+                span(class = "drop-downs__global-arrow" id = "drop-downs__input")
 
-            div(class = "drop-downs__block-guest drop-downs__block-general")
+            div(class = "drop-downs__block drop-downs__block-general")
                 div(class = "drop-downs__block-row")
-                    h3(class = "drop-downs__h3 drop-downs__h3-Adults") Взрослые
+                    h3(class = "drop-downs__h3") Взрослые
                     div(class = "drop-downs__score")
-                        span(class = "drop-downs__score-minus_no-active drop-downs__score-minus_active-Adults" id = "drop-downs__score-minus-Adults") -
-                        h3(id = "drop-downs__score-value-Adults") 0
-                        span(id = "drop-downs__score-plus-Adults") +
-
-                div(class = "drop-downs__block-row")
-                    h3(class = "drop-downs__h3 drop-downs__h3-Child") Дети
-                    div(class = "drop-downs__score")
-                        span(class = "drop-downs__score-minus_no-active drop-downs__score-minus_active-Child" id = "drop-downs__score-minus-Child") -
-                        h3(id = "drop-downs__score-value-Child") 0
-                        span(id = "drop-downs__score-plus-Child") +
+                        span(class = "drop-downs__minus_no-active" id = "drop-downs__minus") -
+                        h3(id = "drop-downs__value" data-value = "0") 0
+                        span(id = "drop-downs__plus") +
 
                 div(class = "drop-downs__block-row")
-                    h3(class = "drop-downs__h3 drop-downs__h3-Baby") Младенцы
+                    h3(class = "drop-downs__h3") Дети
                     div(class = "drop-downs__score")
-                        span(class = "drop-downs__score-minus_no-active drop-downs__score-minus_active-Baby" id = "drop-downs__score-minus-Baby") -
-                        h3(id = "drop-downs__score-value-Baby") 0
-                        span(id = "drop-downs__score-plus-Baby") +
+                        span(class = "drop-downs__minus_no-active" id = "drop-downs__minus") -
+                        h3(id = "drop-downs__value" data-value = "0") 0
+                        span(id = "drop-downs__plus") +
+
+                div(class = "drop-downs__block-row")
+                    h3(class = "drop-downs__h3") Младенцы
+                    div(class = "drop-downs__score")
+                        span(class = "drop-downs__minus_no-active" id = "drop-downs__minus") -
+                        h3(id = "drop-downs__value" data-value = "0") 0
+                        span(id = "drop-downs__plus") +
                 div(class = "drop-downs__buttons-guest")
-                    h3(class = "drop-downs__buttons-item drop-downs__buttons-item_hover" id = "drop-downs__buttons-item_delete") Очистить
-                    h3(class = "drop-downs__buttons-item drop-downs__buttons-item_hover" id = "drop-downs__buttons-item_send") Применить
+                    h3(class = "drop-downs__buttons-item drop-downs__buttons-item_hover" id = "drop-downs__delete") Очистить
+                    h3(class = "drop-downs__buttons-item drop-downs__buttons-item_hover" id = "drop-downs__send") Применить
             
                 
 

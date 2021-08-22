@@ -1,6 +1,6 @@
 
 const date = new Date();
-const massiveMonth = ["Январь","Ферваль","Март","Апрель","Май","Июнь","Июль","Август","Сентябрь","Октябрь","Ноябрь","Декабрь"];
+const massiveMonth = ["Январь", "Ферваль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"];
 
 
 function init() { // Если на странице будет несколько календарей, то изменять данные придется только в функции init()
@@ -46,8 +46,12 @@ function init() { // Если на странице будет нескольк�
 }
 
 let viewCalendar = { // ---------------------- VIEW ---------------------------------------
+    getAllItems: " ",
+
     displayMain: function(item, getDaysBlockOne){
-        getDaysBlockOne.innerHTML = item;
+        this.getAllItems += item;
+        getDaysBlockOne.innerHTML = this.getAllItems;
+        
     },
     displayTitle: function(headingMonthCalendar, item) {
         headingMonthCalendar.innerHTML = item + " " + date.getFullYear();
@@ -88,37 +92,45 @@ let viewCalendar = { // ---------------------- VIEW ----------------------------
 
 let modelCalendar = { // ---------------------- MODEL ---------------------------------------
     renderCalendar: function(writeBlock, headingMonthCalendar, firstTextInput, secondTextInput, typeCalendar){
-        date.setDate(1);
+ 
         const DaysNowMonth = new Date(date.getFullYear(), date.getMonth() + 1,0).getDate(); // Возрващаем количество дней текущего месяца
-        const DayLastMonth = new Date(date.getFullYear(), date.getMonth() ,0).getDate(); // Возрвашает последнее число предыдущего месяца
         const WeekDayNextMonth = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDay(); // Возвращает день недели, с которого начинается следующий месяц
-    
         let nextDays = 7 - WeekDayNextMonth; // Количество дней до конца недели
         let firstDayIndex = (date.getDay() == 0) ? 7 : date.getDay(); //Вс начинается с нуля // День недели с которого начинается текущий месяц 
-        let days = " ";
                
-                viewCalendar.displayTitle(headingMonthCalendar, massiveMonth[date.getMonth()]);
-
-                for(i = 1; i < firstDayIndex; i++) {
-                    days += '<div class = "calednar__days-item calendar__prev-item">' + Number(DayLastMonth - firstDayIndex + i + 1) + '</div>'; // Заполняем дни предыдущего месяца
-                    viewCalendar.displayMain(days, writeBlock);
-                }
-                for(i = 1; i <= DaysNowMonth; i++){
-                        if(i === new Date().getDate() && date.getMonth() === new Date().getMonth()) { // Сегодняшний день // Если i = текущему дню и установленный месяц = текущему месяцу
-                            days += '<div class = "calednar__days-item calendar__days-today">' + i + '</div>';
-                            viewCalendar.displayMain(days, writeBlock);
-                        } else {
-                            days += '<div class = "calednar__days-item">' + i + '</div>'; // Заполняем дни текущего месяца
-                            viewCalendar.displayMain(days, writeBlock);
-                        }
-                }
-                for(i = 1; i <= nextDays; i++) {
-                    days += '<div class = "calednar__days-item calendar__prev-item">' + i + '</div>'; // Заполняем дни следующего месяца
-                    viewCalendar.displayMain(days, writeBlock);
-                }
-                this.renderEventDays(firstDayIndex, nextDays, '.calednar__days-item', writeBlock, headingMonthCalendar, firstTextInput, secondTextInput, typeCalendar);
+                viewCalendar.displayTitle(headingMonthCalendar, massiveMonth[date.getMonth()]); // Отрисовываем заголовок календаря
+                this.renderMainCaledar(firstDayIndex - 1, writeBlock, this.startDaysMonth); // Рендерим последние дни прошлого месяца и отрисовывваем их
+                this.renderMainCaledar(DaysNowMonth, writeBlock, this.nowDaysMonth); // рендерим дни текущего месяца и отрисовываем их
+                this.renderMainCaledar(nextDays, writeBlock, this.nextDaysMonth); // рендерим дни следующего месяца и отрисовываем их
+                viewCalendar.getAllItems = " "; // В представлении обнуляем глобальную переменную
+                this.renderEventDays(firstDayIndex, nextDays, '.calednar__days-item', writeBlock, headingMonthCalendar, firstTextInput, secondTextInput, typeCalendar); // Рендерим два числа при 
         
     },
+    renderMainCaledar(index, blockWrite, callback) {
+        let days = " ";
+        for(i = 1; i <= index; i++) {;
+            days += callback(i, index);
+        }
+        viewCalendar.displayMain(days, blockWrite);
+       
+    },
+    startDaysMonth(i, index) {
+        const DayLastMonth = new Date(date.getFullYear(), date.getMonth() ,0).getDate(); // Возрвашает последнее число предыдущего месяца
+        return  '<div class = "calednar__days-item calendar__prev-item">' + (DayLastMonth - index + i) + '</div>';
+    },
+    nowDaysMonth(i) {
+        if(i === new Date().getDate() && date.getMonth() === new Date().getMonth()) { // Сегодняшний день // Если i = текущему дню и установленный месяц = текущему месяцу
+            return '<div class = "calednar__days-item calendar__days-today">' + i + '</div>';
+                        
+        } else {
+             return '<div class = "calednar__days-item">' + i + '</div>'; // Заполняем дни текущего месяца
+                        
+        }
+    },
+    nextDaysMonth(i) {
+        return '<div class = "calednar__days-item calendar__prev-item">' + i + '</div>'; // Заполняем дни следующего месяца
+    },
+
     renderEventDays: function(firstDays, nextDays, NameItem, writeBlock, headingMonthCalendar, firstTextInput, secondTextInput, typeCalendar) { // Устанавливаем события на дни текущего месяца
             let calendarDaysItem = writeBlock.querySelectorAll(NameItem);
 
