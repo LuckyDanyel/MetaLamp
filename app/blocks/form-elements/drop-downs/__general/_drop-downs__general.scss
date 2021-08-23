@@ -11,7 +11,7 @@
 
     padding-left: 0.6em;
     padding-right: 0.4em;
-    padding-bottom: 0.6em;
+    padding-bottom: 1.5em;
 
     border: 1px solid $DarkShade-25;
 
@@ -75,11 +75,13 @@
 .drop-downs__buttons-guest {
     width: 100%;
 
-    display: flex;
-    justify-content: flex-end;
+    position: relative;
 
     margin-top: 0.6em;
 
         
         
+}
+.drop-downs__minus_active {
+    opacity: 1;
 }

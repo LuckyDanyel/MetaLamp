@@ -59,12 +59,31 @@
 .drop-downs__global-heading {
     text-transform: uppercase;
 }
+.drop-downs__open-btn {
 
+    .drop-downs__buttons-item {
+    
+        &:first-child {
+            display: block;
+        }
+        &:last-child {
+            position: absolute;
+            right: 0;
+        }
+    }
+
+}
 .drop-downs__buttons-item {
     color: $Purple;
 
     &:first-child {
         display: none;
+        position: absolute;
+        left: 0;
+    }
+    &:last-child {
+        position: absolute;
+        right: 0;
     }
 }
 

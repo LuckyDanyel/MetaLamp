@@ -92,7 +92,7 @@ let viewCalendar = { // ---------------------- VIEW ----------------------------
 
 let modelCalendar = { // ---------------------- MODEL ---------------------------------------
     renderCalendar: function(writeBlock, headingMonthCalendar, firstTextInput, secondTextInput, typeCalendar){
- 
+        date.setDate(1);
         const DaysNowMonth = new Date(date.getFullYear(), date.getMonth() + 1,0).getDate(); // Возрващаем количество дней текущего месяца
         const WeekDayNextMonth = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDay(); // Возвращает день недели, с которого начинается следующий месяц
         let nextDays = 7 - WeekDayNextMonth; // Количество дней до конца недели
@@ -115,7 +115,7 @@ let modelCalendar = { // ---------------------- MODEL --------------------------
        
     },
     startDaysMonth(i, index) {
-        const DayLastMonth = new Date(date.getFullYear(), date.getMonth() ,0).getDate(); // Возрвашает последнее число предыдущего месяца
+        const DayLastMonth = new Date(date.getFullYear(), date.getMonth(), 0).getDate(); // Возрвашает последнее число предыдущего месяца
         return  '<div class = "calednar__days-item calendar__prev-item">' + (DayLastMonth - index + i) + '</div>';
     },
     nowDaysMonth(i) {
@@ -196,8 +196,7 @@ let controllerCalendar = { // ---------------------- CONTROLER -----------------
     }
 } // ---------------------- END CONTROLER ---------------------------------------
 
-init();
-
+window.onload = init();
 
     
 

@@ -1,34 +1,34 @@
 mixin DropBoxRooms()
-    div(class = "drop-downs")
+    div(class = "drop-downs drop-downs__count")
 
             h3(class = "drop-downs__global-heading") УДОБСТВА НОМЕРА
             div(class = "drop-downs__global drop-downs__general drop-downs__general_width")
                 p(class = "drop-downs__global-text drop-downs__general-text") 0 Спален 0 Кроватей.....
-                span(class = "drop-downs__global-arrow" id = "drop-downs__input-rooms")
+                span(class = "drop-downs__global-arrow" id = "drop-downs__input")
 
             div(class = "drop-downs__block-general drop-downs__general_width drop-downs__block-rooms")
                 div(class = "drop-downs__block-row")
                     h3(class = "drop-downs__h3 drop-downs__h3-Bedrooms") Спальни
                     div(class = "drop-downs__score")
-                        span(class = "drop-downs__score-minus_no-active drop-downs__score-minus_active-Bedrooms" id = "drop-downs__score-minus-Bedrooms") -
-                        h3(id = "drop-downs__score-value-Bedrooms") 0
-                        span(id = "drop-downs__score-plus-Bedrooms") +
+                        span(class = "drop-downs__minus_no-active" id = "drop-downs__minus") -
+                        h3(id = "drop-downs__value" data-value = "0") 0
+                        span(id = "drop-downs__plus") +
 
                 div(class = "drop-downs__block-row")
                     h3(class = "drop-downs__h3 drop-downs__h3-Beds") Кровати
                     div(class = "drop-downs__score")
-                        span(class = "drop-downs__score-minus_no-active drop-downs__score-minus_active-Beds" id = "drop-downs__score-minus-Beds") -
-                        h3(id = "drop-downs__score-value-Beds") 0
-                        span(id = "drop-downs__score-plus-Beds") +
+                        span(class = "drop-downs__minus_no-active" id = "drop-downs__minus") -
+                        h3(id = "drop-downs__value" data-value = "0") 0
+                        span(id = "drop-downs__plus") +
 
                 div(class = "drop-downs__block-row")
                     h3(class = "drop-downs__h3 drop-downs__h3-Bathrooms") Ванные Комнаты
                     div(class = "drop-downs__score")
-                        span(class = "drop-downs__score-minus_no-active drop-downs__score-minus_active-Bathrooms" id = "drop-downs__score-minus-Bathrooms") -
-                        h3(id = "drop-downs__score-value-Bathrooms") 0
-                        span(id = "drop-downs__score-plus-Bathrooms") +
+                        span(class = "drop-downs__minus_no-active" id = "drop-downs__minus") -
+                        h3(id = "drop-downs__value" data-value = "0") 0
+                        span(id = "drop-downs__plus") +
 mixin DropBoxGuest()
-    div(class = "drop-downs")
+    div(class = "drop-downs drop-downs__count")
 
             h3(class = "drop-downs__global-heading") Гости
             div(class = "drop-downs__global drop-downs__guest")
@@ -56,7 +56,7 @@ mixin DropBoxGuest()
                         span(class = "drop-downs__minus_no-active" id = "drop-downs__minus") -
                         h3(id = "drop-downs__value" data-value = "0") 0
                         span(id = "drop-downs__plus") +
-                div(class = "drop-downs__buttons-guest")
+                div(class = "drop-downs__buttons-guest drop-downs__open-btn")
                     h3(class = "drop-downs__buttons-item drop-downs__buttons-item_hover" id = "drop-downs__delete") Очистить
                     h3(class = "drop-downs__buttons-item drop-downs__buttons-item_hover" id = "drop-downs__send") Применить
             
