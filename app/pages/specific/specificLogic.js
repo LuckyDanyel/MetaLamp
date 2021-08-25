@@ -10,6 +10,7 @@ function init () {
     let getCountDaysText = document.querySelectorAll('.appart__main-text')[0];
     let getResultDaysText = document.querySelectorAll('.appart__main-text')[1];
     let getTootalText = document.querySelectorAll('.appart__footer-total')[1];
+
     controllerForm.Room(sliceStrokeUrl, numberRoom, pricePerRoom);
     controllerForm.Date(sliceStrokeUrl, getCalendarTextOne, getCalendarTextSecond, pricePerRoom, getCountDaysText, getResultDaysText, getTootalText);
     
@@ -29,29 +30,33 @@ function init () {
 
 let controllerForm = {
     Room: function(url, numberRoomDom, priceRoomDom) {
-        let rightNumber = url[1];
-        let isLux = url[2]
-        let priceRoom = decodeURIComponent(url[3]).split("undefined")[0];
+        let rightNumber = localStorage.getItem("DataNumberRoom");
+        let isLux = (localStorage.getItem("isLux") == 0) ? null :`<div class = "room__info-item-left"> Люкс </div>`;
+        let priceRoom = localStorage.getItem("DataPriceRoom");
 
         viewForm.displayRoom(rightNumber, priceRoom, numberRoomDom, priceRoomDom);
 
     },
     Date: function(url, firstDateText, secondDateText, priceRoomDoom, CountDaysTextDom, ResultDaysTextDom, TootalTextDom) {
-
-        let dateCalendar = decodeURIComponent(url[4]).split(" - ");
-        let dateFirts = dateCalendar[0];
-        let dateDaysFirst = dateFirts.split(" ")[0];
-        let dateMonthFirst = dateFirts.split(" ")[1];
+        let getDataDate = localStorage.getItem("DataArrival") + localStorage.getItem("DataExit");
+        console.log(getDataDate);
+        let dateFirts = localStorage.getItem("DataArrival");
+        let dateDaysFirst = dateFirts.substr(0, 2);
+        let dateMonthFirst = dateFirts.substr(3, 2);
             
-        let dateSecond = dateCalendar[1];
-        let dateDaysSecond = dateSecond.split(" ")[0];
-        let dateMonthSecond = dateSecond.split(" ")[1];
+        let dateSecond = localStorage.getItem("DataExit");
+        let dateDaysSecond = dateSecond.substr(0, 2);
+        let dateMonthSecond = dateSecond.substr(3, 2);
+
+        console.log(dateMonthFirst);
         
         viewForm.displayDate(firstDateText, dateDaysFirst, dateMonthFirst, secondDateText, dateDaysSecond, dateMonthSecond);
         modelForm.count(dateDaysFirst, dateDaysSecond, priceRoomDoom, CountDaysTextDom, ResultDaysTextDom, TootalTextDom);
+
+        
     },
     Guest: function(url, textblock) {
-        let countGuset = decodeURIComponent(url[5]);
+        let countGuset = (localStorage.getItem("DataGuest") == null)  ? "Сколько гостей" : localStorage.getItem("DataGuest");
 
         viewForm.displayGuest(countGuset, textblock);
     },
@@ -78,22 +83,10 @@ let viewForm = {
     },
     displayDate: function(firstDateText, dateDaysFirst, dateMonthFirst, secondDateText, dateDaysSecond, dateMonthSecond) {
         let masiveMonth = ["Янв", "Фев", "Мар", "Апр", "Май", "Июн", "Июл", "Авг", "Сен", "Окт", "Ноя", "Дек"];
-        let nullingDaysFirst = "";
-        let nullingDaysSecond = "";
-        let nullingMonth = "";
+       
 
-              if(dateDaysFirst < 9){
-                  nullingDaysFirst = "0";
-              }
-              if(dateDaysSecond < 9) {
-                  nullingDaysSecond = "0";
-              }
-              if(masiveMonth.indexOf(String(dateMonthSecond)) < 9){
-                  nullingMonth = "0";
-              } 
-
-        firstDateText.innerHTML = nullingDaysFirst + dateDaysFirst + "." + nullingMonth + (Number(masiveMonth.indexOf(String(dateMonthFirst)) + 1)) + "." + date.getFullYear();
-        secondDateText.innerHTML = nullingDaysSecond + dateDaysSecond + "." + nullingMonth + (Number(masiveMonth.indexOf(String(dateMonthSecond)) + 1)) + "." + date.getFullYear();
+        firstDateText.innerHTML = dateDaysFirst + "." + dateMonthFirst + "." + date.getFullYear();
+        secondDateText.innerHTML = dateDaysSecond + "." + dateMonthSecond + "." + date.getFullYear();
     },
     displayGuest: function(item, textBlock){
         textBlock.innerHTML = item;

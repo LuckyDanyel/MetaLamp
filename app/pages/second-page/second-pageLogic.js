@@ -1,8 +1,5 @@
 
-
-let getAllRooms = document.querySelectorAll('.room');
 let getAllRoom = document.querySelectorAll('.room__box');
-let getNumber = document.querySelectorAll('.room__info-item-left');
 let getCalendarTextFilter = document.querySelector('#calendar-filter-text');
 let getGuestText = document.querySelector('.drop-downs__guest-text');
 let getBtnFilter = document.querySelector('.aside__filter-btn');
@@ -12,24 +9,17 @@ let firstClickEnd = false;
 
 let masiveMonth = ["Янв", "Фев", "Мар", "Апр", "Май", "Июн", "Июл", "Авг", "Сен", "Окт", "Ноя", "Дек"];
 
-let sendNumberRoom = 0;
-let isLux = 0;
-let priceRoom = 0;
-
-let getGuset = decodeURIComponent(window.location.href.split("?")[3]);
-
-let dateFirst = window.location.href.split("?")[1];
+let dateFirst = localStorage.getItem("DataArrival");
 let dateDaysFirst = Number(dateFirst.split(".")[0]);
 let dateMonthsFirst = Number(dateFirst.split(".")[1]);
 
 
-let dateSecond = window.location.href.split("?")[2];
+let dateSecond = localStorage.getItem("DataExit");
 let dateDaysSecond = Number(dateSecond.split(".")[0]);
 let dateMonthsSecond = Number(dateSecond.split(".")[1]);
 
 getCalendarTextFilter.innerHTML = dateDaysFirst + " " + masiveMonth[dateMonthsFirst - 1] + " - " + dateDaysSecond + " " + masiveMonth[dateMonthsSecond - 1];
-getGuestText.innerHTML = getGuset;
-
+getGuestText.innerHTML =  (localStorage.getItem("DataGuest") == null) ? "Сколько гостей" : localStorage.getItem("DataGuest");
 
 for(let i = 0; i < getAllRoom.length; i++){
       let addEventRoom = getAllRoom[i];
@@ -38,19 +28,26 @@ for(let i = 0; i < getAllRoom.length; i++){
 }
 
 function findRoom(numberRoom) {
-      if(getAllRooms[numberRoom].children[2].children[0].children[0].children[2] == undefined){
+      let isLux;
+      let getAllRooms = document.querySelectorAll('.room')[numberRoom];
+      let getLux = getAllRooms.querySelectorAll('.room__info-item-left')[2];
+      let getNumberRoom = getAllRooms.querySelectorAll('.room__info-item-left')[1];
+      let getPriceRoom = getAllRooms.querySelectorAll('.room__info-item-right')[0];
+      if(getLux == undefined){
             isLux = 0;
+            localStorage.setItem("isLux", isLux);
+
       }else {
             isLux = 1;
+            localStorage.setItem("isLux", isLux);
+            
       }
-      priceRoom = getAllRooms[numberRoom].children[2].children[0].children[1].children[0].innerHTML
-      sendNumberRoom = getAllRooms[numberRoom].children[2].children[0].children[0].children[1].innerHTML;
-      let sendCalendarTextFilter = getCalendarTextFilter.innerHTML;
-      let sendCountGuest = getGuestText.innerHTML;
-      console.log(sendCalendarTextFilter, sendCountGuest);
-      window.location = 'specific.html?' + sendNumberRoom + "?" + isLux + "?" + priceRoom.split(" ")[0] + priceRoom.split(" ")[1] + "?" + sendCalendarTextFilter + "?" + sendCountGuest; 
+      localStorage.setItem("DataPriceRoom", getPriceRoom.innerHTML);
+      localStorage.setItem("DataNumberRoom", getNumberRoom.innerHTML);
+      console.log(localStorage.getItem("isLux"));
+      window.location = 'specific.html?';
 }
-
+// ---------------------------- For css ----------------------------------------------------
       $(document).scroll(function(){
                   if(window.innerWidth > 890 && window.innerWidth < 1200) {
                         let marginTop = 0;
@@ -119,6 +116,7 @@ function displayAsideMin(e) {
     displayAsideMin(mediaMin)
 
   
+import { getMaxListeners } from "process";
 import {getSlider} from "../../blocks/room/room";
 
 getSlider();

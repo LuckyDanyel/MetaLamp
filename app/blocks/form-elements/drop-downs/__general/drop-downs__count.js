@@ -114,15 +114,17 @@ let modelCount = {
     },
 
 }
-let viewCount = { // 1 гость, 2 - 4 гостя, 5 - 20 гостей, 21 гость, 22 - 24 гостей
+let viewCount = { 
     onValue: function(writeBlockValue, value) {
         writeBlockValue.innerHTML = value;
     },
     onHeading: function(headignBlock, value, values) {
             if(headignBlock.classList.contains("drop-downs__guest-text")) {
             headignBlock.innerHTML = this.rightBetweenGuest(value);
+            localStorage.setItem("DataGuest", this.rightBetweenGuest(value))
         } else { // Иначе если это другой вывод в heading
             headignBlock.innerHTML = this.rightBetweenGuestRooms(values);
+            localStorage.setItem("DataRooms", this.rightBetweenGuestRooms(values))
         }
     },
     rightBetweenGuest: function(value) {

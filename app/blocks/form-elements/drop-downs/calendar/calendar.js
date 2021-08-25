@@ -55,6 +55,7 @@ let viewCalendar = { // ---------------------- VIEW ----------------------------
     },
     displayTitle: function(headingMonthCalendar, item) {
         headingMonthCalendar.innerHTML = item + " " + date.getFullYear();
+        localStorage.setItem("dataTitleCalendar", item + " " + date.getFullYear());
     },
     showCalendar: function(block) {
         $(block).show();
@@ -81,10 +82,25 @@ let viewCalendar = { // ---------------------- VIEW ----------------------------
             let nullingMonth = (date.getMonth() < 9) ? "0" : "";
             let nullingDayArrival = (arrivalNumber < 9) ? "0" : "";
             let nullingDayExit = (exitNumber < 9) ? "0" : "";
-            FirstBlockText.innerHTML = nullingDayArrival + arrivalNumber + "." + nullingMonth + (date.getMonth() + 1) + "." + date.getFullYear();
-            SecondBlockText.innerHTML = nullingDayExit + exitNumber + "." + nullingMonth + (date.getMonth() + 1) + "." + date.getFullYear();
+            let setArrival = nullingDayArrival + arrivalNumber + "." + nullingMonth + (date.getMonth() + 1) + "." + date.getFullYear();
+            let setExit = nullingDayExit + exitNumber + "." + nullingMonth + (date.getMonth() + 1) + "." + date.getFullYear()
+
+            FirstBlockText.innerHTML = setArrival;
+            SecondBlockText.innerHTML = setExit;
+            localStorage.setItem("DataArrival", setArrival);
+            localStorage.setItem("DataExit", setExit);
         } else if(typeCalendar === 2) {
-            FirstBlockText.innerHTML = arrivalNumber + " " + massiveMonth[date.getMonth()].substr(0, 3) + " - " + exitNumber + " " + massiveMonth[date.getMonth()].substr(0, 3);
+            let setArrivalExit = arrivalNumber + " " + massiveMonth[date.getMonth()].substr(0, 3) + " - " + exitNumber + " " + massiveMonth[date.getMonth()].substr(0, 3)
+            FirstBlockText.innerHTML = setArrivalExit;
+
+
+            let nullingMonth = (date.getMonth() < 9) ? "0" : "";
+            let nullingDayArrival = (arrivalNumber < 9) ? "0" : "";
+            let nullingDayExit = (exitNumber < 9) ? "0" : "";
+            let setArrival = nullingDayArrival + arrivalNumber + "." + nullingMonth + (date.getMonth() + 1) + "." + date.getFullYear();
+            let setExit = nullingDayExit + exitNumber + "." + nullingMonth + (date.getMonth() + 1) + "." + date.getFullYear()
+            localStorage.setItem("DataArrival", setArrival);
+            localStorage.setItem("DataExit", setExit);
         }
         
     }

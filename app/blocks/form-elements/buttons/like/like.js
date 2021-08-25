@@ -14,12 +14,10 @@ let getLikeTextAll = document.querySelectorAll('.like__text');
                 likeDoomText.innerHTML = count;
                 firstClick = true;
             }
-            console.log(count);
         }
   }
 
 for(i = 0; i < getLikeAll.length; i++) {
   let like = createLike(getLikeTextAll[i]);
-  console.log(createLike(getLikeTextAll[i]));
   $(getLikeAll[i]).click(like.bind(this));
 }
