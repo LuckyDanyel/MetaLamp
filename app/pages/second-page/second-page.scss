@@ -138,6 +138,11 @@
             justify-self: center;
             grid-template-columns: auto auto;
       }
+      .main-second__heading {
+            h1 {
+                  font-size: 1.25rem;
+            }
+      }
 }
 @include media(largeMeduim) {
       .main-second__wrapper {
@@ -157,13 +162,7 @@
       .main-second__all-rooms {
             grid-template-columns: auto;
       }
-      .main-second__heading {
-            h1 {
-                  font-size: 1.25rem;
-            }
-      }
-      .aside {
-      }
+     
 }
 @include media(mediumSmall) {
       .aside {
