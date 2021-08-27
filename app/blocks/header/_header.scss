@@ -118,6 +118,7 @@
 
 }
 .animation__burger {
+
       .burger__item {
                   &:nth-child(1) {
                         margin: 0;
@@ -135,6 +136,11 @@
                         display: none;
                   }
             
+      }
+}
+@media (min-width: 961px) {
+      .header__menu {
+            display: flex !important;
       }
 }
 

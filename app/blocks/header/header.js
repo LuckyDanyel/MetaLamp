@@ -12,6 +12,7 @@ function hideMenu(){
       }else {
             getBurgerMenu.classList.add("animation__burger");
             $(getMenu).show();
+            getMenu.style.display = "flex";
             firstClick = true;
       }
 }

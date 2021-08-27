@@ -116,7 +116,6 @@ function displayAsideMin(e) {
     displayAsideMin(mediaMin)
 
   
-import { getMaxListeners } from "process";
 import {getSlider} from "../../blocks/room/room";
 
 getSlider();
